@@ -13,7 +13,7 @@
 
 # Intellij
 /.idea
-.privacy-check-front-end.iml
+privacy-check-front-end.iml
 
 # misc
 .DS_Store
