@@ -11,6 +11,10 @@
 # production
 /build
 
+# Intellij
+/.idea
+privacy-check-front-end.iml
+
 # misc
 .DS_Store
 .env.local
