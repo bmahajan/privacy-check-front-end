@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Typography } from '@material-ui/core';
 import NavBar from './NavBar';
+import CompetitorCard from './CompetitorCard';
 
 class CompAnalysisPane extends React.Component{
     constructor(props){
@@ -14,31 +15,12 @@ class CompAnalysisPane extends React.Component{
             <>
             <NavBar />
             
-            <Paper elevation={3}>
-                <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
-                    <Grid item>
-                        <Paper> 
-                            <Typography noWrap> item 1 </Typography>
-                        </Paper>
-                    </Grid>
-                    <Grid item>
-                        <Paper>
-                            <Typography noWrap> item 2 </Typography>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </Paper>
             <Paper elevation={2}>
                 <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
                     <Grid item>
-                        <Paper>
-                            <Typography noWrap> item 3 </Typography>
-                        </Paper>
-                    </Grid>
-                    <Grid item>
-                        <Paper>
-                            <Typography noWrap> item 4 </Typography>
-                        </Paper>
+                        <CompetitorCard company="Facebook" score="11%"></CompetitorCard>
+                        <CompetitorCard company="Twitter" score="50%"></CompetitorCard>
+                        <CompetitorCard company="TikTok" score="40%"></CompetitorCard>
                     </Grid>
                 </Grid>
             </Paper>
