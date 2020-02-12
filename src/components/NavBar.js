@@ -30,7 +30,7 @@ function NavBar(props) {
                         <ArrowBackIcon /> 
                     </IconButton>
                     <Typography variant="h6" className={classes.title} align='center'>
-                        Competitor Analysis
+                        {this.props.name}
                     </Typography>
                 </Toolbar>
             </AppBar>

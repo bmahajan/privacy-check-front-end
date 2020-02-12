@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 
 class CompetitorCard extends React.Component {
     
@@ -10,20 +9,17 @@ class CompetitorCard extends React.Component {
 
     render() {
         return(
-            <Grid container alignItems='flex-start'>
-                <Grid item>
-                    <Card>
+            <Card>
+                <Grid container alignItems='center'>
+                    <Grid item>
                         <CardContent >
-                            <Typography variant='h8'>
-                                <p>{this.props.company}   
-                                <TrendingFlatIcon />
-                                {this.props.score}</p>
+                            <Typography variant='h8' align='center'>
+                                <p>{this.props.company} -> {this.props.score}</p>
                             </Typography>
                         </CardContent>
-                    </Card>
+                    </Grid>
                 </Grid>
-            </Grid>
-            
+            </Card>
         )
     }
 }

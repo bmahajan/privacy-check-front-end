@@ -13,7 +13,7 @@ class CompAnalysisPane extends React.Component{
     render() {
         return(
             <>
-            <NavBar />
+            <NavBar name='Competitor Analysis'/>
             
             <Paper elevation={2}>
                 <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
