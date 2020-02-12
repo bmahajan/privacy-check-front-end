@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Paper, Typography, Toolbar, AppBar } from '@material-ui/core';
+import { Grid, Paper, Typography } from '@material-ui/core';
+import NavBar from './NavBar';
 
 class CompAnalysisPane extends React.Component{
     constructor(props){
@@ -14,39 +15,35 @@ class CompAnalysisPane extends React.Component{
             <NavBar />
             
             <Paper elevation={3}>
-                <Grid container noWrap alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
-                    <Grid item zeroMinWidth>
+                <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
+                    <Grid item>
                         <Paper> 
                             <Typography noWrap> item 1 </Typography>
                         </Paper>
                     </Grid>
                     <Grid item>
-                        <Paper> item 2 </Paper>
+                        <Paper>
+                            <Typography noWrap> item 2 </Typography>
+                        </Paper>
                     </Grid>
                 </Grid>
-                <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={2}>
+            </Paper>
+            <Paper elevation={2}>
+                <Grid container alignContent='center' alignItems='center' direction='column' justify='center' spacing={1}>
                     <Grid item>
-                        <Paper> item 3 </Paper>
+                        <Paper>
+                            <Typography noWrap> item 3 </Typography>
+                        </Paper>
                     </Grid>
                     <Grid item>
-                        <Paper> item 4 </Paper>
+                        <Paper>
+                            <Typography noWrap> item 4 </Typography>
+                        </Paper>
                     </Grid>
                 </Grid>
             </Paper>
             </>
            
-        );
-    }
-}
-
-class NavBar extends React.Component {
-    render() {
-        return(
-            <AppBar position='static'>
-                <Toolbar>
-
-                </Toolbar>
-            </AppBar>
         );
     }
 }
