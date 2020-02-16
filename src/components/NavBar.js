@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -29,8 +29,8 @@ function NavBar(props) {
                     <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
                         <ArrowBackIcon /> 
                     </IconButton>
-                    <Typography variant="h6" className={classes.title} align='center'>
-                        {this.props.name}
+                    <Typography variant='h6' className={classes.title} align='center'>
+                        {props.name}
                     </Typography>
                 </Toolbar>
             </AppBar>

@@ -13,7 +13,7 @@ class CompetitorCard extends React.Component {
                 <Grid container alignItems='center'>
                     <Grid item>
                         <CardContent >
-                            <Typography variant='h8' align='center'>
+                            <Typography variant='h6' align='center'>
                                 <p>{this.props.company} -> {this.props.score}</p>
                             </Typography>
                         </CardContent>
