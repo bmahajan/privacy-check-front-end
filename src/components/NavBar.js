@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
+  appbar: {
+    backgroundColor: orange[700],
+  },
   backButton: {
     marginRight: theme.spacing(2),
   },
@@ -22,7 +25,7 @@ function NavBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar className={classes.appbar} position='static'>
         <Toolbar>
           <IconButton edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
             <ArrowBackIcon />
