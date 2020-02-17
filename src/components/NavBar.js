@@ -7,7 +7,6 @@ import {orange} from "@material-ui/core/colors";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    color: orange,
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -18,7 +17,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function NavBar(props) {
+
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <AppBar position='static'>
