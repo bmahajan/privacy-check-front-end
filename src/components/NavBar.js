@@ -29,7 +29,7 @@ function NavBar(props) {
                     <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
                         <ArrowBackIcon /> 
                     </IconButton>
-                    <Typography variant='h6' className={classes.title} align='center'>
+                    <Typography variant='h4' className={classes.title} align='center' >
                         {props.name}
                     </Typography>
                 </Toolbar>
