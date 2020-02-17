@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import CompAnalysisPane from './components/CompAnalysisPane'
+import CompAnalysisPane from './components/CompAnalysisPane';
+import DescriptionPanel from './components/DescriptionPanel';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<CompAnalysisPane />, document.getElementById('root'));
