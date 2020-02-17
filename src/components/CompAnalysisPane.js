@@ -14,12 +14,24 @@ class CompAnalysisPane extends React.Component{
     render() {
         return(
             <>
-            <NavBar name='Competitor Analysis'/>
+            <NavBar title='Competitor Analysis' />
             
             <Card>
-                <CardContent>
-                    <ScoreDisplay />
-                </CardContent>
+                <Grid container 
+                direction='row' 
+                alignContent='center'
+                justify='center'
+                spacing={2}
+                >
+                    <Grid item>
+                        <Typography variant='h3'>
+                            Score
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <ScoreDisplay score='3' />
+                    </Grid>
+                </Grid>
             </Card>
 
 
@@ -27,15 +39,20 @@ class CompAnalysisPane extends React.Component{
                 <Typography variant='h4' align='center'>
                     Industry Competitor Scores
                 </Typography>
-                <Grid container alignContent='center' direction='column' justify='center' spacing={1}>
+                <Grid container 
+                alignContent='center' 
+                direction='column' 
+                justify='center' 
+                spacing={1}
+                >
                     <Grid item>
-                        <CompetitorCard company="Facebook" score="11%"></CompetitorCard>
+                        <CompetitorCard company="Facebook" score="99"></CompetitorCard>
                     </Grid>
                     <Grid item>
-                        <CompetitorCard company="Twitter" score="50%"></CompetitorCard>
+                        <CompetitorCard company="Twitter" score="50"></CompetitorCard>
                     </Grid>
                     <Grid item>
-                        <CompetitorCard company="TikTok" score="40%"></CompetitorCard>
+                        <CompetitorCard company="TikTok" score="4"></CompetitorCard>
                     </Grid>
                 </Grid>
             </Paper>
