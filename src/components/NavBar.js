@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   appbar: {
-    backgroundColor: orange[700],
+    backgroundColor: props => props.color,
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 function NavBar(props) {
 
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   return (
     <div className={classes.root}>

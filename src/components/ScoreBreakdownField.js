@@ -1,7 +1,6 @@
 import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Avatar, Grid, Paper, Typography} from "@material-ui/core";
-import Icon from "@material-ui/core/Icon";
 
 const styles = makeStyles(theme => ({
   root: {
@@ -11,15 +10,13 @@ const styles = makeStyles(theme => ({
     maxWidth: '100%',
     align: 'center',
     padding: theme.spacing(2),
+    backgroundColor: 'beige',
   },
   avatar: {
     width: 50,
     height: 50,
     padding: 5,
     color: 'white',
-    borderColor: 'black',
-    borderWidth: 0.5,
-    borderStyle: 'solid',
     backgroundColor: props => props.color,
   },
   text: {
@@ -31,7 +28,7 @@ export default function ScoreBreakdownField(props) {
   const classes = styles(props);
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper} elevation={1}>
+      <Paper className={classes.paper} elevation={2}>
         <Grid container wrap={'nowrap'} spacing={2} direction={'row'}>
           <Grid item>
             <Avatar className={classes.avatar}>
