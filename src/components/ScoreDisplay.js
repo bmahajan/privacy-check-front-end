@@ -7,13 +7,15 @@ const useStyles = makeStyles(theme => ({
     avatar: {
         backgroundColor: props => {
             if (props.score <= 33) {
-                return red[300];
+                return red[400];
             } else if (props.score <= 66) {
-                return yellow[300];
+                return yellow[400];
             } else if (props.score <= 100) {
-                return green[300];
+                return green[400];
             }
         },
+        height: 60,
+        width: 60,
     }
 }));
 
@@ -22,7 +24,7 @@ function ScoreDisplay(props) {
     
     return(
         <Avatar className={classes.avatar}>
-            <Typography variant='h3'>
+            <Typography variant='h4'>
                {props.score}
             </Typography> 
         </Avatar>

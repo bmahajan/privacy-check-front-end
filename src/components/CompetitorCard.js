@@ -1,10 +1,12 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles'
+import { Card, Typography, Grid } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import ScoreDisplay from './ScoreDisplay';
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = theme => ({
     card: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        color: blue,
         margin: 5,
         padding: 1,
         variant: 'elevation',
@@ -21,13 +23,14 @@ class CompetitorCard extends React.Component {
         const { classes } = this.props;
         return(
             <Card className={classes.card}>
-                <Grid container alignItems='center'>
+                <Grid container alignItems='center' direction='row' justify='center' spacing={2}>
                     <Grid item>
-                        <CardContent >
-                            <Typography variant='h6' align='center'>
-                                <p>{this.props.company}: {this.props.score}</p>
-                            </Typography>
-                        </CardContent>
+                        <Typography variant='h5' align='center'>
+                            <p>{this.props.company}</p>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <ScoreDisplay score={this.props.score} />
                     </Grid>
                 </Grid>
             </Card>
