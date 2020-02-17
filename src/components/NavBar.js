@@ -17,23 +17,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function NavBar(props) {
-
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant='h6' className={classes.title} align='center'>
-            {props.title}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+    const classes = useStyles();
+    return (
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+                        <ArrowBackIcon /> 
+                    </IconButton>
+                    <Typography variant='h4' className={classes.title} align='center' >
+                        {props.name}
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
 }
 
 export default NavBar;
