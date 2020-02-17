@@ -4,29 +4,26 @@ import { makeStyles } from '@material-ui/core/styles'
 import { green, yellow, red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
-    progress: {
-        size: '50%',
-    },
     avatar: {
-        color: props => {
+        backgroundColor: props => {
             if (props.score <= 33) {
-                return red;
+                return red[300];
             } else if (props.score <= 66) {
-                return yellow;
+                return yellow[300];
             } else if (props.score <= 100) {
-                return green;
+                return green[300];
             }
-        }
+        },
     }
 }));
 
 function ScoreDisplay(props) {
-    const classes = useStyles();
+    const classes = useStyles(props);
     
     return(
-        <Avatar>
+        <Avatar className={classes.avatar}>
             <Typography variant='h3'>
-               Score: {props.score}
+               {props.score}
             </Typography> 
         </Avatar>
     );
