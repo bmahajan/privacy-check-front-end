@@ -2,11 +2,11 @@ import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
-import {orange} from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    maxWidth: 300,
   },
   appbar: {
     backgroundColor: props => props.color,
