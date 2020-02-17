@@ -1,19 +1,19 @@
 import React from 'react';
-import './DescriptionPanel.css';
-import './DefaultToolbar';
-import { AppBar, Toolbar } from '@material-ui/core';
 import DescriptionField from './DescriptionField';
-import DefaultToolbar from "./DefaultToolbar";
+import NavBar from './NavBar';
+
 
 class DescriptionPanel extends React.Component {
 
   render() {
     return (
-      <div className={'DescriptionPanel'}>
-        <div className={'flex-container'}>
-          <DefaultToolbar title={'Score Breakdown'} />
-        </div>
+      <div>
+        <header>
+          <NavBar title={'Score Breakdown'} />
+        </header>
+        <body>
 
+        </body>
       </div>
     );
   }
