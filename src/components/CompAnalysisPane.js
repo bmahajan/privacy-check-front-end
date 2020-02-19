@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, Paper, Typography, CardContent, Card } from '@material-ui/core';
+import { Grid, Paper, Typography, Card } from '@material-ui/core';
 import NavBar from './NavBar';
 import CompetitorCard from './CompetitorCard';
-import ScoreDisplay from './ScoreDisplay';
+import ScoreBubble from './ScoreBubble';
 
 class CompAnalysisPane extends React.Component{
     constructor(props){
@@ -29,11 +29,10 @@ class CompAnalysisPane extends React.Component{
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <ScoreDisplay score='3' />
+                        <ScoreBubble score='3' height={60} width={60} />
                     </Grid>
                 </Grid>
             </Card>
-
 
             <Paper elevation={2}>
                 <Typography variant='h4' align='center'>

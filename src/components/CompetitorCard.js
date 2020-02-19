@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Typography, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import ScoreDisplay from './ScoreDisplay';
+import ScoreBubble from './ScoreBubble';
 import { blue } from '@material-ui/core/colors';
 
 const useStyles = theme => ({
@@ -30,7 +30,7 @@ class CompetitorCard extends React.Component {
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <ScoreDisplay score={this.props.score} />
+                        <ScoreBubble score={this.props.score} />
                     </Grid>
                 </Grid>
             </Card>
