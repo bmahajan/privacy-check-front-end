@@ -14,12 +14,24 @@ const useStyles = makeStyles(theme => ({
                 return green[400];
             }
         },
-        height: 60,
-        width: 60,
+        height: props => {
+            if (props.height === undefined) {
+                return 50;
+            } else {
+                return props.height;
+            }
+        },
+        width: props => {
+            if (props.width === undefined) {
+                return 50;
+            } else {
+                return props.width;
+            }
+        },
     }
 }));
 
-function ScoreDisplay(props) {
+function ScoreBubble(props) {
     const classes = useStyles(props);
     
     return(
@@ -31,5 +43,5 @@ function ScoreDisplay(props) {
     );
 }
 
-export default ScoreDisplay;
+export default ScoreBubble;
 
