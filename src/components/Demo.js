@@ -11,10 +11,7 @@ import { Switch } from "@material-ui/core";
 const Demo = ({ classes, onToggleDark }) => (
   <Card>
     <CardContent>
-      <Typography color="textSecondary" gutterBottom>
-        Word of the Day
         <Divided onPoop={onToggleDark}/>
-      </Typography>
     </CardContent>
   </Card>
 );
