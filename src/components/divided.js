@@ -8,6 +8,7 @@ import Switches from "./Switch";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import { Switch } from '@material-ui/core';
 
 
 const theme = createMuiTheme({
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function Divided() {
+export default function Divided({onPoop}) {
   const classes = useStyles();
 
   return (
@@ -44,16 +45,21 @@ export default function Divided() {
     <ListItem button>
         <Brightness4Icon fontSize="small"/>
         <ListItemText primary="GDPR/FCC"  />
-        <Switches />
+        <Switch
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+        />
     </ListItem>
     <Divider />
     <ListItem button>
         <ListItemText primary="Dark Mode" />
-        <Switches />
+        <Switch 
+        onChange={onPoop}
+        inputProps={{ 'aria-label': 'primary checkbox' }}/>
     </ListItem>
     <ListItem button divider>
         <ListItemText primary="Color Blind" />
-        <Switches />
+        <Switch 
+        inputProps={{ 'aria-label': 'primary checkbox' }}/>
     </ListItem>
     <Divider light />
     </List>

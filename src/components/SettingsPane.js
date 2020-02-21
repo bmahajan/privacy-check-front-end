@@ -4,9 +4,7 @@ import NavBar from './NavBar'
 import './Typical.css';
 import './SimpleCard.js';
 import Encrypt from './encrypt.js';
-import Divided from './divided.js'
-import SimpleCard from './SimpleCard.js';
-
+import DarkMode from './DarkMode'
 
 
 class SettingsPane extends React.Component {
@@ -19,7 +17,7 @@ class SettingsPane extends React.Component {
                     <Encrypt />
                 </div>
                 <div>
-                    <Divided />
+                    <DarkMode />
                 </div>
             </div>
         );

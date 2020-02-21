@@ -10,7 +10,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import Switches from "./Switch";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Divided from './divided.js'
-
+import onToggleDark from './DarkMode'
 const theme = createMuiTheme({
   palette: {
     type: 'dark'
@@ -41,7 +41,6 @@ export default function SimpleCard () {
     const bull = <span className={classes.bullet}>•</span>;
   
   return (
-    <ThemeProvider theme={theme}>
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2"  >
@@ -49,9 +48,10 @@ export default function SimpleCard () {
         </Typography>
       </CardContent>
       <CardActions>
+        <Button variant="contained" color="default" onClick={onToggleDark}>
+          Toggle Theme Type
+        </Button>
       </CardActions>
     </Card>
-    </ThemeProvider>
-
   );
 }
