@@ -17,19 +17,31 @@ class CompAnalysisPane extends React.Component{
             <NavBar title='Competitor Analysis' />
             
             <Card>
-                <Grid container 
-                direction='row' 
+                <Grid container
+                direction='column'
                 alignContent='center'
                 justify='center'
                 spacing={2}
                 >
-                    <Grid item>
-                        <Typography variant='h3'>
-                            Score
-                        </Typography>
+                    <Grid container 
+                    direction='row' 
+                    alignContent='center'
+                    justify='center'
+                    spacing={2}
+                    >
+                        <Grid item>
+                            <Typography variant='h3'>
+                                Score
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <ScoreBubble score='3' height={60} width={60} />
+                        </Grid>
                     </Grid>
                     <Grid item>
-                        <ScoreBubble score='3' height={60} width={60} />
+                        <Typography>
+                            Ranks in the bottom 20% of the industry
+                        </Typography>
                     </Grid>
                 </Grid>
             </Card>
