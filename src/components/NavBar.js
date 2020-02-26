@@ -11,14 +11,15 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: props => props.color,
   },
   backButton: {
-    marginRight: theme.spacing(1),
+    // marginRight: theme.spacing(0),
   },
   title: {
     flexGrow: 1,
+    textAlign: 'center',
   },
 }));
 
-function NavBar(props) {
+export default function NavBar(props) {
 
   const classes = useStyles(props);
 
@@ -37,5 +38,3 @@ function NavBar(props) {
     </div>
   );
 }
-
-export default NavBar;

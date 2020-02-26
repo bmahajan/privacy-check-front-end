@@ -1,68 +1,68 @@
 import React from 'react';
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Avatar, Grid, Paper, Typography} from "@material-ui/core";
-import {green, grey, red, yellow} from "@material-ui/core/colors";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {Avatar, Grid, Paper, Typography} from '@material-ui/core';
+import { green, grey, red, yellow } from '@material-ui/core/colors';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
+import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
-const styles = makeStyles(theme => ({
+const ExpansionPanel = withStyles(theme => ({
   root: {
-    flexGrow: 1,
-    backgroundColor: 'snow',
-    padding: theme.spacing(0.4),
-  },
-  paper: {
-    maxWidth: '100%',
-    align: 'center',
-    padding: theme.spacing(3),
-    backgroundColor: 'beige',
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    padding: theme.spacing(0.5),
-    color: 'white',
-    backgroundColor: props => {
-      if (inRange(props.score, 0, 33)) {
-        return red[300];
-      } else if (inRange(props.score, 34, 66)) {
-        return yellow[300];
-      } else if (inRange(props.score, 67, 100)) {
-        return green[300];
-      } else {
-        return grey[500];
-      }
+    border: '1px solid rgba(0, 0, 0, .125)',
+    boxShadow: 'none',
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
     },
   },
-}));
+  expanded: {},
+})) (MuiExpansionPanel);
 
-function inRange(x, start, stop) {
-  return ((x-start)*(x-stop) <= 0);
-}
+const ExpansionPanelSummary = withStyles(theme => ({
+  root: {
+    backgroundColor: 'rgba(0, 0, 0, .03)',
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
+      minHeight: 56,
+    },
+  },
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
+    },
+    alignItems: 'center',
+  },
+  expanded: {},
+})) (MuiExpansionPanelSummary);
+
+const ExpansionPanelDetails = withStyles(theme => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+})) (MuiExpansionPanelDetails);
 
 export default function ScoreBreakdownField(props) {
-  const classes = styles(props);
+
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper} elevation={3}>
-        <Grid container wrap={'nowrap'} spacing={4} direction={'row'}>
-          <Grid item spacing={1}>
-            <Avatar className={classes.avatar}>
-              {props.icon}
-            </Avatar>
-          </Grid>
-          <Grid container wrap={'nowrap'} direction={'column'}>
-            <Grid item>
-              <Typography className={classes.text}>
-                <b>{props.name}</b>
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.text}>
-                {props.description}
-              </Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
+    <div style={{width: '100%'}}>
+      <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Avatar>{props.icon}</Avatar>
+          <Typography>{props.name}</Typography>
+          <Typography>{props.score}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>{props.details}</Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     </div>
   );
 }
