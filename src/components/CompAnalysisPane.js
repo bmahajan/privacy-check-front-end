@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Paper, Typography, Card } from '@material-ui/core';
+import { Grid, Typography, Card, Divider } from '@material-ui/core';
 import NavBar from './NavBar';
 import CompetitorCard from './CompetitorCard';
 import ScoreBubble from './ScoreBubble';
@@ -21,7 +21,7 @@ class CompAnalysisPane extends React.Component{
                 direction='column'
                 alignContent='center'
                 justify='center'
-                spacing={2}
+                spacing={0}
                 >
                     <Grid container 
                     direction='row' 
@@ -38,15 +38,20 @@ class CompAnalysisPane extends React.Component{
                             <ScoreBubble score='3' height={60} width={60} />
                         </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography>
-                            Ranks in the bottom 20% of the industry
-                        </Typography>
+                    <Grid container
+                        direction='row'
+                        alignContent='center'
+                        justify='center'
+                        spacing={2}
+                    >
+                        <Grid item>
+                            <Typography>
+                                Ranks in the bottom 20% of the industry
+                            </Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Card>
-
-            <Paper elevation={2}>
+                <Divider />
                 <Typography variant='h4' align='center'>
                     Industry Competitor Scores
                 </Typography>
@@ -66,9 +71,8 @@ class CompAnalysisPane extends React.Component{
                         <CompetitorCard company="TikTok" score="4"></CompetitorCard>
                     </Grid>
                 </Grid>
-            </Paper>
+            </Card>
             </>
-           
         );
     }
 }
