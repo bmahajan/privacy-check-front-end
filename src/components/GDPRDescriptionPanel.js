@@ -7,12 +7,12 @@ import MuiGridList from '@material-ui/core/GridList'
 const GridList = withStyles(theme => ({
   root: {
     maxHeight: 500,
-    flexGrow: 1,
   },
 })) (MuiGridList);
 
 const useStyles = makeStyles(theme => ({
   root: {
+
   },
 }));
 
@@ -22,19 +22,19 @@ export default function GDPRDescriptionPanel(props) {
 
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = panel => (event, isExpanded) => {
+  const handleExpansionChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
   return (
     <div className={classes.root}>
-      <GridList>
+      <GridList cols={1}>
         <DescriptionField
           name={'Between Site Transfer'}
           icon={<Send />}
           details={'Does this website share your information with other websites?'}
           expanded={expanded === 'p1'}
-          onChange={handleChange('p1')}
+          onChange={handleExpansionChange('p1')}
           score={0}
         />
         <DescriptionField
@@ -42,7 +42,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<Map />}
           details={'Does this website disclose where the company is based and where your information will be processed and or transferred?'}
           expanded={expanded === 'p2'}
-          onChange={handleChange('p2')}
+          onChange={handleExpansionChange('p2')}
           score={100}
         />
         <DescriptionField
@@ -50,7 +50,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<PhonelinkErase />}
           details={'Does this website support the right to be forgotten? That is, when requested will the website delete all of the users information?'}
           expanded={expanded === 'p3'}
-          onChange={handleChange('p3')}
+          onChange={handleExpansionChange('p3')}
           score={0}
         />
         <DescriptionField
@@ -58,7 +58,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<NotificationImportant />}
           details={'If this website retains information after requesting to be forgotten, will they inform you?'}
           expanded={expanded === 'p4'}
-          onChange={handleChange('p4')}
+          onChange={handleExpansionChange('p4')}
           score={0}
         />
         <DescriptionField
@@ -66,7 +66,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<RemoveCircle />}
           details={'Does this website allow the user the ability to reject usage of users PII (Personally Identifiable Information)?'}
           expanded={expanded === 'p5'}
-          onChange={handleChange('p5')}
+          onChange={handleExpansionChange('p5')}
           score={0}
         />
         <DescriptionField
@@ -74,7 +74,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<Face />}
           details={'Does this website collect the data of users under the age of 16?'}
           expanded={expanded === 'p6'}
-          onChange={handleChange('p6')}
+          onChange={handleExpansionChange('p6')}
           score={0}
         />
         <DescriptionField
@@ -82,7 +82,7 @@ export default function GDPRDescriptionPanel(props) {
           icon={<EnhancedEncryption />}
           details={'Does this website encrypt user\'s data?'}
           expanded={expanded === 'p7'}
-          onChange={handleChange('p7')}
+          onChange={handleExpansionChange('p7')}
           score={0}
         />
         <DescriptionField
@@ -90,21 +90,24 @@ export default function GDPRDescriptionPanel(props) {
           icon={<ContactSupport />}
           details={'Does this website ask for the users consent to perform data processing?'}
           expanded={expanded === 'p8'}
-          onChange={handleChange('p8')}
+          onChange={handleExpansionChange('p8')}
+          score={0}
         />
         <DescriptionField
           name={'Principles of Data Processing'}
           icon={<DoneAll />}
           details={'Does this website meet all the principles of data processing?'}
           expanded={expanded === 'p9'}
-          onChange={handleChange('p9')}
+          onChange={handleExpansionChange('p9')}
+          score={0}
         />
         <DescriptionField
           name={'Breach Notification'}
           icon={<Warning />}
           details={'Does this website notify you of security breaches?'}
           expanded={expanded === 'p10'}
-          onChange={handleChange('p10')}
+          onChange={handleExpansionChange('p10')}
+          score={0}
         />
       </GridList>
     </div>
