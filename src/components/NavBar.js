@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
 
+// TODO: Have all styles use a theme input. This will allow for more easy implementation of darkmode etc.
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
