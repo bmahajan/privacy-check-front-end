@@ -5,7 +5,7 @@ export default function CompetitorAnalysisPanel(props) {
 
   return (
     <div>
-      <Paper style={{width:350, height: 350}}>
+      <Paper style={{width:400, height: 400}}>
         Hello
       </Paper>
     </div>

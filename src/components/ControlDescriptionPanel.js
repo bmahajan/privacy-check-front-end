@@ -15,7 +15,7 @@ const GridList = withStyles(theme => ({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 350,
+    flexGrow: 1,
   },
   content: {
 

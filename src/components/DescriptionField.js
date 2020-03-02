@@ -30,7 +30,7 @@ const ExpansionPanelSummary = withStyles(theme => ({
   root: {
     backgroundColor: 'rgba(0, 0, 0, .03)',
     borderBottom: '1px solid rgba(0, 0, 0, .125)',
-    marginBottom: -1,
+    // marginBottom: -1,
     minHeight: 56,
     '&$expanded': {
       minHeight: 56,
@@ -48,7 +48,7 @@ const ExpansionPanelSummary = withStyles(theme => ({
 // ExpansionPanelDetails styling sheet
 const ExpansionPanelDetails = withStyles(theme => ({
   root: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
 })) (MuiExpansionPanelDetails);
 
@@ -57,18 +57,12 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
   },
-  avatar: {
-
-    flexShrink: 0,
-  },
   heading: {
     marginLeft: theme.spacing(2),
-    flexShrink: 0,
   },
   scoreHeading: {
     marginLeft: theme.spacing(2),
-    flexShrink: 0,
-  }
+  },
 }));
 
 export default function DescriptionField(props) {
@@ -79,10 +73,10 @@ export default function DescriptionField(props) {
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Avatar className={classes.avatar}>{props.icon}</Avatar>
-            <Grid>
+          <Avatar>{props.icon}</Avatar>
+            <Grid direction={'column'}>
               <Typography className={classes.heading}>{props.name}</Typography>
-              <Typography className={classes.scoreHeading}>Score: {props.score}</Typography>
+              <Typography className={classes.scoreHeading}>{props.score}</Typography>
             </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>

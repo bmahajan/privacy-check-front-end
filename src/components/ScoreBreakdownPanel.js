@@ -1,7 +1,5 @@
 import React from 'react';
 import NavBar from './NavBar';
-import { makeStyles } from "@material-ui/core/styles";
-import DescriptionField from "./DescriptionField";
 import GDPRDescriptionPanel from "./GDPRDescriptionPanel";
 import CompetitorAnalysisPanel from "./CompetitorAnalysisPanel";
 
@@ -17,7 +15,7 @@ class ScoreBreakdownPanel extends React.Component {
   render() {
 
     return (
-      <div style={{maxWidth: 350, width: 350}}>
+      <div style={{maxWidth: 400}}>
         <NavBar title={'Score Breakdown'} color={'orange'}/>
         <CompetitorAnalysisPanel />
         <GDPRDescriptionPanel />
