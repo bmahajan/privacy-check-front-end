@@ -7,18 +7,12 @@ import MuiGridList from '@material-ui/core/GridList'
 const GridList = withStyles(theme => ({
   root: {
     maxHeight: 500,
-    maxWidth: 350,
-    width: '100%',
-    // padding: 2.5,
+    flexGrow: 1,
   },
 })) (MuiGridList);
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 350,
-  },
-  content: {
-
   },
 }));
 
@@ -27,6 +21,7 @@ export default function GDPRDescriptionPanel(props) {
   const classes = useStyles();
 
   const [expanded, setExpanded] = React.useState(false);
+
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -56,6 +51,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website support the right to be forgotten? That is, when requested will the website delete all of the users information?'}
           expanded={expanded === 'p3'}
           onChange={handleChange('p3')}
+          score={0}
         />
         <DescriptionField
           name={'Data Retention Notification'}
@@ -63,6 +59,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'If this website retains information after requesting to be forgotten, will they inform you?'}
           expanded={expanded === 'p4'}
           onChange={handleChange('p4')}
+          score={0}
         />
         <DescriptionField
           name={'Reject Usage of PII'}
@@ -70,6 +67,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website allow the user the ability to reject usage of users PII (Personally Identifiable Information)?'}
           expanded={expanded === 'p5'}
           onChange={handleChange('p5')}
+          score={0}
         />
         <DescriptionField
           name={'Under 16 Protection'}
@@ -77,6 +75,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website collect the data of users under the age of 16?'}
           expanded={expanded === 'p6'}
           onChange={handleChange('p6')}
+          score={0}
         />
         <DescriptionField
           name={'Data Encryption'}
@@ -84,6 +83,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website encrypt user\'s data?'}
           expanded={expanded === 'p7'}
           onChange={handleChange('p7')}
+          score={0}
         />
         <DescriptionField
           name={'Data Processing Consent'}

@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: props => props.color,
   },
   backButton: {
-    // marginRight: theme.spacing(0),
+    marginRight: theme.spacing(0),
   },
   title: {
     flexGrow: 1,
