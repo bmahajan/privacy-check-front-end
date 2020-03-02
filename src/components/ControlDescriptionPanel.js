@@ -7,10 +7,9 @@ import MuiGridList from '@material-ui/core/GridList'
 const GridList = withStyles(theme => ({
   root: {
     maxHeight: 500,
+    maxWidth: 350,
     width: '100%',
-  },
-  content: {
-
+    padding: 2.5,
   },
 })) (MuiGridList);
 

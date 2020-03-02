@@ -7,10 +7,9 @@ import MuiGridList from '@material-ui/core/GridList'
 const GridList = withStyles(theme => ({
   root: {
     maxHeight: 500,
+    maxWidth: 350,
     width: '100%',
-  },
-  content: {
-
+    // padding: 2.5,
   },
 })) (MuiGridList);
 
@@ -41,6 +40,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website share your information with other websites?'}
           expanded={expanded === 'p1'}
           onChange={handleChange('p1')}
+          score={0}
         />
         <DescriptionField
           name={'Company Location'}
@@ -48,6 +48,7 @@ export default function GDPRDescriptionPanel(props) {
           details={'Does this website disclose where the company is based and where your information will be processed and or transferred?'}
           expanded={expanded === 'p2'}
           onChange={handleChange('p2')}
+          score={100}
         />
         <DescriptionField
           name={'Right To Be Forgotten'}
