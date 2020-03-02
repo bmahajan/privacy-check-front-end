@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BreakdownAnalysisField(props) {
+export default function BreakdownAnalysisPanel(props) {
 
   return (
     <div>
