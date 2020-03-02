@@ -1,11 +1,12 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {Avatar, Typography} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
+// ExpansionPanel styling
 const ExpansionPanel = withStyles(theme => ({
   root: {
     border: '1px solid rgba(0, 0, 0, .125)',
@@ -23,6 +24,7 @@ const ExpansionPanel = withStyles(theme => ({
   expanded: {},
 })) (MuiExpansionPanel);
 
+// ExpansionPanelSummary styling sheet
 const ExpansionPanelSummary = withStyles(theme => ({
   root: {
     backgroundColor: 'rgba(0, 0, 0, .03)',
@@ -42,16 +44,27 @@ const ExpansionPanelSummary = withStyles(theme => ({
   expanded: {},
 })) (MuiExpansionPanelSummary);
 
+// ExpansionPanelDetails styling sheet
 const ExpansionPanelDetails = withStyles(theme => ({
   root: {
     padding: theme.spacing(2),
   },
 })) (MuiExpansionPanelDetails);
 
-export default function BreakdownDescriptionField(props) {
+// General stylesheet for various divs
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+}));
+
+export default function DescriptionField(props) {
+
+  const classes = useStyles();
+
   return (
-    <div style={{width: '100%'}}>
-      <ExpansionPanel>
+    <div className={classes.root}>
+      <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Avatar>{props.icon}</Avatar>
           <Typography>{props.name}</Typography>

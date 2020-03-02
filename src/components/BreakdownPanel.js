@@ -1,8 +1,8 @@
 import React from 'react';
 import NavBar from './NavBar';
-import { CreditCard, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
-import { Send, Map, PhonelinkErase, NotificationImportant, ThumbDown, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
-import MuiGridList from '@material-ui/core/GridList'
+import { makeStyles } from "@material-ui/core/styles";
+import DescriptionField from "./DescriptionField";
+import GDPRDescriptionPanel from "./GDPRDescriptionPanel";
 
 class BreakdownPanel extends React.Component {
 
@@ -14,11 +14,10 @@ class BreakdownPanel extends React.Component {
   }
 
   render() {
-
-
     return (
-      <div>
-        <NavBar ti/>
+      <div style={{width: 350}}>
+        <NavBar title={'Score Breakdown'} color={'orange'}/>
+        <GDPRDescriptionPanel />
       </div>
     );
   }
