@@ -7,7 +7,6 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
 
-// ExpansionPanel styling
 const ExpansionPanel = withStyles(theme => ({
   root: {
     border: '1px solid rgba(0, 0, 0, .125)',
@@ -25,7 +24,6 @@ const ExpansionPanel = withStyles(theme => ({
   expanded: {},
 })) (MuiExpansionPanel);
 
-// ExpansionPanelSummary styling sheet
 const ExpansionPanelSummary = withStyles(theme => ({
   root: {
     backgroundColor: 'rgba(0, 0, 0, .03)',
@@ -45,45 +43,47 @@ const ExpansionPanelSummary = withStyles(theme => ({
   expanded: {},
 })) (MuiExpansionPanelSummary);
 
-// ExpansionPanelDetails styling sheet
 const ExpansionPanelDetails = withStyles(theme => ({
   root: {
     padding: theme.spacing(2),
   },
 })) (MuiExpansionPanelDetails);
 
-// General stylesheet for various divs
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    margin: theme.spacing(0),
   },
   avatar: {
-
-    flexShrink: 0,
+    marginLeft: theme.spacing(-1),
   },
   heading: {
     marginLeft: theme.spacing(2),
-    flexShrink: 0,
   },
   scoreHeading: {
     marginLeft: theme.spacing(2),
-    flexShrink: 0,
-  }
+  },
 }));
 
-export default function DescriptionField(props) {
+export default function DescriptionPanel(props) {
 
   const classes = useStyles();
+
+  const [score, setScore] = React.useState(props.score);
+  const [details, setDetails] = React.useState(props.details);
+  const [color, setColor] = React.useState('grey');
+
+  console.log(score);
 
   return (
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
-            <Grid>
-              <Typography className={classes.heading}>{props.name}</Typography>
-              <Typography className={classes.scoreHeading}>Score: {props.score}</Typography>
-            </Grid>
+          <Grid direction={'column'}>
+            <Typography className={classes.heading}>{props.name}</Typography>
+            <Typography className={classes.scoreHeading}>{props.score}</Typography>
+          </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>{props.details}</Typography>
