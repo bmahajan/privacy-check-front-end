@@ -1,272 +1,30 @@
 [
   {
-    "id": "japan",
-    "color": "hsl(219, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 242
-      },
-      {
-        "x": "helicopter",
-        "y": 74
-      },
-      {
-        "x": "boat",
-        "y": 39
-      },
-      {
-        "x": "train",
-        "y": 231
-      },
-      {
-        "x": "subway",
-        "y": 182
-      },
-      {
-        "x": "bus",
-        "y": 131
-      },
-      {
-        "x": "car",
-        "y": 116
-      },
-      {
-        "x": "moto",
-        "y": 202
-      },
-      {
-        "x": "bicycle",
-        "y": 76
-      },
-      {
-        "x": "horse",
-        "y": 281
-      },
-      {
-        "x": "skateboard",
-        "y": 194
-      },
-      {
-        "x": "others",
-        "y": 189
-      }
-    ]
+    "id": "GDPR",
+    "ranges": [
+      40,
+      60,
+      80,
+      90,
+      100
+    ],
+    "measures": [
+      80
+    ],
+    "markers": []
   },
   {
-    "id": "france",
-    "color": "hsl(299, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 235
-      },
-      {
-        "x": "helicopter",
-        "y": 223
-      },
-      {
-        "x": "boat",
-        "y": 213
-      },
-      {
-        "x": "train",
-        "y": 216
-      },
-      {
-        "x": "subway",
-        "y": 163
-      },
-      {
-        "x": "bus",
-        "y": 244
-      },
-      {
-        "x": "car",
-        "y": 83
-      },
-      {
-        "x": "moto",
-        "y": 96
-      },
-      {
-        "x": "bicycle",
-        "y": 80
-      },
-      {
-        "x": "horse",
-        "y": 201
-      },
-      {
-        "x": "skateboard",
-        "y": 126
-      },
-      {
-        "x": "others",
-        "y": 152
-      }
-    ]
-  },
-  {
-    "id": "us",
-    "color": "hsl(325, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 289
-      },
-      {
-        "x": "helicopter",
-        "y": 236
-      },
-      {
-        "x": "boat",
-        "y": 180
-      },
-      {
-        "x": "train",
-        "y": 115
-      },
-      {
-        "x": "subway",
-        "y": 225
-      },
-      {
-        "x": "bus",
-        "y": 39
-      },
-      {
-        "x": "car",
-        "y": 107
-      },
-      {
-        "x": "moto",
-        "y": 257
-      },
-      {
-        "x": "bicycle",
-        "y": 36
-      },
-      {
-        "x": "horse",
-        "y": 211
-      },
-      {
-        "x": "skateboard",
-        "y": 141
-      },
-      {
-        "x": "others",
-        "y": 231
-      }
-    ]
-  },
-  {
-    "id": "germany",
-    "color": "hsl(115, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 24
-      },
-      {
-        "x": "helicopter",
-        "y": 128
-      },
-      {
-        "x": "boat",
-        "y": 158
-      },
-      {
-        "x": "train",
-        "y": 214
-      },
-      {
-        "x": "subway",
-        "y": 178
-      },
-      {
-        "x": "bus",
-        "y": 118
-      },
-      {
-        "x": "car",
-        "y": 224
-      },
-      {
-        "x": "moto",
-        "y": 133
-      },
-      {
-        "x": "bicycle",
-        "y": 156
-      },
-      {
-        "x": "horse",
-        "y": 256
-      },
-      {
-        "x": "skateboard",
-        "y": 175
-      },
-      {
-        "x": "others",
-        "y": 50
-      }
-    ]
-  },
-  {
-    "id": "norway",
-    "color": "hsl(346, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 49
-      },
-      {
-        "x": "helicopter",
-        "y": 120
-      },
-      {
-        "x": "boat",
-        "y": 89
-      },
-      {
-        "x": "train",
-        "y": 55
-      },
-      {
-        "x": "subway",
-        "y": 154
-      },
-      {
-        "x": "bus",
-        "y": 150
-      },
-      {
-        "x": "car",
-        "y": 245
-      },
-      {
-        "x": "moto",
-        "y": 0
-      },
-      {
-        "x": "bicycle",
-        "y": 288
-      },
-      {
-        "x": "horse",
-        "y": 71
-      },
-      {
-        "x": "skateboard",
-        "y": 21
-      },
-      {
-        "x": "others",
-        "y": 136
-      }
-    ]
+    "id": "Control",
+    "ranges": [
+      40,
+      60,
+      80,
+      90,
+      100
+    ],
+    "measures": [
+      50
+    ],
+    "markers": []
   }
 ]

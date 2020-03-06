@@ -3,7 +3,7 @@ import { Grid, Typography, Card, Divider } from '@material-ui/core';
 import NavBar from './NavBar';
 import CompetitorCard from './CompetitorCard';
 import ScoreBubble from './ScoreBubble';
-import NormalDistribution from './NormalDistribution'
+import DataVisualization from './DataVisualization'
 
 class CompAnalysisPane extends React.Component{
     constructor(props){
@@ -28,7 +28,7 @@ class CompAnalysisPane extends React.Component{
                 spacing={0}
                 >
                     <Grid item>
-                        <NormalDistribution />
+                        <DataVisualization />
                     </Grid>
                     <Grid container 
                     direction='row' 

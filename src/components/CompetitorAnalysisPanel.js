@@ -1,12 +1,12 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from './ScoreBubble';
-import NormalDistribution from './NormalDistribution'
+import DataVisualization from './DataVisualization'
 
 export default function CompetitorAnalysisPanel(props) {
 
   return (
-    <div>
+    <>
       <Paper style={{width: 400, height: 350}}>
         <Grid container
           direction='column'
@@ -15,7 +15,7 @@ export default function CompetitorAnalysisPanel(props) {
           spacing={2}
         >
           <Grid item>
-            <NormalDistribution />
+            <DataVisualization />
           </Grid>
           <Grid container
             direction='row'
@@ -30,7 +30,7 @@ export default function CompetitorAnalysisPanel(props) {
               </Typography>
             </Grid>
             <Grid item>
-              <ScoreBubble score='100' height={60} width={60} />
+              <ScoreBubble score='80' height={60} width={60} />
             </Grid>
           </Grid>
           <Grid container
@@ -41,12 +41,12 @@ export default function CompetitorAnalysisPanel(props) {
           >
             <Grid item>
               <Typography>
-                Ranks in the bottom 20% of the industry
+                Ranks in the top 20% of the industry
               </Typography>
             </Grid>
           </Grid>
         </Grid>
       </Paper>
-    </div>
+    </>
   );
 }
