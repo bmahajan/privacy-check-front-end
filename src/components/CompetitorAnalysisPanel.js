@@ -7,8 +7,7 @@ export default function CompetitorAnalysisPanel(props) {
 
   return (
     <div>
-<<<<<<< HEAD
-      <Paper style={{width:350, height: 350}}>
+      <Paper style={{width: 400, height: 350}}>
         <Grid container
           direction='column'
           alignContent='center'
@@ -47,10 +46,6 @@ export default function CompetitorAnalysisPanel(props) {
             </Grid>
           </Grid>
         </Grid>
-=======
-      <Paper style={{width:400, height: 400}}>
-        Hello
->>>>>>> 437e2ada142c299acaed4f652270bef5424b8ac4
       </Paper>
     </div>
   );
