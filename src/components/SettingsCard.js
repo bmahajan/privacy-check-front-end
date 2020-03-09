@@ -8,12 +8,6 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import { Switch } from '@material-ui/core';
 
 
-// const theme = createMuiTheme({
-//     palette: {
-//       type: 'dark'
-//     },
-//   });
-  
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -33,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Divided({onPoop}) {
+export default function SettingsCard({onToggleDark}) {
   const classes = useStyles();
 
   return (
@@ -49,7 +43,7 @@ export default function Divided({onPoop}) {
         <Brightness4Icon fontSize="small"/>
         <ListItemText primary="Dark Mode" />
         <Switch 
-        onChange={onPoop}
+        onChange={onToggleDark}
         inputProps={{ 'aria-label': 'primary checkbox' }}/>
     </ListItem>
     <Divider />
