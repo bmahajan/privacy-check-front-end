@@ -4,8 +4,9 @@ import './index.css';
 // import App from './App';
 import CompAnalysisPane from './components/CompAnalysisPane';
 import * as serviceWorker from './serviceWorker';
+import SettingsPane from './components/SettingsPane'
 
-ReactDOM.render(<CompAnalysisPane />, document.getElementById('root'));
+ReactDOM.render(<SettingsPane />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Demo from './Demo'
+import SettingsCard from './SettingsCard'
 
-const App = () => {
+const DarkMode = () => {
   // We keep the theme in app state
   const [theme, setTheme] = useState({
     palette: {
@@ -26,9 +26,9 @@ const App = () => {
   // the mui theme is used in the themeProvider.
   return (
     <MuiThemeProvider theme={muiTheme}>
-      <Demo onToggleDark={toggleDarkTheme} />
+      <SettingsCard onToggleDark={toggleDarkTheme} />
     </MuiThemeProvider>
   );
 };
 
-export default App;
+export default DarkMode;
