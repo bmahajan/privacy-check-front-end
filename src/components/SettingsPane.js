@@ -12,10 +12,7 @@ class SettingsPane extends React.Component {
     render() {
         return (
             <div className='Settings'>
-                <NavBar click={this.props.clickBack} title='Settings'/>
-                <div className='Typical'>
-                    <Encrypt />
-                </div>
+                <NavBar click={this.props.clickBack} title='Settings'color="orange"/>
                 <div>
                     <DarkMode />
                 </div>

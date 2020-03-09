@@ -16,7 +16,7 @@ import BallotRoundedIcon from '@material-ui/icons/BallotRounded';
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MainPanelButton from './MainPanelButton';
-import Encrypt from './encrypt';
+import Encrypt from './Encrypt';
 import SettingsPane from './SettingsPane';
 import CompAnalysisPane from './CompetitorAnalysisPanel'
  
