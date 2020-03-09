@@ -80,5 +80,5 @@ export default function MainPanelButton(props) {
                 </Fade>
             </div>
         </div>
-    )
+    ) 
 }

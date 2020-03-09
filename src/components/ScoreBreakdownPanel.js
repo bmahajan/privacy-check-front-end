@@ -16,7 +16,7 @@ class ScoreBreakdownPanel extends React.Component {
 
     return (
       <div style={{maxWidth: 400}}>
-        <NavBar title={'Score Breakdown'} color={'orange'}/>
+        <NavBar click={this.props.clickBack} title={'Score Breakdown'} color={'orange'}/>
         <CompetitorAnalysisPanel />
         <GDPRDescriptionPanel />
       </div>

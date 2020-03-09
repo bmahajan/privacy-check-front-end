@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import CompAnalysisPane from './components/CompAnalysisPane';
-import MainPanel from './components/MainPanel';
-import ScoreBreakdownPanel from './components/ScoreBreakdownPanel';
 import * as serviceWorker from './serviceWorker';
 import PaneRenderer from './components/PaneRenderer';
 
