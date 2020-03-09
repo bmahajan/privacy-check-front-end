@@ -2,7 +2,7 @@ import React from 'react';
 import './SettingsPane.css';
 import NavBar from './NavBar'
 import './Typical.css';
-import Encrypt from './Encrypt.js';
+import Encrypt from './Encrypt';
 import SettingsCard from './SettingsCard'
 import DarkMode from './DarkMode';
 
