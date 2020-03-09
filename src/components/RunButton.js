@@ -59,13 +59,14 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-export default function RunButton() {
+export default function RunButton(props) {
     const classes = useStyles();
     const [loading, setLoading] = React.useState(false);
     const [success, setSuccess] = React.useState(false);
     const [begin, setBegin] = React.useState(true);
     const timer = React.useRef();
     const [checked, setChecked] = React.useState(true);
+    const [loadingstate, setLoadingState] = React.useState('begin');
   
     const buttonClassname = clsx({
       [classes.buttonSuccess]: success,
@@ -78,11 +79,20 @@ export default function RunButton() {
         clearTimeout(timer.current);
       };
     }, []);
+
+    const [count, setCount] = React.useState(0);
   
     const handleButtonClick = () => {
       setSuccess(false);
       setLoading(true);
       setBegin(false);
+      setCount(() => {
+        if (count % 2 === 0) {
+          return count + 1;
+        } else {
+          return count + 3;
+        }
+      });
       // MainPanel.clickHandler();
       //MainPanelButton(props.state = 0);
       //setChecked(false);
