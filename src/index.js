@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import CompAnalysisPane from './components/CompAnalysisPane';
-import ScoreBreakdownPanel from './components/ScoreBreakdownPanel'
+import MainPanel from './components/MainPanel';
+import ScoreBreakdownPanel from './components/ScoreBreakdownPanel';
 import * as serviceWorker from './serviceWorker';
+import PaneRenderer from './components/PaneRenderer';
 
-ReactDOM.render(<ScoreBreakdownPanel />, document.getElementById('root'));
+ReactDOM.render(<PaneRenderer />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

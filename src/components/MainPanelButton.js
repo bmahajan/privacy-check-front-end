@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import {
     Grid,
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
    
         begin: {
             disabled: true,
-            visible: false,
+            visible: true,
         },
         loading: {
             disabled: true,
@@ -37,22 +38,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainPanelButton(props) {
     const classes = useStyles(props);
-    const [breathing, setBreathing] = React.useState(true);
-    //const [begin, setBegin] = React.useState(true);
-    //let [loading, setLoading] = React.useState(false);
-    //let [success, setSuccess] = React.useState(false);
-    const breathe = React.useState(true);
+    // const [breathing, setBreathing] = React.useState(true);
+    // const [begin, setBegin] = React.useState(true);
+    // let [loading, setLoading] = React.useState(false);
+    // let [success, setSuccess] = React.useState(false);
+    // const breathe = React.useState(true);
     const timer = React.useRef();
 
-    const buttonClassname = clsx({
-        [classes.buttonSuccess]: props.success,
-        [classes.buttonBegin]: props.begin,
-        [classes.buttonLoading]: props.loading,
-      });
+    // const buttonClassname = clsx({
+    //     [classes.buttonSuccess]: success,
+    //     [classes.buttonBegin]: begin,
+    //     [classes.buttonLoading]: loading,
+    //   });
 
-    const handleButtonClick = () => {
-      
-
+    const handleButtonClick = (name) => {
+      //ReactDOM.render(props.pane, document.getElementById('root'));
+      //alert('settings button clicked')
+        console.log(`${name} button clicked `)
     } 
 
     React.useEffect(() => {
@@ -61,21 +63,18 @@ export default function MainPanelButton(props) {
         };
       }, []);
 
-    const didFadeIn = () => {
-        
-    }
-
+    
     return(
         <div className={classes.root}>
             <div className={classes.wrapper}>
                 <Fade 
-                in={buttonClassname.visible}
+                in={true}
                 style={{ transformOrigin: '0 0 0' }}
-                {...(buttonClassname.visible ? { timeout: 1000 } : { timeout: 1000 })}>
+                {...(true ? { timeout: 1000 } : { timeout: 1000 })}>
                     <IconButton 
                     aria-label={props.name} 
-                    onclick={handleButtonClick}
-                    disabled={buttonClassname.disabled}>
+                    onClick={() => props.click(props.pane)}
+                    /*disabled={buttonClassname.disabled}*/>
                         {props.icon}
                     </IconButton>
                 </Fade>

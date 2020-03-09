@@ -28,7 +28,7 @@ export default function NavBar(props) {
     <div className={classes.root}>
       <AppBar className={classes.appbar} position='static'>
         <Toolbar variant={'dense'}>
-          <IconButton edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
+          <IconButton onClick={props.click} edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
             <ArrowBackIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title} align='center'>
