@@ -1,24 +1,25 @@
 import React from 'react';
-import clsx from 'clsx';
+//import clsx from 'clsx';
 import {
     Grid,
-    Typography,
-    IconButton,
+    //Typography,
+    //IconButton,
     makeStyles,
     Card,
-    Paper,
+    //Paper,
     Button,
     ButtonGroup,
 } from '@material-ui/core';
 import RunButton from './RunButton';
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
-import BallotRoundedIcon from '@material-ui/icons/BallotRounded';
+//import BallotRoundedIcon from '@material-ui/icons/BallotRounded';
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MainPanelButton from './MainPanelButton';
+import ScoreButton from './ScoreButton'
 import Encrypt from './encrypt';
 import SettingsPane from './SettingsPane';
-import CompAnalysisPane from './CompetitorAnalysisPanel'
+import ScoreBreakdownPanel from './ScoreBreakdownPanel';
  
 
 const useStyles = makeStyles(theme => ({
@@ -26,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     width: 100,
   },
 
+  button: {
+    backgroundColor: 'orange'
+  }
 
       
 }))
@@ -37,7 +41,7 @@ export default function MainPanel(props){
     //   //this.buttonClassName = 
 
     // }
-
+    const classes = useStyles();
     const HandleRunClick = () =>{
       alert('Clicked Run')
       // const [loading, setLoading] = React.useState(false);
@@ -71,15 +75,10 @@ export default function MainPanel(props){
             </Grid>
             <Grid item
             flex-basis='content'>
-                <ButtonGroup
-                size="large"
-                color="primary"
-                aria-label="Score Button"
-                variant="contained"
-                >
-                  <Button style={{width: 100}}>GDPR</Button>
-                  <Button style={{width: 100}}>Control</Button>
-                </ButtonGroup>
+                <ScoreButton 
+                scores={[]}
+                click={props.onMPBClick}
+                pane={<ScoreBreakdownPanel clickBack={props.onBack} />}/>
             </Grid>
             <Grid item
             flex-basis='content'>
@@ -97,7 +96,11 @@ export default function MainPanel(props){
                     click={props.onMPBClick}/>
                 </Grid>
                 <Grid item>
-                  <MainPanelButton name={'CAT'} icon={<BarChartRoundedIcon />}/>
+                  <MainPanelButton 
+                    name={'description'} 
+                    icon={<BarChartRoundedIcon />}
+                    pane={<ScoreBreakdownPanel clickBack={props.onBack}/>}
+                    click={props.onMPBClick}/>
                 </Grid>
                 <Grid item>
                   <MainPanelButton name={'about'} icon={<HelpOutlineRoundedIcon />}/>
