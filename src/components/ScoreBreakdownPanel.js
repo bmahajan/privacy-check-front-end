@@ -1,7 +1,8 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavigationBar from './NavigationBar';
 import GDPRDescriptionPanel from "./GDPRDescriptionPanel";
 import CompetitorAnalysisPanel from "./CompetitorAnalysisPanel";
+import Paper from "@material-ui/core/Paper";
 
 class ScoreBreakdownPanel extends React.Component {
 
@@ -16,8 +17,10 @@ class ScoreBreakdownPanel extends React.Component {
 
     return (
       <div style={{maxWidth: 400}}>
-        <NavBar click={this.props.clickBack} title={'Score Breakdown'} color={'orange'}/>
-        <CompetitorAnalysisPanel />
+        <NavigationBar click={this.props.clickBack} title={'Score Breakdown'} color={'orange'}/>
+        <Paper>
+          <CompetitorAnalysisPanel />
+        </Paper>
         <GDPRDescriptionPanel />
       </div>
     );

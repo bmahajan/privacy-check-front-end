@@ -1,23 +1,22 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React from 'react';
 import MainPanel from './MainPanel'
 
 export default function PanelManager() {
 
-
   const HandleNewPane = (newPanel) => {
     setPanel(newPanel);
-    console.log('Switch to panel' + newPanel);
+    console.log('Switched to panel ' + newPanel.className);
   };
 
   const ReturnToPrevPanel = () => {
     setPanel(panelRef.current);
   };
 
-  const [panel, setPanel] = useState(<MainPanel onBack={ReturnToPrevPanel} onMPBClick={HandleNewPane}/>)
+  const [panel, setPanel] = React.useState(<MainPanel onBack={ReturnToPrevPanel} onMPBClick={HandleNewPane}/>);
 
-  const panelRef = useRef();
+  const panelRef = React.useRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
     panelRef.current = panel;
     console.log(`"Previous page" reference set`)
   },[]);

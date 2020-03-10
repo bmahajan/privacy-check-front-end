@@ -69,12 +69,6 @@ export default function DescriptionPanel(props) {
 
   const classes = useStyles();
 
-  const [score, setScore] = React.useState(props.score);
-  const [details, setDetails] = React.useState(props.details);
-  const [color, setColor] = React.useState('grey');
-
-  console.log(score);
-
   return (
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
