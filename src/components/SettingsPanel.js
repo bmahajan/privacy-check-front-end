@@ -1,13 +1,21 @@
 import React from 'react';
-import './SettingsPane.css';
 import NavigationBar from './NavigationBar'
-import './Typical.css';
 import DarkMode from './DarkMode';
+import {makeStyles} from "@material-ui/core";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: 400,
+    height: 500,
+  },
+}));
 
 export default function SettingsPanel(props) {
 
+  const classes = useStyles(props);
+
   return(
-    <div className='Settings'>
+    <div className={classes.root}>
       <NavigationBar click={props.clickBack} title='Settings' color="orange"/>
       <div>
         <DarkMode />
