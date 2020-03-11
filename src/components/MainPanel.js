@@ -92,7 +92,7 @@ export default function MainPanel(props){
                   <MainPanelButton 
                     name={'settings'} 
                     icon={<SettingsIcon />} 
-                    pane={<SettingsPanel clickBack={props.onBack} />}
+                    pane={<SettingsPanel clickBack={props.onBack} onToggleDark={props.onToggleDark}/>}
                     click={props.onMPBClick}/>
                 </Grid>
                 <Grid item>
