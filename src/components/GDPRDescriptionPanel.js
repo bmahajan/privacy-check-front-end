@@ -27,7 +27,7 @@ export default function GDPRDescriptionPanel(props) {
     setExpanded(isExpanded ? panel : false);
   };
 
-  setTimeout(() => setScores([100, 0, 0, 0, 0, 0, 0, 0, 0, 0]), 2000);
+  setTimeout(() => setScores([10, 10, 10, 10, 10, 10, 10, 10, 0, 0]), 2000);
 
   return (
     <div className={classes.root}>
