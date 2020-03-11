@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NavBar(props) {
+export default function NavigationBar(props) {
 
   const classes = useStyles(props);
 

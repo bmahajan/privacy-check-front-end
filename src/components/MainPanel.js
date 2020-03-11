@@ -18,7 +18,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import MainPanelButton from './MainPanelButton';
 import ScoreButton from './ScoreButton'
 import Encrypt from './Encrypt';
-import SettingsPane from './SettingsPane';
+import SettingsPanel from './SettingsPanel';
 import ScoreBreakdownPanel from './ScoreBreakdownPanel';
  
 
@@ -92,7 +92,7 @@ export default function MainPanel(props){
                   <MainPanelButton 
                     name={'settings'} 
                     icon={<SettingsIcon />} 
-                    pane={<SettingsPane clickBack={props.onBack} />}
+                    pane={<SettingsPanel clickBack={props.onBack} />}
                     click={props.onMPBClick}/>
                 </Grid>
                 <Grid item>

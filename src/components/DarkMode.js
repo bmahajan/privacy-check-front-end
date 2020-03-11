@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import SettingsCard from './SettingsCard'
 
+// TODO: This file should really be deleted. Dark mode should be selected just using a regular button, dont need all of this. Need a theme.
+
 const DarkMode = () => {
   // We keep the theme in app state
   const [theme, setTheme] = useState({
