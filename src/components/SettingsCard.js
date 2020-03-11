@@ -27,7 +27,9 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SettingsCard({onToggleDark}) {
+
+//TODO: make a state handler for the switches
+export default function SettingsCard(props) {
   const classes = useStyles();
 
   return (
@@ -37,7 +39,7 @@ export default function SettingsCard({onToggleDark}) {
             <Brightness4Icon fontSize="small"/>
             <ListItemText primary="Dark Mode" />
             <Switch 
-            onChange={onToggleDark}
+            onChange={props.onToggleDark}
             inputProps={{ 'aria-label': 'primary checkbox' }}/>
         </ListItem>
         <Divider />

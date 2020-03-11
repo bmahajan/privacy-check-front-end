@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigationBar from './NavigationBar'
 import DarkMode from './DarkMode';
+import SettingsCard from './SettingsCard';
 import {makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -18,7 +19,7 @@ export default function SettingsPanel(props) {
     <div className={classes.root}>
       <NavigationBar click={props.clickBack} title='Settings' color="orange"/>
       <div>
-        <DarkMode />
+        <SettingsCard onToggleDark={props.onToggleDark}/>
       </div>
     </div>
   );
