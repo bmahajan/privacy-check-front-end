@@ -1,6 +1,5 @@
 import React from 'react';
 import NavigationBar from './NavigationBar'
-import DarkMode from './DarkMode';
 import SettingsCard from './SettingsCard';
 import {makeStyles} from "@material-ui/core";
 
