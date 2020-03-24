@@ -13,7 +13,16 @@ export const ThemeSwitchContext = React.createContext();
 export default function PanelManager() {
 
   const [panel, setPanel] = React.useState(<RunPanel />);
-  const [theme, setTheme] = React.useState(lightTheme);
+  const [theme, setTheme] = React.useState(() => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      return lightTheme;
+    } else if (currentTheme === 'dark') {
+      return darkTheme;
+    } else {
+      return lightTheme;
+    }
+  });
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
@@ -48,10 +57,12 @@ export default function PanelManager() {
     switch (themeName) {
       case 'light':
         setTheme(lightTheme);
+        localStorage.setItem('theme', 'light');
         console.log('Successfully changed theme to ' + lightTheme.type);
         break;
       case 'dark':
         setTheme(darkTheme);
+        localStorage.setItem('theme', 'dark');
         console.log('Successfully changed theme to ' + darkTheme.type);
         break;
       default:
