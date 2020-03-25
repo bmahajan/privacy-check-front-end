@@ -21,8 +21,8 @@ export default function BreakdownPanel(props) {
         <div>
           This is where the graphic information will go
         </div>
-        <GridList dir={'vertical'}>
-          <DescriptionField />
+        <GridList>
+          <DescriptionField expanded={expanded}/>
           <DescriptionField />
           <DescriptionField />
           <DescriptionField />

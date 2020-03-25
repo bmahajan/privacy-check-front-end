@@ -3,8 +3,9 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import DescriptionSummary from "./DescriptionSummary";
-import DescriptionDetails from "./DescriptionDetails";
+import Avatar from "@material-ui/core/Avatar";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 export default function DescriptionField(props) {
 
@@ -12,10 +13,14 @@ export default function DescriptionField(props) {
     <div>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <DescriptionSummary avatar={props.avatar} title={props.title} score={props.score}/>
+          <Avatar>{props.avatar}</Avatar>
+          <Grid>
+            <Typography>{props.title}</Typography>
+            <Typography>{props.score}</Typography>
+          </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <DescriptionDetails details={props.details}/>
+          <Typography>{props.details}</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
