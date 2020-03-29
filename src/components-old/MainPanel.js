@@ -17,7 +17,7 @@ import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MainPanelButton from './MainPanelButton';
 import ScoreButton from './ScoreButton'
-import Encrypt from './Encrypt';
+import Encrypt from './encrypt';
 import SettingsPanel from './SettingsPanel';
 import ScoreBreakdownPanel from './ScoreBreakdownPanel';
 import AboutPanel from './AboutPanel';
