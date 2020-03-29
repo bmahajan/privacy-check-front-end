@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Typography, Grid, makeStyles} from '@material-ui/core';
+import {Card, Typography, Grid} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ScoreBubble from './ScoreBubble';
 import { blue } from '@material-ui/core/colors';

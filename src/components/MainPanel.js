@@ -4,12 +4,12 @@ import {
     Grid,
     //Typography,
     //IconButton,
-    makeStyles,
     Card,
     //Paper,
     Button,
     ButtonGroup,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
 //import BallotRoundedIcon from '@material-ui/icons/BallotRounded';
@@ -20,6 +20,7 @@ import ScoreButton from './ScoreButton'
 import Encrypt from './Encrypt';
 import SettingsPanel from './SettingsPanel';
 import ScoreBreakdownPanel from './ScoreBreakdownPanel';
+import AboutPanel from './AboutPanel';
  
 
 const useStyles = makeStyles(theme => ({
@@ -61,7 +62,7 @@ export default function MainPanel(props){
     }
       return(
         <Card
-        style = {{width: 300}}>
+        style = {{width: 400}}>
           <Grid container
           direction = 'column'
           alignContent = 'center'
@@ -103,7 +104,11 @@ export default function MainPanel(props){
                     click={props.onMPBClick}/>
                 </Grid>
                 <Grid item>
-                  <MainPanelButton name={'about'} icon={<HelpOutlineRoundedIcon />}/>
+                  <MainPanelButton 
+                    name={'about'} 
+                    icon={<HelpOutlineRoundedIcon />}
+                    pane={<AboutPanel clickBack={props.onBack} />}
+                    click={props.onMPBClick} />
                 </Grid>
               </Grid>
             </Grid>

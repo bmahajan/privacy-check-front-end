@@ -2,10 +2,10 @@ import React from 'react';
 import clsx from 'clsx';
 import {
     Fab,
-    makeStyles,
     CircularProgress,
     Fade,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles'
 import ReplayIcon from '@material-ui/icons/Replay'
 import SaveIcon from '@material-ui/icons/Save'
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Email, CreditCard, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
 import DescriptionPanel from "./DescriptionPanel";
-import { withStyles, makeStyles } from "@material-ui/core";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiGridList from '@material-ui/core/GridList'
 
 const GridList = withStyles(theme => ({

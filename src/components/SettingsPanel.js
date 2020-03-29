@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from './NavigationBar'
 import SettingsCard from './SettingsCard';
-import {makeStyles} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
