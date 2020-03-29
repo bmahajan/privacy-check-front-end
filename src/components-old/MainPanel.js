@@ -71,7 +71,7 @@ export default function MainPanel(props){
             <Grid item
             flex-basis='content'>
               <Card elevation={0}>
-                <Encrypt />
+                {/*<Encrypt />*/}
               </Card>
             </Grid>
             <Grid item

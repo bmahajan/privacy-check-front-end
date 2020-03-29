@@ -1,50 +1,86 @@
-import React , { useState } from 'react';
-import MainPanel from './MainPanel'
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import React from 'react';
+import { ThemeProvider } from '@material-ui/core/styles';
+import RunPanel from './RunPanel/RunPanel';
+import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
+import SettingsPanel from './SettingsPanel/SettingsPanel';
+import AboutPanel from "./AboutPanel/AboutPanel";
+import lightTheme from './Themes/lightTheme';
+import darkTheme from './Themes/darkTheme';
+
+export const PanelSwitchContext = React.createContext();
+export const ThemeSwitchContext = React.createContext();
 
 export default function PanelManager() {
 
-
-  const [theme, setTheme] = useState({
-    palette: {
-      type: "light"
+  const [panel, setPanel] = React.useState(<RunPanel />);
+  const [theme, setTheme] = React.useState(() => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      return lightTheme;
+    } else if (currentTheme === 'dark') {
+      return darkTheme;
+    } else {
+      return lightTheme;
     }
   });
 
-  // we change the palette type of the theme in state
-  const toggleDarkTheme = () => {
-    let newPaletteType = theme.palette.type === "light" ? "dark" : "light";
-    setTheme({
-      palette: {
-        type: newPaletteType
-      }
-    });
+  console.log('Active Panel Initialized to ' + panel);
+  console.log('Active Theme Initialized to ' + lightTheme.palette.type);
+
+  const panelSwitchHandler = (panelName) => {
+    console.log('Attempting to change active panel to ' + panelName);
+    switch (panelName) {
+      case 'RunPanel':
+        setPanel(<RunPanel />);
+        console.log('Successfully changed active panel to ' + panelName);
+        break;
+      case 'AboutPanel':
+        setPanel(<AboutPanel />);
+        console.log('Successfully changed active panel to ' + panelName);
+        break;
+      case 'SettingsPanel':
+        setPanel(<SettingsPanel />);
+        console.log('Successfully changed active panel to ' + panelName);
+        break;
+      case 'BreakdownPanel':
+        setPanel(<BreakdownPanel />);
+        console.log('Successfully changed active panel to ' + panelName);
+        break;
+      default:
+        console.log('Failed to change active panel to ' + panelName);
+        break;
+    }
   };
 
-  // we generate a MUI-theme from state's theme object
-  const muiTheme = createMuiTheme(theme);
-  
-  const HandleNewPane = (newPanel) => {
-    setPanel(newPanel);
-    console.log('Switched to panel ' + newPanel.className);
+  const themeSwitchHandler = (themeName) => {
+    console.log('Attempting to change active theme to ' + themeName);
+    switch (themeName) {
+      case 'light':
+        setTheme(lightTheme);
+        localStorage.setItem('theme', 'light');
+        console.log('Successfully changed theme to ' + lightTheme.type);
+        break;
+      case 'dark':
+        setTheme(darkTheme);
+        localStorage.setItem('theme', 'dark');
+        console.log('Successfully changed theme to ' + darkTheme.type);
+        break;
+      default:
+        console.log('Failed to change active theme to ' + themeName);
+        break;
+    }
   };
 
-  const ReturnToPrevPanel = () => {
-    setPanel(panelRef.current);
-  };
-
-  const [panel, setPanel] = React.useState(<MainPanel onBack={ReturnToPrevPanel} onMPBClick={HandleNewPane} onToggleDark={toggleDarkTheme}/>);
-
-  const panelRef = React.useRef();
-
-  React.useEffect(() => {
-    panelRef.current = panel;
-    console.log(`"Previous page" reference set`)
-  },[]);
-
-  return(
-    <MuiThemeProvider theme={muiTheme}>
-      <div>{panel}</div>
-    </MuiThemeProvider>
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <PanelSwitchContext.Provider value={panelSwitchHandler}>
+          <ThemeSwitchContext.Provider value={themeSwitchHandler}>
+            {panel}
+          </ThemeSwitchContext.Provider>
+        </PanelSwitchContext.Provider>
+      </ThemeProvider>
+    </div>
   );
+
 }

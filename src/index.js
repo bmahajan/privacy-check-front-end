@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import PanelManager from './components/PanelManager';
+import RunPanel from "./components/RunPanel/RunPanel";
+import PanelManager from "./components/PanelManager";
 
 ReactDOM.render(<PanelManager />, document.getElementById('root'));
 
