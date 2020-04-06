@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationBar from "../MiscComponents/NavigationBar";
 import Decrypt from "../MiscComponents/Decrypt";
 import Card from "@material-ui/core/Card";
+import Grid from "@material-ui/core/Card";
 import SettingsPanel from "../SettingsPanel/SettingsPanel";
 import AboutPanel from "../AboutPanel/AboutPanel";
 import IconButton from "@material-ui/core/IconButton";
@@ -18,9 +19,25 @@ export default function RunPanel(props) {
       <Card>
         <NavigationBar title={<Decrypt/>}/>
         <RunButton/>
-        <IconButton onClick={() => panelHandler('AboutPanel')}> About </IconButton>
-        <IconButton onClick={() => panelHandler('SettingsPanel')}> Settings </IconButton>
-        <IconButton onClick={() => panelHandler('BreakdownPanel')}> Breakdown </IconButton>
+        <Grid item>
+              <Grid container
+              direction = 'row'
+              padding = {3}>
+
+                <Grid item>
+                <IconButton onClick={() => panelHandler('SettingsPanel')}> Settings </IconButton>
+                </Grid>
+
+                <Grid item>
+                <IconButton onClick={() => panelHandler('BreakdownPanel')}> Breakdown </IconButton>
+                </Grid>
+
+                <Grid item>
+                <IconButton onClick={() => panelHandler('AboutPanel')}> About </IconButton>
+                </Grid>
+
+              </Grid>
+        </Grid>
       </Card>
     </div>
   );

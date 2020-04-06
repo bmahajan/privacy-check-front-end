@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import RunButton from './RunButton';
+import { PanelSwitchContext, ThemeSwitchContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -36,6 +37,9 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function MainPanelButton(props) {
+
+    const panelHandler = React.useContext(PanelSwitchContext);
+
     const classes = useStyles(props);
     // const [breathing, setBreathing] = React.useState(true);
     // const [begin, setBegin] = React.useState(true);
@@ -71,10 +75,10 @@ export default function MainPanelButton(props) {
                 style={{ transformOrigin: '0 0 0' }}
                 {...(true ? { timeout: 1000 } : { timeout: 1000 })}>
                     <IconButton 
-                    aria-label={props.name} 
-                    onClick={() => props.click(props.pane)}
+                    aria-label={props.pane} 
+                    onClick={() => panelHandler(props.pane)}
                     /*disabled={buttonClassname.disabled}*/>
-                        {props.icon}
+                    {props.icon}
                     </IconButton>
                 </Fade>
             </div>

@@ -1,21 +1,25 @@
 import React from 'react';
-import NavigationBar from "../MiscComponents/NavigationBar";
-import Card from "@material-ui/core/Card";
-import IconButton from "@material-ui/core/IconButton";
-import { useTheme } from '@material-ui/core/styles';
-import { ThemeSwitchContext } from "../PanelManager";
+import NavigationBar from '../Misc/NavigationBar'
+import SettingsCard from './SettingsCard';
+import {makeStyles} from "@material-ui/core/styles";
 
-export default function SettingsPanel() {
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: 400,
+    height: 500,
+  },
+}));
 
-  const theme = useTheme();
-  const themeHandler = React.useContext(ThemeSwitchContext);
+export default function SettingsPanel(props) {
 
-  return (
-    <div style={{width: 300, height: 550, backgroundColor: 'beige'}}>
-      <Card>
-        <NavigationBar title={'Settings Panel'} back={true}/>
-        <IconButton onClick={() => theme.palette.type === 'light' ? themeHandler('dark') : themeHandler('light')}> Switch Theme </IconButton>
-      </Card>
+  const classes = useStyles(props);
+
+  return(
+    <div className={classes.root}>
+      <NavigationBar title='Settings' color="orange"/>
+      <div>
+        <SettingsCard/>
+      </div>
     </div>
   );
 

@@ -1,34 +1,28 @@
 import React from 'react';
-import NavigationBar from "../MiscComponents/NavigationBar";
-import Card from "@material-ui/core/Card";
-import DescriptionField from "./DescriptionField";
-import GridList from "@material-ui/core/GridList";
+import NavigationBar from '../Misc/NavigationBar';
+import GDPRDescriptionPanel from "./GDPRDescriptionPanel";
+import CompetitorAnalysisPanel from "./CompetitorAnalysisPanel";
+import { AppBar, Tabs, Tab } from '@material-ui/core';
 
-export const ExpansionContext = React.createContext();
+class BreakdownPanel extends React.Component {
 
-export default function BreakdownPanel(props) {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-  const [expanded, setExpanded] = React.useState(false);
+    };
+  }
+  render() {
 
-  const expansionHandler = panel => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
-  return (
-    <div style={{width: 300, height: 550, backgroundColor: 'beige'}}>
-      <Card>
-        <NavigationBar title={'Breakdown Panel'}/>
-        <div>
-          This is where the graphic information will go
-        </div>
-        <GridList>
-          <DescriptionField expanded={expanded}/>
-          <DescriptionField />
-          <DescriptionField />
-          <DescriptionField />
-        </GridList>
-      </Card>
-    </div>
-  );
+    return (
+      <div style={{maxWidth: 400}}>
+        <NavigationBar title={'Score Breakdown'} color={'orange'}/>
+        <CompetitorAnalysisPanel />
+        <GDPRDescriptionPanel />
+      </div>
+    );
+  }
 
 }
+
+export default BreakdownPanel;
