@@ -58,12 +58,12 @@ export default function PanelManager() {
       case 'light':
         setTheme(lightTheme);
         localStorage.setItem('theme', 'light');
-        console.log('Successfully changed theme to ' + lightTheme.type);
+        console.log('Successfully changed theme to ' + lightTheme.palette.type);
         break;
       case 'dark':
         setTheme(darkTheme);
         localStorage.setItem('theme', 'dark');
-        console.log('Successfully changed theme to ' + darkTheme.type);
+        console.log('Successfully changed theme to ' + darkTheme.palette.type);
         break;
       default:
         console.log('Failed to change active theme to ' + themeName);

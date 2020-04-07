@@ -3,12 +3,14 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { PanelSwitchContext } from "../PanelManager";
+import { orange } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   appbar: {
+    height: 50,
     backgroundColor: theme.palette.secondary[700],
   },
   backButton: {
@@ -17,6 +19,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     textAlign: 'center',
+    marginRight: 37
   },
 }));
 

@@ -5,10 +5,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import ColorLensIcon from '@material-ui/icons/ColorLens';
 import { Switch, Card } from '@material-ui/core';
 import { PanelSwitchContext, ThemeSwitchContext } from "../PanelManager";
 import IconButton from "@material-ui/core/IconButton";
-
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,39 +24,76 @@ const useStyles = makeStyles(theme => ({
         transform: "scale(0.8)"
     },
     title: {
-        fontSize: 14
+        fontSize: 25
     },
-    pos: {
-        marginBottom: 12
+    dark: {
+        marginBottom: 12,
+        marginLeft: 16
     },
+    color: {
+        marginBottom: 12,
+        marginLeft: 13
+    },
+    icons: {
+        marginLeft: 10
+    }
 }));
-
 
 //TODO: make a state handler for the switches
 export default function SettingsCard(props) {
 
-  const theme = useTheme();
-  const classes = useStyles();
   const themeHandler = React.useContext(ThemeSwitchContext);
+  const currentTheme = localStorage.getItem('theme');
+
+    var theme;
+
+    if (currentTheme === 'light') {
+        theme = false;
+    } else if (currentTheme === 'dark'){
+        theme = true;
+    } else {
+        theme = false;    
+    }
+
+  const [state, setState] = React.useState(theme);
+
+  const handleChange = event => {
+
+    if (event.target.checked){
+        console.log('true');
+        themeHandler('dark');
+        setState(true);
+        }
+    else {
+        console.log('false')
+        themeHandler('light');
+        setState(false);
+        }
+
+    };
+    
+  const classes = useStyles();
 
   return (
     <Card>
-        <List component="nav" className={classes.root} aria-label="mailbox folders" >
-            <ListItem button>
-                <Brightness4Icon fontSize="small"/>
-                <ListItemText primary="Dark Mode" />
+        <List component="nav" className={classes.root} >
+            <ListItem >
+                <Brightness4Icon fontSize="small" className={classes.icons}/>
+                <ListItemText primary="Dark Mode" className={classes.dark} />
                 <Switch 
-                onClick={() => theme.palette.type === 'light' ? themeHandler('dark') : themeHandler('light')}
+                checked={state}
+                onClick={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}/>
             </ListItem>
         <Divider />
-            <ListItem button>
-                <ListItemText primary="Color Blind" />
+            <ListItem >
+                <ColorLensIcon className={classes.icons}/>
+                <ListItemText primary="Color Blind" className={classes.color} />
                 <Switch 
                 inputProps={{ 'aria-label': 'primary checkbox' }}/>
             </ListItem>
+        <Divider />
         </List>
-        <IconButton onClick={() => theme.palette.type === 'light' ? themeHandler('dark') : themeHandler('light')}> Switch Theme </IconButton>
     </Card>
   );
 }

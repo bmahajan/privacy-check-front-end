@@ -7,7 +7,7 @@ export default function CompetitorAnalysisPanel(props) {
 
   return (
     <div>
-      <Paper style={{width: 400, height: 350}}>
+      <Paper style={{width: 400, height: 362}}>
         <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
           <Grid item>
             <DataVisualization />
