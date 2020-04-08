@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Grid, Card} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
@@ -7,7 +7,9 @@ import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MainPanelButton from './MainPanelButton';
 import ScoreButton from './ScoreButton'
+import ScoreBubble from './ScoreBubble'
 import Encrypt from '../Misc/Encrypt';
+import App from '../App';
 
 const useStyles = makeStyles(theme => ({
   scoreButton: {
@@ -27,6 +29,11 @@ export default function MainPanel(props){
     const HandleRunClick = () =>{
       alert('Clicked Run')
     }
+
+    var items = <App />;
+    console.log('reached');
+    console.log(items)
+
       return(
         <Card
         style = {{width: 400}}>
@@ -47,6 +54,12 @@ export default function MainPanel(props){
                  pane={'BreakdownPanel'}
                  scores={[]}
                 />
+            </Grid>
+            <Grid item
+            flex-basis='content'>
+                <ScoreBubble 
+                  value={items.Control_Scores}
+                  />
             </Grid>
             <Grid item
             flex-basis='content'>
