@@ -5,11 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import PanelManager from "./components/PanelManager";
 import App from './components/App'
 
-ReactDOM.render(<div>
-    <App />,
-    <PanelManager />
-    </div>
-    ,document.getElementById('root'));
+ReactDOM.render(<PanelManager /> ,document.getElementById('root'));
 
 
 
