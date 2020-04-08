@@ -6,6 +6,7 @@ import SettingsPanel from './SettingsPanel/SettingsPanel';
 import AboutPanel from "./Misc/AboutPanel.js";
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
+import defaultResponse from '../data/defaultResponse';
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
@@ -25,7 +26,7 @@ export default function PanelManager() {
       return lightTheme;
     }
   });
-  const [response, setResponse] = React.useState();
+  const [response, setResponse] = React.useState(defaultResponse);
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
