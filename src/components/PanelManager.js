@@ -25,7 +25,37 @@ export default function PanelManager() {
       return lightTheme;
     }
   });
-  const [response, setResponse] = React.useState();
+  const [response, setResponse] = React.useState({items: {
+    "Market_Sector": "-",
+    "Control_Scores": [
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    "Domain_URL": "-",
+    "Privacy_Policy_URL": "-",
+    "Date_Last_Queried": "-",
+    "Date_Last_Edited": "-",
+    "GDPR_Scores": [
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ]
+  }});
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
@@ -75,10 +105,16 @@ export default function PanelManager() {
   };
 
   const apiCallHandler = () => {
+    console.log('Making call to api gateway...');
     fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/facebook.com')
       .then(res => res.json())
-      .then((data) => {setResponse(data)})
-      .catch(console.log)
+      .then((data) => {
+        console.log('Attempting to update response data');
+        setResponse({items: data});
+        console.log('Successfully updated response data!')
+      })
+      .then(console.log('Finished making call to api gateway!'))
+      .catch(console.log);
   };
 
   return (
