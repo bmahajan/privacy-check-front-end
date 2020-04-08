@@ -6,6 +6,7 @@ import SettingsPanel from './SettingsPanel/SettingsPanel';
 import AboutPanel from "./Misc/AboutPanel.js";
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
+import defaultResponse from '../data/defaultResponse';
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
@@ -25,37 +26,8 @@ export default function PanelManager() {
       return lightTheme;
     }
   });
-  const [response, setResponse] = React.useState({items: {
-    "Market_Sector": "-",
-    "Control_Scores": [
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-"
-    ],
-    "Domain_URL": "-",
-    "Privacy_Policy_URL": "-",
-    "Date_Last_Queried": "-",
-    "Date_Last_Edited": "-",
-    "GDPR_Scores": [
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-",
-      "-"
-    ]
-  }});
+
+  const [response, setResponse] = React.useState(defaultResponse);
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
@@ -110,7 +82,7 @@ export default function PanelManager() {
       .then(res => res.json())
       .then((data) => {
         console.log('Attempting to update response data');
-        setResponse({items: data});
+        setResponse(data);
         console.log('Successfully updated response data!')
       })
       .then(console.log('Finished making call to api gateway!'))
