@@ -9,6 +9,8 @@ import darkTheme from './Themes/darkTheme';
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
+export const ApiCallContext = React.createContext();
+export const ApiResponseContext = React.createContext();
 
 export default function PanelManager() {
 
@@ -23,6 +25,7 @@ export default function PanelManager() {
       return lightTheme;
     }
   });
+  const [response, setResponse] = React.useState();
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
@@ -71,12 +74,23 @@ export default function PanelManager() {
     }
   };
 
+  const apiCallHandler = () => {
+    fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/facebook.com')
+      .then(res => res.json())
+      .then((data) => {setResponse(data)})
+      .catch(console.log)
+  };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
         <PanelSwitchContext.Provider value={panelSwitchHandler}>
           <ThemeSwitchContext.Provider value={themeSwitchHandler}>
-            {panel}
+            <ApiCallContext.Provider value={apiCallHandler}>
+              <ApiResponseContext.Provider value={response}>
+                {panel}
+              </ApiResponseContext.Provider>
+            </ApiCallContext.Provider>
           </ThemeSwitchContext.Provider>
         </PanelSwitchContext.Provider>
       </ThemeProvider>
