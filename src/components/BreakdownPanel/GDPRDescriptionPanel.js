@@ -3,6 +3,7 @@ import DescriptionPanel from "./DescriptionPanel";
 import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
 import { withStyles, makeStyles } from "@material-ui/core";
 import MuiGridList from '@material-ui/core/GridList'
+import { ApiResponseContext } from "../PanelManager";
 
 const GridList = withStyles(theme => ({
   root: {
@@ -23,11 +24,13 @@ export default function GDPRDescriptionPanel(props) {
   const [expanded, setExpanded] = React.useState(false);
   const [scores, setScores] = React.useState(['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-']);
 
+  const response = React.useContext(ApiResponseContext);
+
   const handleExpansionChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  setTimeout(() => setScores([10, 10, 10, 10, 10, 10, 10, 10, 0, 0]), 2000);
+  setTimeout(() => setScores(response.GDPR_Scores), 2000);
 
   return (
     <div className={classes.root}>

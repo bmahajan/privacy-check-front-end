@@ -2,7 +2,8 @@ import React from 'react';
 import { Email, CreditCard, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
 import DescriptionPanel from "./DescriptionPanel";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import MuiGridList from '@material-ui/core/GridList'
+import MuiGridList from '@material-ui/core/GridList';
+import { ApiResponseContext } from "../PanelManager";
 
 const GridList = withStyles(theme => ({
   root: {
@@ -30,6 +31,8 @@ export default function ControlDescriptionPanel(props) {
   const handleChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const response = React.useContext(ApiResponseContext); //add in the scores
 
   return (
     <div className={classes.root}>
