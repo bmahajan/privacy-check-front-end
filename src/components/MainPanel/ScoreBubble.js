@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import { green, yellow, red } from '@material-ui/core/colors';
-import { ApiResponseContext } from "../PanelManager";
+import { ApiResponseContext, OverallScoreContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   avatar: {
@@ -35,13 +35,14 @@ const useStyles = makeStyles(theme => ({
 function ScoreBubble(props) {
   const classes = useStyles(props);
 
+  const overallScore = React.useContext(OverallScoreContext);
   const response = React.useContext(ApiResponseContext);
   console.log(response);
 
   return(
     <Avatar className={classes.avatar}>
       <Typography variant='h4'>
-        {response.Control_Scores[0]}
+        {/*response.Control_Scores[0]*/ overallScore.GDPR}
       </Typography>
     </Avatar>
   );

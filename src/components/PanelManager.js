@@ -12,6 +12,7 @@ export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
 export const ApiCallContext = React.createContext();
 export const ApiResponseContext = React.createContext();
+export const OverallScoreContext = React.createContext();
 
 export default function PanelManager() {
 
@@ -28,6 +29,9 @@ export default function PanelManager() {
   });
 
   const [response, setResponse] = React.useState(defaultResponse);
+
+  const defaultOverallScore = {Control: 0, GDPR: 0};
+  const [overallScore, setOverallScore] = React.useState(defaultOverallScore);
 
   console.log('Active Panel Initialized to ' + panel);
   console.log('Active Theme Initialized to ' + lightTheme.palette.type);
@@ -78,16 +82,45 @@ export default function PanelManager() {
 
   const apiCallHandler = () => {
     console.log('Making call to api gateway...');
-    fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/facebook.com')
+    fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/?url=facebook.com')
       .then(res => res.json())
       .then((data) => {
         console.log('Attempting to update response data');
         setResponse(data);
         console.log('Successfully updated response data!')
+        console.log(data);
+        overallScoreHandler(data);
       })
       .then(console.log('Finished making call to api gateway!'))
       .catch(console.log);
   };
+
+  // const GDPRScoreReducer = (acc, curVal, curInd, array) => {
+  //   return(acc + (curVal == 2 ? 10 : 0))
+  // }
+
+  // const ControlScoreReducer = (acc, curVal, curInd, array) => {
+  //   return(acc + (curVal*5 -5))
+  // }
+
+  const overallScoreHandler = (data) => {
+    console.log('calculateing overall score...')
+    var GDPROverallScore = 0;
+    var ControlOverallScore = 0;
+
+    for(var i = 0; i < 10; i++){
+        ControlOverallScore = ControlOverallScore + ((data.Control_Scores[i])*5 -5);
+        GDPROverallScore = GDPROverallScore + (data.GDPR_Scores[i] == 2 ? 10 : 0);
+    }
+
+    setOverallScore({Control: ControlOverallScore, GDPR: GDPROverallScore});
+    
+    // setOverallScore({
+    //   Control: data.Control_Scores.reduce(ControlScoreReducer), 
+    //   GDPR: data.GDPR_Scores.reduce(GDPRScoreReducer)
+    // })
+    
+  }
 
   return (
     <div>
@@ -96,7 +129,9 @@ export default function PanelManager() {
           <ThemeSwitchContext.Provider value={themeSwitchHandler}>
             <ApiCallContext.Provider value={apiCallHandler}>
               <ApiResponseContext.Provider value={response}>
-                {panel}
+                <OverallScoreContext.Provider value={overallScore}>
+                  {panel}
+                </OverallScoreContext.Provider>
               </ApiResponseContext.Provider>
             </ApiCallContext.Provider>
           </ThemeSwitchContext.Provider>

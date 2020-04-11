@@ -13,7 +13,7 @@ import StopRoundedIcon from '@material-ui/icons/StopRounded';
 import { green, blue, red } from '@material-ui/core/colors';
 import MainPanelButton from './MainPanelButton'
 import MainPanel from './MainPanel';
-import { ApiCallContext } from "../PanelManager";
+import { ApiCallContext, OverallScoreContext} from "../PanelManager";
 
 
 const useStyles = makeStyles(theme => ({
@@ -84,7 +84,7 @@ export default function RunButton(props) {
     const [count, setCount] = React.useState(0);
 
     const apiCallHandler = React.useContext(ApiCallContext);
-  
+    
     const handleButtonClick = () => {
       setSuccess(false);
       setLoading(true);
