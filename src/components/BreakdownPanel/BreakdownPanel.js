@@ -5,8 +5,8 @@ import { AppBar, Tabs, Tab, Card } from '@material-ui/core';
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import NavigationBar from '../Misc/NavigationBar';
-import ControlScoreBreakdown from "./ControlComponenets/ControlScoreBreakdown";
-import GDPRScoreBreakdown from "./GDPRComponenets/GDPRScoreBreakdown";
+import ControlBreakdownPanel from "./ControlBreakdownPanel/ControlBreakdownPanel";
+import GDPRBreakdownPanel from "./GDPRBreakdownPanel/GDPRBreakdownPanel";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,10 +59,10 @@ export default function BreakdownPanel() {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <ControlScoreBreakdown />
+          <ControlBreakdownPanel />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <GDPRScoreBreakdown />
+          <GDPRBreakdownPanel />
         </TabPanel>
       </Card>
     </div>

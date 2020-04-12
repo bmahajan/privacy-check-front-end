@@ -2,7 +2,7 @@ import React from "react";
 import CompetitorAnalysisPanel from "../CompetitorAnalysisComponenets/CompetitorAnalysisPanel";
 import GDPRFeatureList from "./GDPRFeatureList";
 
-export default function GDPRScoreBreakdown(props) {
+export default function GDPRBreakdownPanel(props) {
 
   return (
     <div>
