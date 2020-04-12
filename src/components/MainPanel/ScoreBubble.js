@@ -33,11 +33,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ScoreBubble(props) {
+
   const classes = useStyles(props);
 
   const overallScore = React.useContext(OverallScoreContext);
   const response = React.useContext(ApiResponseContext);
-  console.log(response);
 
   return(
     <Avatar className={classes.avatar}>

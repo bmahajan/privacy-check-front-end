@@ -40,7 +40,6 @@ export default function MainPanelButton(props) {
     };
   }, []);
 
-
   return(
     <div className={classes.root}>
       <div className={classes.wrapper}>
@@ -51,5 +50,5 @@ export default function MainPanelButton(props) {
         </Fade>
       </div>
     </div>
-  )
+  );
 }
