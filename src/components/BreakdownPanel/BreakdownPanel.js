@@ -14,6 +14,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div>
+
+    </div>
+  );
+}
+
 export default function BreakdownPanel() {
 
   const classes = useStyles();
@@ -24,8 +34,4 @@ export default function BreakdownPanel() {
       <NavigationBar title={'Score Breakdown'} color={'orange'} back={'RunPanel'}/>
     </div>
   );
-}
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
 }

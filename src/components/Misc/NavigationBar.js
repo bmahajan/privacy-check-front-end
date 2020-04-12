@@ -33,7 +33,7 @@ export default function NavigationBar(props) {
     <div className={classes.root}>
       <AppBar className={classes.appbar} position='static'>
         <Toolbar variant={'dense'}>
-          <IconButton onClick={() => panelHandler(props.backLabel)} edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
+          <IconButton onClick={() => panelHandler('RunPanel')} edge='start' className={classes.backButton} color='inherit' aria-label='menu'>
             <ArrowBackIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title} align='center'>
