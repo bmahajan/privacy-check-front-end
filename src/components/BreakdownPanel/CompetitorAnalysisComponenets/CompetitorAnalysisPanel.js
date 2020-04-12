@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
-import ScoreBubble from '../../MainPanel/ScoreBubble';
+import ScoreBubble from '../../RunPanel/ScoreBubble';
 import DataVisualization from './DataVisualization'
 
 export default function CompetitorAnalysisPanel(props) {

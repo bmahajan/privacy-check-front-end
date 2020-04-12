@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MainPanelButton(props) {
+export default function RunPanelButton(props) {
 
   const panelHandler = React.useContext(PanelSwitchContext);
 

@@ -11,8 +11,8 @@ import SaveIcon from '@material-ui/icons/Save'
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import StopRoundedIcon from '@material-ui/icons/StopRounded';
 import { green, blue, red } from '@material-ui/core/colors';
-import MainPanelButton from './MainPanelButton'
-import MainPanel from './MainPanel';
+import RunPanelButton from './RunPanelButton'
+import RunPanel from './RunPanel';
 import { ApiCallContext, OverallScoreContext} from "../PanelManager";
 
 
@@ -96,14 +96,10 @@ export default function RunButton(props) {
           return count + 3;
         }
       });
-      // MainPanel.clickHandler();
-      //MainPanelButton(props.state = 0);
-      //setChecked(false);
       
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-        //setChecked(true);
         }, 2000);
       apiCallHandler();
     };

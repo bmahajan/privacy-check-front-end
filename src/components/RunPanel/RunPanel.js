@@ -5,7 +5,7 @@ import RunButton from './RunButton';
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MainPanelButton from './MainPanelButton';
+import RunPanelButton from './RunPanelButton';
 import ScoreButton from './ScoreButton'
 import ScoreBubble from './ScoreBubble'
 import Encrypt from '../Misc/Encrypt';
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MainPanel(props){
+export default function RunPanel(props){
 
   const classes = useStyles();
 
@@ -57,13 +57,13 @@ export default function MainPanel(props){
           <Grid item>
             <Grid container direction={'row'} padding={3}>
               <Grid item>
-                <MainPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} />
+                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} />
               </Grid>
               <Grid item>
-                <MainPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} />
+                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} />
               </Grid>
               <Grid item>
-                <MainPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} />
+                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} />
               </Grid>
             </Grid>
           </Grid>

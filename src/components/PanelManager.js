@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
-import MainPanel from './MainPanel/MainPanel';
+import RunPanel from './RunPanel/RunPanel';
 import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
 import SettingsPanel from './SettingsPanel/SettingsPanel';
 import AboutPanel from "./AboutPanel/AboutPanel.js";
@@ -17,7 +17,7 @@ export const OverallScoreContext = React.createContext();
 
 export default function PanelManager() {
 
-  const [panel, setPanel] = React.useState(<MainPanel />);
+  const [panel, setPanel] = React.useState(<RunPanel />);
   const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
@@ -41,7 +41,7 @@ export default function PanelManager() {
     console.log('Attempting to change active panel to ' + panelName);
     switch (panelName) {
       case 'RunPanel':
-        setPanel(<MainPanel />);
+        setPanel(<RunPanel />);
         console.log('Successfully changed active panel to ' + panelName);
         break;
       case 'AboutPanel':
