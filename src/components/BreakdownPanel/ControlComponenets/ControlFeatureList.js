@@ -1,9 +1,9 @@
 import React from 'react';
 import { Email, CreditCard, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
-import DescriptionField from "./DescriptionField";
+import DescriptionField from "../DescriptionField";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiGridList from '@material-ui/core/GridList';
-import { ApiResponseContext } from "../PanelManager";
+import { ApiResponseContext } from "../../PanelManager";
 
 const GridList = withStyles(theme => ({
   root: {

@@ -1,9 +1,9 @@
 import React from 'react';
-import DescriptionField from "./DescriptionField";
+import DescriptionField from "../DescriptionField";
 import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
 import { withStyles, makeStyles } from "@material-ui/core";
 import MuiGridList from '@material-ui/core/GridList'
-import { ApiResponseContext } from "../PanelManager";
+import { ApiResponseContext } from "../../PanelManager";
 
 const GridList = withStyles(theme => ({
   root: {

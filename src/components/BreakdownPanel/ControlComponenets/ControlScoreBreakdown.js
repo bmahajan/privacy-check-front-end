@@ -1,6 +1,6 @@
 import React from "react";
 import ControlFeatureList from "./ControlFeatureList";
-import CompetitorAnalysisPanel from "./CompetitorAnalysisPanel";
+import CompetitorAnalysisPanel from "../CompetitorAnalysisComponenets/CompetitorAnalysisPanel";
 
 export default function ControlScoreBreakdown(props) {
 

@@ -5,8 +5,8 @@ import { AppBar, Tabs, Tab, Card } from '@material-ui/core';
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import NavigationBar from '../Misc/NavigationBar';
-import ControlScoreBreakdown from "./ControlScoreBreakdown";
-import GDPRScoreBreakdown from "./GDPRScoreBreakdown";
+import ControlScoreBreakdown from "./ControlComponenets/ControlScoreBreakdown";
+import GDPRScoreBreakdown from "./GDPRComponenets/GDPRScoreBreakdown";
 
 const useStyles = makeStyles(theme => ({
   root: {
