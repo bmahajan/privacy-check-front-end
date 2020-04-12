@@ -6,6 +6,7 @@ import { AppBar, Tabs, Tab } from '@material-ui/core';
 import GDPRScoreBreakdown from "./GDPRScoreBreakdown";
 import ControlScoreBreakdown from "./ControlScoreBreakdown";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import Card from "@material-ui/core/Card";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,7 +32,9 @@ export default function BreakdownPanel() {
 
   return (
     <div className={classes.root}>
-      <NavigationBar title={'Score Breakdown'} color={'orange'} back={'RunPanel'}/>
+      <Card>
+        <NavigationBar title={'Score Breakdown'} color={'orange'} back={'RunPanel'}/>
+      </Card>
     </div>
   );
 }
