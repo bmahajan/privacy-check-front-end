@@ -1,6 +1,6 @@
 import React from 'react';
 import { Email, CreditCard, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
-import DescriptionPanel from "./DescriptionPanel";
+import DescriptionField from "./DescriptionField";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiGridList from '@material-ui/core/GridList';
 import { ApiResponseContext } from "../PanelManager";
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ControlDescriptionPanel(props) {
+export default function ControlFeatureList(props) {
 
   const classes = useStyles();
 
@@ -37,63 +37,63 @@ export default function ControlDescriptionPanel(props) {
   return (
     <div className={classes.root}>
       <GridList>
-        <DescriptionPanel
+        <DescriptionField
           name={'Email Security'}
           icon={<Email />}
           details={'How well does this website protect your email address?'}
           expanded={expanded === 'p1'}
           onChange={handleChange('p1')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'PII Security'}
           icon={<CreditCard />}
           details={'How well does this website protect your credit card information, address, and social security number?'}
           expanded={expanded === 'p2'}
           onChange={handleChange('p2')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'Targeted Advertising'}
           icon={<LocalOffer />}
           details={'Does this website use your information for targeted advertisements?'}
           expanded={expanded === 'p3'}
           onChange={handleChange('p3')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'Location Tracking'}
           icon={<Explore />}
           details={'How well does this website protect your location information?'}
           expanded={expanded === 'p4'}
           onChange={handleChange('p4')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'COPPA Compliance'}
           icon={<ChildCare />}
           details={'How well does this website comply with COPPA?'}
           expanded={expanded === 'p5'}
           onChange={handleChange('p5')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'Law Enforcement'}
           icon={<Security />}
           details={'How well does this website protect your information from law enforcement?'}
           expanded={expanded === 'p6'}
           onChange={handleChange('p6')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'Privacy Policy Opt-In/Opt-Out'}
           icon={<ExitToApp />}
           details={'Does this website allow you to opt out after changing their privacy policy?'}
           expanded={expanded === 'p7'}
           onChange={handleChange('p7')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'Data Control'}
           icon={<Lock />}
           details={'How much control does this website give the user over their data?'}
           expanded={expanded === 'p8'}
           onChange={handleChange('p8')}
         />
-        <DescriptionPanel
+        <DescriptionField
           name={'PII Stripping'}
           icon={<Person />}
           details={'How well does this website strip PII from collected data?'}

@@ -1,28 +1,31 @@
 import React from 'react';
 import NavigationBar from '../Misc/NavigationBar';
-import GDPRDescriptionPanel from "./GDPRDescriptionPanel";
+import GDPRFeatureList from "./GDPRFeatureList";
 import CompetitorAnalysisPanel from "./CompetitorAnalysisPanel";
 import { AppBar, Tabs, Tab } from '@material-ui/core';
+import GDPRScoreBreakdown from "./GDPRScoreBreakdown";
+import ControlScoreBreakdown from "./ControlScoreBreakdown";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-class BreakdownPanel extends React.Component {
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: theme.sizing.width,
+    maxHeight: theme.sizing.maxHeight,
+  },
+}));
 
-  constructor(props) {
-    super(props);
-    this.state = {
+export default function BreakdownPanel() {
 
-    };
-  }
-  render() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
-    return (
-      <div style={{maxWidth: 400}}>
-        <NavigationBar title={'Score Breakdown'} color={'orange'}/>
-        <CompetitorAnalysisPanel />
-        <GDPRDescriptionPanel />
-      </div>
-    );
-  }
-
+  return (
+    <div className={classes.root}>
+      <NavigationBar title={'Score Breakdown'} color={'orange'} back={'RunPanel'}/>
+    </div>
+  );
 }
 
-export default BreakdownPanel;
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+}

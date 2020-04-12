@@ -12,10 +12,13 @@ import Encrypt from '../Misc/Encrypt';
 import App from '../App';
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    width: theme.sizing.width,
+    height: theme.sizing.maxHeight,
+  },
   scoreButton: {
     width: 100,
   },
-
   button: {
     backgroundColor: 'orange'
   }
@@ -35,62 +38,63 @@ export default function MainPanel(props){
     console.log(items)
 
       return(
-        <Card
-        style = {{width: 400}}>
-          <Grid container
-          direction = 'column'
-          alignContent = 'center'
-          alignItems = 'center'
-          spacing = {3}>
-            <Grid item
-            flex-basis='content'>
-              <Card elevation={0}>
-                {<Encrypt />}
-              </Card>
-            </Grid>
-            <Grid item
-            flex-basis='content'>
-                <ScoreButton 
-                 pane={'BreakdownPanel'}
-                 scores={[]}
+        <div className={classes.root}>
+          <Card>
+            <Grid container
+                  direction = 'column'
+                  alignContent = 'center'
+                  alignItems = 'center'
+                  spacing = {3}>
+              <Grid item
+                    flex-basis='content'>
+                <Card elevation={0}>
+                  {<Encrypt />}
+                </Card>
+              </Grid>
+              <Grid item
+                    flex-basis='content'>
+                <ScoreButton
+                  pane={'BreakdownPanel'}
+                  scores={[]}
                 />
-            </Grid>
-            <Grid item
-            flex-basis='content'>
-                <ScoreBubble 
+              </Grid>
+              <Grid item
+                    flex-basis='content'>
+                <ScoreBubble
                   value={items.Control_Scores}
-                  />
-            </Grid>
-            <Grid item
-            flex-basis='content'>
-              <RunButton onClick = {HandleRunClick}/>
-            </Grid>
-            <Grid item>
-              <Grid container
-              direction = 'row'
-              padding = {3}>
-                <Grid item>
-                  <MainPanelButton 
-                    icon={<SettingsIcon />} 
-                    pane={'SettingsPanel'}
-                  />
-                </Grid>
-                <Grid item>
-                  <MainPanelButton 
-                    icon={<BarChartRoundedIcon />}
-                    pane={'BreakdownPanel'}
-                  />
-                </Grid>
-                <Grid item>
-                  <MainPanelButton 
-                    icon={<HelpOutlineRoundedIcon />}
-                    pane={'AboutPanel'}
-                  />
+                />
+              </Grid>
+              <Grid item
+                    flex-basis='content'>
+                <RunButton onClick = {HandleRunClick}/>
+              </Grid>
+              <Grid item>
+                <Grid container
+                      direction = 'row'
+                      padding = {3}>
+                  <Grid item>
+                    <MainPanelButton
+                      icon={<SettingsIcon />}
+                      pane={'SettingsPanel'}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <MainPanelButton
+                      icon={<BarChartRoundedIcon />}
+                      pane={'BreakdownPanel'}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <MainPanelButton
+                      icon={<HelpOutlineRoundedIcon />}
+                      pane={'AboutPanel'}
+                    />
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Card>
+          </Card>
+        </div>
       );
     
 }

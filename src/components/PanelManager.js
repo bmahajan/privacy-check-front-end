@@ -3,10 +3,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import MainPanel from './MainPanel/MainPanel';
 import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
 import SettingsPanel from './SettingsPanel/SettingsPanel';
-import AboutPanel from "./Misc/AboutPanel.js";
+import AboutPanel from "./AboutPanel/AboutPanel.js";
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultResponse from '../data/defaultResponse';
+import generalTheme from "./Themes/generalTheme";
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
@@ -17,7 +18,7 @@ export const OverallScoreContext = React.createContext();
 export default function PanelManager() {
 
   const [panel, setPanel] = React.useState(<MainPanel />);
-  const [theme, setTheme] = React.useState(() => {
+  const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
       return lightTheme;
@@ -65,12 +66,12 @@ export default function PanelManager() {
     console.log('Attempting to change active theme to ' + themeName);
     switch (themeName) {
       case 'light':
-        setTheme(lightTheme);
+        setColorTheme(lightTheme);
         localStorage.setItem('theme', 'light');
         console.log('Successfully changed theme to ' + lightTheme.palette.type);
         break;
       case 'dark':
-        setTheme(darkTheme);
+        setColorTheme(darkTheme);
         localStorage.setItem('theme', 'dark');
         console.log('Successfully changed theme to ' + darkTheme.palette.type);
         break;
@@ -95,14 +96,6 @@ export default function PanelManager() {
       .catch(console.log);
   };
 
-  // const GDPRScoreReducer = (acc, curVal, curInd, array) => {
-  //   return(acc + (curVal == 2 ? 10 : 0))
-  // }
-
-  // const ControlScoreReducer = (acc, curVal, curInd, array) => {
-  //   return(acc + (curVal*5 -5))
-  // }
-
   const overallScoreHandler = (data) => {
     console.log('calculateing overall score...')
     var GDPROverallScore = 0;
@@ -114,28 +107,24 @@ export default function PanelManager() {
     }
 
     setOverallScore({Control: ControlOverallScore, GDPR: GDPROverallScore});
-    
-    // setOverallScore({
-    //   Control: data.Control_Scores.reduce(ControlScoreReducer), 
-    //   GDPR: data.GDPR_Scores.reduce(GDPRScoreReducer)
-    // })
-    
-  }
+  };
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <PanelSwitchContext.Provider value={panelSwitchHandler}>
-          <ThemeSwitchContext.Provider value={themeSwitchHandler}>
-            <ApiCallContext.Provider value={apiCallHandler}>
-              <ApiResponseContext.Provider value={response}>
-                <OverallScoreContext.Provider value={overallScore}>
-                  {panel}
-                </OverallScoreContext.Provider>
-              </ApiResponseContext.Provider>
-            </ApiCallContext.Provider>
-          </ThemeSwitchContext.Provider>
-        </PanelSwitchContext.Provider>
+      <ThemeProvider theme={generalTheme}>
+        <ThemeProvider theme={colorTheme}>
+          <PanelSwitchContext.Provider value={panelSwitchHandler}>
+            <ThemeSwitchContext.Provider value={themeSwitchHandler}>
+              <ApiCallContext.Provider value={apiCallHandler}>
+                <ApiResponseContext.Provider value={response}>
+                  <OverallScoreContext.Provider value={overallScore}>
+                    {panel}
+                  </OverallScoreContext.Provider>
+                </ApiResponseContext.Provider>
+              </ApiCallContext.Provider>
+            </ThemeSwitchContext.Provider>
+          </PanelSwitchContext.Provider>
+        </ThemeProvider>
       </ThemeProvider>
     </div>
   );

@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DescriptionPanel(props) {
+export default function DescriptionField(props) {
 
   const classes = useStyles();
 

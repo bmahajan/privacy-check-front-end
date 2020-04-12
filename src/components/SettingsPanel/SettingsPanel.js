@@ -5,8 +5,8 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 400,
-    maxHeight: 400
+    width: theme.sizing.width,
+    maxHeight: theme.sizing.maxHeight,
   },
 }));
 
@@ -16,7 +16,7 @@ export default function SettingsPanel(props) {
 
   return(
     <div className={classes.root}>
-      <NavigationBar title='Settings' color="orange"/>
+      <NavigationBar title='Settings' color='orange' backLabel='RunPanel'/>
       <div>
         <SettingsCard/>
       </div>
