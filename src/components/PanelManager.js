@@ -7,7 +7,7 @@ import AboutPanel from "./AboutPanel/AboutPanel.js";
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultResponse from '../data/defaultResponse';
-import generalTheme from "./Themes/generalTheme";
+import GlobalTheme from "./Themes/globalTheme";
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
@@ -111,7 +111,7 @@ export default function PanelManager() {
 
   return (
     <div>
-      <ThemeProvider theme={generalTheme}>
+      <ThemeProvider theme={GlobalTheme}>
         <ThemeProvider theme={colorTheme}>
           <PanelSwitchContext.Provider value={panelSwitchHandler}>
             <ThemeSwitchContext.Provider value={themeSwitchHandler}>
