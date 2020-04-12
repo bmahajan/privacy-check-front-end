@@ -6,7 +6,6 @@ export default function ControlScoreBreakdown(props) {
 
   return (
     <div>
-      Control Panel
       <CompetitorAnalysisPanel />
       <ControlFeatureList />
     </div>

@@ -6,7 +6,6 @@ export default function GDPRScoreBreakdown(props) {
 
   return (
     <div>
-      GDPR Panel
       <CompetitorAnalysisPanel />
       <GDPRFeatureList />
     </div>
