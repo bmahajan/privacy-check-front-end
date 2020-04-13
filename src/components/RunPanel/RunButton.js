@@ -60,6 +60,24 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+  function isPolicy() {
+    var res = 0, i, val;
+    var path = window.location.pathname;
+    path = path.toLowerCase();
+  
+    var dict = ["privacy", "legal", "conditions"]
+  
+    for (i of dict) {
+        val = path.search(i);
+        if (val >= 0) {
+            res = 1;
+            break;
+        }
+    }
+  
+    return res;
+  }
+
 export default function RunButton(props) {
     const classes = useStyles();
     const [loading, setLoading] = React.useState(false);
@@ -101,7 +119,14 @@ export default function RunButton(props) {
         setSuccess(true);
         setLoading(false);
         }, 2000);
-      apiCallHandler();
+
+      if(!isPolicy()){ // REVERSE THE CONDITION!!!
+        apiCallHandler();
+        console.log('IT IS NOT POLICY!')
+      }
+      else{
+        console.log('IT IS A POLICY')
+      }
     };
   
     return (

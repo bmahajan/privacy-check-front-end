@@ -14,24 +14,23 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 //     indetermined
 
 
-export default function statusIcon(props) {
+export default function StatusIcon(props) {
 
 
     console.log('Reached Function' + props.score);
-
     if (props.score == 2){
         return(
-        <CheckIcon style={{color: "green"}}/>
+        <CheckIcon style={{color: "green", fontSize: 30, align: 'center'}}/>
     );
     }
     else if (props.score == 1){
         return(
-        <ClearIcon style={{color: "red"}}/>
+        <ClearIcon style={{color: "red", fontSize: 30, align: 'center'}}/>
         );
     }
     else{
         return(
-        <RemoveIcon  style={{color: "yellow"}}/>
+        <RemoveIcon  style={{color: "grey", fontSize: 30}}/>
         );
     }
 }

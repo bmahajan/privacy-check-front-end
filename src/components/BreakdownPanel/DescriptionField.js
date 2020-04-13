@@ -6,6 +6,8 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
+import { green } from '@material-ui/core/colors';
+import StatusIcon from './StatusIcon';
 
 const ExpansionPanel = withStyles(theme => ({
   root: {
@@ -56,13 +58,22 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     marginLeft: theme.spacing(-1),
+    style: {
+      background: green,
+    }
   },
   heading: {
     marginLeft: theme.spacing(2),
+    style: {
+      alignItems: 'center'
+    }
   },
   scoreHeading: {
     marginLeft: theme.spacing(2),
   },
+  icons: {
+    marginBottom: 50
+  }
 }));
 
 export default function DescriptionField(props) {
@@ -75,8 +86,9 @@ export default function DescriptionField(props) {
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid direction={'column'}>
-            <Typography className={classes.heading}>{props.name}</Typography>
-            <Typography className={classes.scoreHeading}>{props.score}</Typography>
+            <Typography className={classes.heading}>{props.name}
+            <StatusIcon className={classes.icons} score={props.score}>{console.log(props.score)}</StatusIcon>
+            </Typography>
           </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>

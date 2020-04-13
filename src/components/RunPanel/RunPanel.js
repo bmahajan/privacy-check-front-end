@@ -30,7 +30,6 @@ export default function RunPanel(props){
   }
 
   var items = <App />;
-  console.log('reached');
   console.log(items)
 
   return(
