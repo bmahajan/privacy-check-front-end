@@ -13,6 +13,7 @@ import StopRoundedIcon from '@material-ui/icons/StopRounded';
 import { green, blue, red } from '@material-ui/core/colors';
 import RunPanelButton from './RunPanelButton'
 import RunPanel from './RunPanel';
+import Tooltip from '@material-ui/core/Tooltip'
 import { ApiCallContext, OverallScoreContext} from "../PanelManager";
 
 
@@ -108,33 +109,23 @@ export default function RunButton(props) {
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <Fade 
-            in={checked}
-            style={{ transformOrigin: '0 0 0' }}
-            {...(checked ? { timeout: 1000 } : { timeout: 1000 })}>
-            <Fab
+          in={checked}
+          style={{ transformOrigin: '0 0 0' }}
+          {...(checked ? { timeout: 1000 } : { timeout: 1000 })}>
+            <Tooltip title="Click to evaluate privacy policy">
+              <Fab
               aria-label="save"
               color="secondary"
               className={buttonClassname}
               onClick={handleButtonClick}
-            >
-              {/*success ? <ReplayIcon /> : <StopRoundedIcon />*/}
-              {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
-            </Fab>
+              >
+                {/*success ? <ReplayIcon /> : <StopRoundedIcon />*/}
+                {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
+              </Fab>
+            </Tooltip>
           </Fade>
           {loading && <CircularProgress size={68} className={classes.fabProgress} />}
         </div>
-        {/* <div className={classes.wrapper}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={buttonClassname}
-            disabled={loading}
-            onClick={handleButtonClick}
-          >
-            Accept terms
-          </Button>
-          {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
-        </div> */}
       </div>
     );
   }
