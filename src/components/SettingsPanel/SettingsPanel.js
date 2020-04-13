@@ -18,7 +18,7 @@ export default function SettingsPanel(props) {
   return(
     <div className={classes.root}>
       <Card>
-        <NavigationBar title='Settings' color='orange' backLabel='RunPanel'/>
+        <NavigationBar title='Settings' backLabel='RunPanel'/>
         <SettingsCard/>
       </Card>
     </div>

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     width: 100,
   },
   button: {
-    backgroundColor: 'orange'
+    backgroundColor: theme.palette.secondary[700],
   },
 }));
 

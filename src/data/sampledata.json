@@ -12,19 +12,5 @@
       80
     ],
     "markers": []
-  },
-  {
-    "id": "Control",
-    "ranges": [
-      40,
-      60,
-      80,
-      90,
-      100
-    ],
-    "measures": [
-      50
-    ],
-    "markers": []
   }
 ]

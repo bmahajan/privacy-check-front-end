@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
         return props.width;
       }
     },
+    marginBottom: 5
   }
 }));
 

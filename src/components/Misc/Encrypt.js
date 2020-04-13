@@ -4,9 +4,11 @@ import { useDencrypt } from "use-dencrypt-effect";
 import "./styles.css";
 
 const values = ["PrivacyCheck™"];
-
+const options = {
+  char: ["_"], 
+};
 const Encrypt = () => {
-  const { result, dencrypt } = useDencrypt();
+  const { result, dencrypt } = useDencrypt(options);
 
   React.useEffect(() => {
     let i = 0;
@@ -18,7 +20,7 @@ const Encrypt = () => {
     }, 0);
 
     return () => clearInterval(action);
-  }, []);
+  }, [0]);
 
   return <h2>{result}</h2>;
 };

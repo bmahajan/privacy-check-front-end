@@ -85,13 +85,13 @@ export default function SettingsCard(props) {
                 onClick={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}/>
             </ListItem>
-        <Divider />
+        {/* <Divider />
             <ListItem >
                 <ColorLensIcon className={classes.icons}/>
                 <ListItemText primary="Color Blind" className={classes.color} />
                 <Switch 
                 inputProps={{ 'aria-label': 'primary checkbox' }}/>
-            </ListItem>
+            </ListItem> */}
         <Divider />
         </List>
     </Card>

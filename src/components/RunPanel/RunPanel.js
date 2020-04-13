@@ -7,7 +7,7 @@ import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
 import RunPanelButton from './RunPanelButton';
 import ScoreButton from './ScoreButton'
-import ScoreBubble from './ScoreBubble'
+import ScoreBubble from '../BreakdownPanel/ScoreBubble'
 import Encrypt from '../Misc/Encrypt';
 import App from '../App';
 
@@ -39,7 +39,7 @@ export default function RunPanel(props){
         <Grid container direction={'column'} alignContent={'center'} alignItems={'center'} spacing={3}>
           <Grid item flex-basis={'content'}>
             <Card elevation={0}>
-              <Encrypt />
+              <Encrypt interval={500} />
             </Card>
           </Grid>
           <Grid item flex-basis={'content'}>

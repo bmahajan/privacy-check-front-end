@@ -47,18 +47,18 @@ export default function BreakdownPanel() {
   return (
     <div className={classes.root}>
       <Card>
-        <NavigationBar title={'Score Breakdown'} color={'orange'} />
+        <NavigationBar title={'Score Breakdown'} />
         <AppBar position={'static'} color={'default'}>
           <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'primary'} variant={'fullWidth'} aria-label={'Score switching'}>
-            <Tab label={'Control Breakdown'} />
             <Tab label={'GDPR Breakdown'} />
+            <Tab label={'Control Breakdown'} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <ControlBreakdownPanel />
+          <GDPRBreakdownPanel />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <GDPRBreakdownPanel />
+          <ControlBreakdownPanel />
         </TabPanel>
       </Card>
     </div>

@@ -17,7 +17,7 @@ export default function AboutPanel(props) {
   return (
     <div className={classes.root}>
       <Card>
-        <NavigationBar title='About' color="orange" />
+        <NavigationBar title='About'/>
         <Paper>
           <Typography variant='h6' align='center'>
             General disclaimer: The information contained in the PrivacyCheck Chrome Extension is for informational purposes only and
