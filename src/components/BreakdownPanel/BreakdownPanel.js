@@ -17,10 +17,11 @@ const useStyles = makeStyles(theme => ({
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
   return (
     <div>
       <Typography>
-        {value === index && <Box p={2}>{children}</Box>}
+        {value === index && <Box>{children}</Box>}
       </Typography>
     </div>
   );
