@@ -19,9 +19,6 @@ const useStyles = makeStyles(theme => ({
   scoreButton: {
     width: 100,
   },
-  button: {
-    backgroundColor: 'orange'
-  },
 }));
 
 export default function RunPanel(props){
