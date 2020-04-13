@@ -50,13 +50,13 @@ export default function RunPanel(props){
           <Grid item>
             <Grid container direction={'row'} padding={3}>
               <Grid item>
-                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} />
+                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} buttonTip={'Settings'}/>
               </Grid>
               <Grid item>
-                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} />
+                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} buttonTip={'Score Breakdown'}/>
               </Grid>
               <Grid item>
-                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} />
+                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} buttonTip={'About'}/>
               </Grid>
             </Grid>
           </Grid>

@@ -2,6 +2,7 @@ import React from 'react';
 import { IconButton, Fade } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import { PanelSwitchContext } from "../PanelManager";
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,11 +44,13 @@ export default function RunPanelButton(props) {
   return(
     <div className={classes.root}>
       <div className={classes.wrapper}>
-        <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1000 } : { timeout: 1000 })}>
-          <IconButton aria-label={props.panel} onClick={() => panelHandler(props.panel)}>
-            {props.icon}
-          </IconButton>
-        </Fade>
+        <Tooltip title={props.buttonTip} placement="top">
+          <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1000 } : { timeout: 1000 })}>
+            <IconButton aria-label={props.panel} onClick={() => panelHandler(props.panel)}>
+              {props.icon}
+            </IconButton>
+          </Fade>
+        </Tooltip>
       </div>
     </div>
   );
