@@ -49,9 +49,6 @@ export default function RunPanel(props){
             <ScoreButton pane={'BreakdownPanel'} scores={[]} />
           </Grid>
           <Grid item flex-basis={'content'}>
-            <ScoreBubble value={items.Control_Scores} />
-          </Grid>
-          <Grid item flex-basis={'content'}>
             <RunButton onClick={HandleRunClick} />
           </Grid>
           <Grid item>

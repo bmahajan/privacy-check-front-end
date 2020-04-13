@@ -29,13 +29,13 @@ export default function ScoreButton (props){
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} style={{width: 100}}>
           <div>
             <Typography variant="caption"> GDPR </Typography>
-            <Typography varitan="title"> {overallScore.GDPR} </Typography>
+            <Typography variant="h3"> {overallScore.GDPR} </Typography>
           </div>
         </Button>
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} style={{width: 100}}>
           <div>
             <Typography variant="caption"> Control </Typography>
-            <Typography varitan="title"> {overallScore.Control} </Typography>
+            <Typography variant="h3"> {overallScore.Control} </Typography>
           </div>
         </Button>
       </ButtonGroup>
