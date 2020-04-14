@@ -4,6 +4,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { PanelSwitchContext } from "../PanelManager";
 import { orange } from "@material-ui/core/colors";
+import Logo from "../../PrivacyCheck_Logo.png";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,6 +41,7 @@ export default function NavigationBar(props) {
           <Typography variant='h6' className={classes.title} align='center'>
             {props.title}
           </Typography>
+          <img src={Logo} alt="website logo" />
         </Toolbar>
       </AppBar>
     </div>
