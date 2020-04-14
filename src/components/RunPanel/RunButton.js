@@ -1,21 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-    Fab,
-    CircularProgress,
-    Fade,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'
+import { Fab, CircularProgress, Fade, makeStyles } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 import ReplayIcon from '@material-ui/icons/Replay'
-import SaveIcon from '@material-ui/icons/Save'
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import StopRoundedIcon from '@material-ui/icons/StopRounded';
 import { green, blue, red } from '@material-ui/core/colors';
-import RunPanelButton from './RunPanelButton'
-import RunPanel from './RunPanel';
 import Tooltip from '@material-ui/core/Tooltip'
-import { ApiCallContext, OverallScoreContext} from "../PanelManager";
-
+import { ApiCallContext } from "../PanelManager";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -59,98 +52,99 @@ const useStyles = makeStyles(theme => ({
       marginTop: -12,
       marginLeft: -12,
     },
+    dialogBox: {
+      width: theme.panel.maxWidth,
+    },
   }));
 
-  function isPolicy() {
-    var res = 0, i, val;
-    var path = window.location.pathname;
-    path = path.toLowerCase();
-  
-    var dict = ["privacy", "legal", "conditions"]
-  
-    for (i of dict) {
-        val = path.search(i);
-        if (val >= 0) {
-            res = 1;
-            break;
-        }
-    }
-  
-    return res;
-  }
-
 export default function RunButton(props) {
-    const classes = useStyles();
-    const [loading, setLoading] = React.useState(false);
-    const [success, setSuccess] = React.useState(false);
-    const [begin, setBegin] = React.useState(true);
-    const timer = React.useRef();
-    const [checked, setChecked] = React.useState(true);
-    const [loadingstate, setLoadingState] = React.useState('begin');
-  
-    const buttonClassname = clsx({
-      [classes.buttonSuccess]: success,
-      [classes.buttonBegin]: begin,
-      [classes.buttonLoading]: loading,
-    });
-  
-    React.useEffect(() => {
-      return () => {
-        clearTimeout(timer.current);
-      };
-    }, []);
+  const classes = useStyles();
 
-    const [count, setCount] = React.useState(0);
+  const apiCallHandler = React.useContext(ApiCallContext);
 
-    const apiCallHandler = React.useContext(ApiCallContext);
-    
-    const handleButtonClick = () => {
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [begin, setBegin] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [allowRun, setAllowRun] = React.useState(false);
+
+  const handleOpen = () => {
+    console.log('Opening alert window...');
+    setOpen(true);
+  };
+
+  const handleClose = (userChoice) => {
+    console.log('Closing alert window...');
+    setAllowRun(userChoice);
+    setOpen(false);
+    if (allowRun) handleRunClick();
+  };
+
+  const buttonClassname = clsx({
+    [classes.buttonSuccess]: success,
+    [classes.buttonBegin]: begin,
+    [classes.buttonLoading]: loading,
+  });
+
+  const isPrivacyPolicy = () => {
+    console.log('Checking to see if the current window is a privacy policy...');
+    const path = window.location.pathname;
+    const regex = RegExp('privacy|legal|conditions');
+    if (regex.test(path.toLowerCase())) {
+      console.log('The current window is a privacy policy.');
+      return true;
+    } else {
+      console.log('The current window is not a privacy policy.');
+      return false;
+    }
+  };
+
+  const handleRunClick = () => {
+    console.log('Checking to see if PrivacyCheck can be run on the current window...');
+    if (isPrivacyPolicy(window.location.pathname) || allowRun) {
+      console.log('Running PrivacyCheck on the current window...');
       setSuccess(false);
       setLoading(true);
       setBegin(false);
-      setCount(() => {
-        if (count % 2 === 0) {
-          return count + 1;
-        } else {
-          return count + 3;
-        }
-      });
-      
-      timer.current = setTimeout(() => {
-        setSuccess(true);
-        setLoading(false);
-        }, 2000);
+      apiCallHandler();
+      setSuccess(true);
+      setLoading(false);
+      console.log('Received response from API Gateway.');
+    } else {
+      console.log('Asking user if they still want to run PrivacyCheck in the current window...');
+      handleOpen();
+    }
+  };
 
-      if(!isPolicy()){ // REVERSE THE CONDITION!!!
-        apiCallHandler();
-        console.log('IT IS NOT POLICY!')
-      }
-      else{
-        console.log('IT IS A POLICY')
-      }
-    };
-  
-    return (
-      <div className={classes.root}>
-        <div className={classes.wrapper}>
-          <Fade 
-          in={checked}
-          style={{ transformOrigin: '0 0 0' }}
-          {...(checked ? { timeout: 1000 } : { timeout: 1000 })}>
-            <Tooltip title="Click to evaluate privacy policy" enterDelay={500} leaveDelay={200}>
-              <Fab
-              aria-label="save"
-              color="secondary"
-              className={buttonClassname}
-              onClick={handleButtonClick}
-              >
-                {/*success ? <ReplayIcon /> : <StopRoundedIcon />*/}
-                {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
-              </Fab>
-            </Tooltip>
-          </Fade>
-          {loading && <CircularProgress size={68} className={classes.fabProgress} />}
-        </div>
+  return (
+    <div className={classes.root}>
+      <div className={classes.wrapper}>
+        <Fade in={true} style={{ transformOrigin: '0 0 0' }}>
+          <Tooltip title={'Click to evaluate privacy policy'} enterDelay={500} leaveDelay={200}>
+            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleRunClick}>
+              {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
+            </Fab>
+          </Tooltip>
+        </Fade>
+        <Dialog className={classes.dialogBox} open={open} onClose={handleClose} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
+          <DialogTitle id={'alert-dialog-title'}>Are you sure you want to run PrivacyCheck here?</DialogTitle>
+          <DialogContent>
+            <DialogContentText id={'alert-dialog-description'}>
+              Our extension does not believe that this website is a privacy policy. This could lead to inaccurate results from our machine learning models.
+              Are you sure you want to continue?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => handleClose(false)} color={'primary'} autoFocus>
+              Disagree
+            </Button>
+            <Button onClick={() => handleClose(true)} color={'primary'}>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
+        {loading && <CircularProgress className={classes.fabProgress} size={68} />}
       </div>
-    );
-  }
+    </div>
+  );
+}

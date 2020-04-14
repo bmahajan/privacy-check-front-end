@@ -33,7 +33,6 @@ export default function PanelManager() {
   });
 
   const [response, setResponse] = React.useState(defaultResponse);
-  // const [tab, setTab ] = React.useState('GDPR');
 
   const defaultOverallScore = {Control: 0, GDPR: 0};
   const [overallScore, setOverallScore] = React.useState(defaultOverallScore);
@@ -84,23 +83,6 @@ export default function PanelManager() {
         break;
     }
   };
-
-  // const TabSwitchHandler = (tabName) => {
-  //   console.log('Attempting to change active tab to ' + tabName);
-  //   switch (tabName) {
-  //     case 'GDPR':
-  //       setTab('GDPR');
-  //       console.log('Successfully changed tab to ' + tabName);
-  //       break;
-  //     case 'Control':
-  //       setTab(Control);
-  //       console.log('Successfully changed tab to ' + tabname);
-  //       break;
-  //     default:
-  //       console.log('Failed to change active tab to ' + tabName);
-  //       break;
-  //   }
-  // };
 
   const apiCallHandler = () => {
     console.log('Making call to api gateway...');

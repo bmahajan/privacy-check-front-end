@@ -25,16 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function RunPanel(props){
 
-  
-
   const classes = useStyles();
-
-  const HandleRunClick = () =>{
-    alert('Clicked Run')
-  }
-
-  var items = <App />;
-  console.log(items)
 
   return(
     <div className={classes.root}>
@@ -49,7 +40,7 @@ export default function RunPanel(props){
             <ScoreButton pane={'BreakdownPanel'} scores={[]} />
           </Grid>
           <Grid item flex-basis={'content'}>
-            <RunButton onClick={HandleRunClick} />
+            <RunButton />
           </Grid>
           <Grid item>
             <Grid container direction={'row'} padding={3}>
