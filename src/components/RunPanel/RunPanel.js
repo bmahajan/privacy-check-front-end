@@ -21,7 +21,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 export default function RunPanel(props){
+
+  
 
   const classes = useStyles();
 
@@ -50,13 +54,13 @@ export default function RunPanel(props){
           <Grid item>
             <Grid container direction={'row'} padding={3}>
               <Grid item>
-                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} buttonTip={'Settings'}/>
+                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} />
               </Grid>
               <Grid item>
-                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} buttonTip={'Score Breakdown'}/>
+                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} />
               </Grid>
               <Grid item>
-                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} buttonTip={'About'}/>
+                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} />
               </Grid>
             </Grid>
           </Grid>

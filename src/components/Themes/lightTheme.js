@@ -5,7 +5,6 @@ import { colors } from '@material-ui/core';
 
 const lightTheme = createMuiTheme({
   palette: {
-    primary: grey,
     secondary: orange,
     type: 'light',
   },

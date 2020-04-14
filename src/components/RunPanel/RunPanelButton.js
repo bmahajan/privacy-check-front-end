@@ -44,7 +44,7 @@ export default function RunPanelButton(props) {
   return(
     <div className={classes.root}>
       <div className={classes.wrapper}>
-        <Tooltip title={props.buttonTip} placement="top">
+        <Tooltip title={props.panel} placement="top" enterDelay={500} leaveDelay={200}>
           <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1000 } : { timeout: 1000 })}>
             <IconButton aria-label={props.panel} onClick={() => panelHandler(props.panel)}>
               {props.icon}

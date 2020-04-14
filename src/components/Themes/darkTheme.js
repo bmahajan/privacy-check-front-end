@@ -4,7 +4,6 @@ import { green, grey, red, yellow, orange } from '@material-ui/core/colors';
 
 export const darkTheme = createMuiTheme({
   palette: {
-    primary: grey,
     secondary: orange,
     type: 'dark',
   },

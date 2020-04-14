@@ -137,7 +137,7 @@ export default function RunButton(props) {
           in={checked}
           style={{ transformOrigin: '0 0 0' }}
           {...(checked ? { timeout: 1000 } : { timeout: 1000 })}>
-            <Tooltip title="Click to evaluate privacy policy">
+            <Tooltip title="Click to evaluate privacy policy" enterDelay={500} leaveDelay={200}>
               <Fab
               aria-label="save"
               color="secondary"

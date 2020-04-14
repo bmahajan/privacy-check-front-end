@@ -33,14 +33,14 @@ export default function ScoreButton (props){
     <div>
       <Tooltip title="Click to view score breakdown" placement="top">
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} >
-          <Grid container spacing={3}>
+          <Grid container spacing={3} direction="column">
             <Grid item className={classes.score}>
                 <Typography variant="caption"> GDPR </Typography>
-                <Typography varitan="title"> {overallScore.GDPR} </Typography>
+                <Typography variant="h3"> {overallScore.GDPR} </Typography>
             </Grid>
             <Grid item className={classes.score}>
               <Typography variant="caption"> Control </Typography>
-             <Typography varitan="title"> {overallScore.Control} </Typography>
+             <Typography variant="h3"> {overallScore.Control} </Typography>
             </Grid>
           </Grid>
         </Button>

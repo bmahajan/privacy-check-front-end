@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function GDPRBreakdownPanel(props) {
 
+  
   const classes = useStyles();
 
   return (

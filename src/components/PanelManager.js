@@ -8,12 +8,15 @@ import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultResponse from '../data/defaultResponse';
 import GlobalTheme from "./Themes/globalTheme";
+import GDPRBreakdownPanel from './BreakdownPanel/GDPRBreakdownPanel/GDPRBreakdownPanel'
+import ControlBreakdownPanel from './BreakdownPanel/ControlBreakdownPanel/ControlBreakdownPanel'
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
 export const ApiCallContext = React.createContext();
 export const ApiResponseContext = React.createContext();
 export const OverallScoreContext = React.createContext();
+export const ScoreTabContext = React.createContext();
 
 export default function PanelManager() {
 
@@ -30,6 +33,7 @@ export default function PanelManager() {
   });
 
   const [response, setResponse] = React.useState(defaultResponse);
+  // const [tab, setTab ] = React.useState('GDPR');
 
   const defaultOverallScore = {Control: 0, GDPR: 0};
   const [overallScore, setOverallScore] = React.useState(defaultOverallScore);
@@ -80,6 +84,23 @@ export default function PanelManager() {
         break;
     }
   };
+
+  // const TabSwitchHandler = (tabName) => {
+  //   console.log('Attempting to change active tab to ' + tabName);
+  //   switch (tabName) {
+  //     case 'GDPR':
+  //       setTab('GDPR');
+  //       console.log('Successfully changed tab to ' + tabName);
+  //       break;
+  //     case 'Control':
+  //       setTab(Control);
+  //       console.log('Successfully changed tab to ' + tabname);
+  //       break;
+  //     default:
+  //       console.log('Failed to change active tab to ' + tabName);
+  //       break;
+  //   }
+  // };
 
   const apiCallHandler = () => {
     console.log('Making call to api gateway...');

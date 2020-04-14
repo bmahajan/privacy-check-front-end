@@ -8,11 +8,11 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: props => {
       if (props.score <= 33) {
-        return red[400];
+        return red[500];
       } else if (props.score <= 66) {
-        return yellow[400];
+        return yellow[700];
       } else if (props.score <= 100) {
-        return green[400];
+        return green[500];
       }
     },
     height: props => {
