@@ -130,7 +130,7 @@ export default function RunButton(props) {
           <DialogTitle id={'alert-dialog-title'}>Are you sure you want to run PrivacyCheck here?</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
-              Our extension does not believe that this website is a privacy policy. This could lead to inaccurate results from our machine learning models.
+              PrivacyCheck does not believe that this website is a privacy policy. This could lead to inaccurate results from our machine learning models.
               Are you sure you want to continue?
             </DialogContentText>
           </DialogContent>
