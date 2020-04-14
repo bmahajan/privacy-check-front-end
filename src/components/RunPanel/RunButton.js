@@ -135,11 +135,11 @@ export default function RunButton(props) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => handleClose(false)} color={'primary'} autoFocus>
-              Disagree
-            </Button>
             <Button onClick={() => handleClose(true)} color={'primary'}>
-              Agree
+              Yes
+            </Button>
+            <Button onClick={() => handleClose(false)} color={'primary'} autoFocus>
+              No
             </Button>
           </DialogActions>
         </Dialog>
