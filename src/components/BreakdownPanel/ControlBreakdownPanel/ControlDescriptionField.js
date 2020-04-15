@@ -96,9 +96,7 @@ export default function DescriptionFieldControl(props) {
   return (
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
-      <Tooltip title="Click to expnad" placement="right" enterDelay={2000} leaveDelay={200}>
-        <ExpansionPanelSummary expandIcon={
-        <ExpandMoreIcon />}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid container direction={'column'} >
             <Typography className={classes.heading}>
@@ -106,7 +104,6 @@ export default function DescriptionFieldControl(props) {
             </Typography>
           </Grid>
         </ExpansionPanelSummary>
-      </Tooltip>
         <ExpansionPanelDetails>
           <Typography>{props.details}</Typography>
         </ExpansionPanelDetails>

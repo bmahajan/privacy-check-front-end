@@ -12,27 +12,16 @@ const GridList = withStyles(theme => ({
   },
 })) (MuiGridList);
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: theme.panel.width,
-    maxHeight: theme.panel.height,
-    marginLeft: 'auto',
-  },
-}));
+export default function GDPRBreakdownPanel() {
+  const response = React.useContext(ApiResponseContext);
 
-export default function GDPRBreakdownPanel(props) {
-
-  const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
   const handleExpansionChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const response = React.useContext(ApiResponseContext);
-
   return (
-    <div className={classes.root}>
+    <div>
       <GridList>
         <DescriptionFieldGDPR
           name={'Between Site Transfer'}

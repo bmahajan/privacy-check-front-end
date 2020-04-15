@@ -22,16 +22,7 @@ const GridList = withStyles(theme => ({
   },
 })) (MuiGridList);
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: theme.panel.width,
-    maxHeight: theme.panel.height,
-  },
-}));
-
-export default function ControlBreakdownPanel(props) {
-
-  const classes = useStyles();
+export default function ControlBreakdownPanel() {
   const response = React.useContext(ApiResponseContext); //add in the scores
 
   const [expanded, setExpanded] = React.useState(false);
@@ -40,7 +31,7 @@ export default function ControlBreakdownPanel(props) {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <GridList>
         <DescriptionFieldControl
           name={'Email Address Security'}
