@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import data from '../../../data/sampledata.json'
+// import data from '../../../data/controlData.json'
 import { ResponsiveBullet } from '@nivo/bullet'
-
+import { CATResponseContext, ApiResponseContext } from "../../PanelManager";
 
 
 const useStyles = makeStyles(theme => ({
@@ -14,24 +14,41 @@ const useStyles = makeStyles(theme => ({
 
 export default function ControlDataVisualization(props) {
 
+  const catResponse = React.useContext(CATResponseContext);
+  const response = React.useContext(ApiResponseContext);
   const classes = useStyles();
 
-    const MyResponsiveBullet = ({ data }) => (
+  const controlData = [
+    {
+      "id": "Control",
+      "ranges": [
+        40,
+        60,
+        80,
+        90,
+        100
+      ],
+      "measures": [response.Control_Overall_Score],
+      "markers": [catResponse.control_mean]
+    }
+  ]
+
+  const MyResponsiveBullet = ({ controlData }) => (
         <Box className={classes.root}>
         <ResponsiveBullet
-            data={data}
-            margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
-            spacing={50}
-            titleAlign="start"
-            titleOffsetX={-70}
-            measureSize={0.2}
-            rangeColors="red_yellow_green"
-            animate={true}
-            motionStiffness={90}
-            motionDamping={12}
+          data={controlData}
+          margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
+          spacing={50}
+          titleAlign="start"
+          titleOffsetX={-70}
+          measureSize={0.2}
+          rangeColors="red_yellow_green"
+          animate={true}
+          motionStiffness={90}
+          motionDamping={12}
         />
         </Box>
     )
 
-    return MyResponsiveBullet({data});
+  return MyResponsiveBullet({ controlData});
 }
