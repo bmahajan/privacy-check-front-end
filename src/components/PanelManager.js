@@ -7,6 +7,7 @@ import AboutPanel from "./AboutPanel/AboutPanel.js";
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultResponse from '../data/defaultResponse';
+import defaultCATResponse from '../data/defaultCATResponse.json';
 import GlobalTheme from "./Themes/globalTheme";
 import GDPRBreakdownPanel from './BreakdownPanel/GDPRBreakdownPanel/GDPRBreakdownPanel'
 import ControlBreakdownPanel from './BreakdownPanel/ControlBreakdownPanel/ControlBreakdownPanel'
@@ -15,12 +16,14 @@ export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
 export const ApiCallContext = React.createContext();
 export const ApiResponseContext = React.createContext();
+export const CATResponseContext = React.createContext();
 export const OverallScoreContext = React.createContext();
 export const ScoreTabContext = React.createContext();
 
 export default function PanelManager() {
 
-  const API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/?url=facebook.com');
+  const DATABASE_GET_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get');
+  const CAT_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/competitor_analysis')
 
   const [panel, setPanel] = React.useState(<RunPanel />);
   const [colorTheme, setColorTheme] = React.useState(() => {
@@ -35,6 +38,7 @@ export default function PanelManager() {
   });
 
   const [response, setResponse] = React.useState(defaultResponse);
+  const [catResponse, setCATResponse] = React.useState(defaultCATResponse)
 
   const defaultOverallScore = {Control: 0, GDPR: 0};
   const [overallScore, setOverallScore] = React.useState(defaultOverallScore);
@@ -86,15 +90,30 @@ export default function PanelManager() {
     }
   };
 
+  const catCallHandler = (response) => {
+    var cat_api_url = CAT_API_URL;
+    var cat_api_params = { Market_Sector: response.Market_Sector }
+    cat_api_url.search = new URLSearchParams(cat_api_params).toString();
+    fetch(cat_api_url) //Jake please don't kill me. Can we move this somewhere else?
+      .then(res => res.json())
+      .then((data) => {
+        console.log('Attempting to update CAT response data');
+        setCATResponse(data);
+        console.log('Successfully updated CAT response data!')
+        console.log(data);
+      })
+      .then(console.log('Finished making call to api gateway!'))
+      .catch(console.log);
+  };
+
   const apiCallHandler = (url) => {
     console.log('Making call to api gateway...');
 
-    var api_url = API_URL;
+    var database_get_api_url = DATABASE_GET_API_URL;
     var params = {url: url}
 
-    api_url.search = new URLSearchParams(params).toString();
-
-    fetch(api_url)
+    database_get_api_url.search = new URLSearchParams(params).toString();
+    fetch(database_get_api_url)
       .then(res => res.json())
       .then((data) => {
         console.log('Attempting to update response data');
@@ -102,6 +121,7 @@ export default function PanelManager() {
         console.log('Successfully updated response data!')
         console.log(data);
         overallScoreHandler(data);
+        catCallHandler(data);
       })
       .then(console.log('Finished making call to api gateway!'))
       .catch(console.log);
@@ -128,9 +148,11 @@ export default function PanelManager() {
             <ThemeSwitchContext.Provider value={themeSwitchHandler}>
               <ApiCallContext.Provider value={apiCallHandler}>
                 <ApiResponseContext.Provider value={response}>
-                  <OverallScoreContext.Provider value={overallScore}>
-                    {panel}
-                  </OverallScoreContext.Provider>
+                  <CATResponseContext.Provider value={catResponse}>
+                    <OverallScoreContext.Provider value={overallScore}>
+                      {panel}
+                    </OverallScoreContext.Provider>
+                  </CATResponseContext.Provider>
                 </ApiResponseContext.Provider>
               </ApiCallContext.Provider>
             </ThemeSwitchContext.Provider>
