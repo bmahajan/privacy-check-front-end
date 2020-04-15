@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
-import ScoreBubble from '../ScoreBubble';
+import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
 import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
 import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";

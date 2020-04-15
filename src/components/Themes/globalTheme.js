@@ -1,7 +1,7 @@
 import React from 'react';
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
-export const GlobalTheme = createMuiTheme({
+export const globalTheme = createMuiTheme({
   panel: {
     width: 375,
     height: 225,
@@ -11,4 +11,4 @@ export const GlobalTheme = createMuiTheme({
   },
 });
 
-export default GlobalTheme;
+export default globalTheme;

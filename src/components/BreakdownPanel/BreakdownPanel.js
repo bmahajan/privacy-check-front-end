@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import NavigationBar from '../Misc/NavigationBar';
 import ControlBreakdownPanel from "./ControlBreakdownPanel/ControlBreakdownPanel";
-import GDPRBreakdownPanel from "./GDPRBreakdownPanel/GDPRBreakdownPanel";
+import GDPRBreakdownPanel from "../CompetitorAnalysisPanel/GDPRCompetitorAnalysisPanel/GDPRBreakdownPanel";
 
 const useStyles = makeStyles(theme => ({
   root: {

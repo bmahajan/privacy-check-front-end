@@ -1,10 +1,9 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
-import ScoreBubble from '../ScoreBubble';
-import GDPRDataVisualization from './GDPRDataVisualization'
+import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
+import GDPRDataVisualization from '../../BreakdownPanel/GDPRBreakdownPanel/GDPRDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
 import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
-
 
 const useStyles = makeStyles(theme => ({
   root: {
