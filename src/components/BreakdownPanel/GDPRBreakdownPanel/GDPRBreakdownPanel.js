@@ -1,5 +1,5 @@
 import React from "react";
-import GDPRFeatureList from "../../BreakdownPanel/GDPRBreakdownPanel/GDPRFeatureList";
+import GDPRFeatureList from "./GDPRFeatureList";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
