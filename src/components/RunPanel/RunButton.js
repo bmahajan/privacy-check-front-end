@@ -89,15 +89,12 @@ export default function RunButton(props) {
   const isPrivacyPolicy = (url) => {
     console.log('Checking to see if the current window is a privacy policy...');
     const path = url; // will need to get just the path end of the url in the regex
-    alert("checking if it is a privacy policy with url " + url);
-    const regex = RegExp(/privacy|legal|conditions|policy/g);
+    const regex = RegExp(/privacy|legal|conditions|policy|policies|terms/g);
     if (regex.test(path.toLowerCase())) {
       console.log('The current window is a privacy policy.');
-      alert('The current window is a privacy policy.');
       return true;
     } else {
       console.log('The current window is not a privacy policy.');
-      alert('The current window is not a privacy policy.');
       return false;
     }
   };
@@ -110,14 +107,6 @@ export default function RunButton(props) {
 
   const handleRunClick = (url) => {
     console.log('Checking to see if PrivacyCheck can be run on the current window...');
-    // Get current tab's URL
-
-    // chrome.tabs.query({ active: true, lastFocusedWindow: true },
-    //   function (tabs) {
-    //     let url = tabs[0].url;
-    //   });
-
-    alert(url);
 
     if (isPrivacyPolicy(url)) {
       console.log("Got current URL " + url);
