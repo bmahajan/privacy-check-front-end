@@ -20,6 +20,8 @@ export const ScoreTabContext = React.createContext();
 
 export default function PanelManager() {
 
+  const API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/?url=facebook.com');
+
   const [panel, setPanel] = React.useState(<RunPanel />);
   const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
@@ -86,8 +88,13 @@ export default function PanelManager() {
 
   const apiCallHandler = (url) => {
     console.log('Making call to api gateway...');
-    
-    fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/?url=facebook.com')
+
+    var api_url = API_URL;
+    var params = {url: url}
+
+    api_url.search = new URLSearchParams(params).toString();
+
+    fetch(api_url)
       .then(res => res.json())
       .then((data) => {
         console.log('Attempting to update response data');

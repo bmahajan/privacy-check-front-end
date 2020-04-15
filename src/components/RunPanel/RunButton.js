@@ -68,6 +68,7 @@ export default function RunButton(props) {
   const [success, setSuccess] = React.useState(false);
   const [begin, setBegin] = React.useState(true);
   const [open, setOpen] = React.useState(false);
+  // const [url, setURL] = React.useState("blah");
 
   const handleOpen = () => {
     console.log('Opening alert window...');
@@ -85,34 +86,41 @@ export default function RunButton(props) {
     [classes.buttonLoading]: loading,
   });
 
-  const isPrivacyPolicy = () => {
+  const isPrivacyPolicy = (url) => {
     console.log('Checking to see if the current window is a privacy policy...');
-    const path = window.location.pathname;
-    const regex = RegExp('privacy|legal|conditions|policy');
+    const path = url; // will need to get just the path end of the url in the regex
+    alert("checking if it is a privacy policy with url " + url);
+    const regex = RegExp(/privacy|legal|conditions|policy/g);
     if (regex.test(path.toLowerCase())) {
       console.log('The current window is a privacy policy.');
+      alert('The current window is a privacy policy.');
       return true;
     } else {
       console.log('The current window is not a privacy policy.');
+      alert('The current window is not a privacy policy.');
       return false;
     }
   };
 
-  const handleRunClick = () => {
+  const handleUrlRequest = () => {
+    chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT }, (tabs) => {
+      handleRunClick(tabs[0].url);
+    });
+  }
+
+  const handleRunClick = (url) => {
     console.log('Checking to see if PrivacyCheck can be run on the current window...');
-    // if (isPrivacyPolicy(window.location.pathname)) { COMMENTED FOR DEMO
-    if (true) {
+    // Get current tab's URL
 
-      // Get current tab's URL
-      var url = "";
-      chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
-        function (tabs) {
-          alert(tabs[0].url);
-          url = tabs[0].url;
-        }
-      );
+    // chrome.tabs.query({ active: true, lastFocusedWindow: true },
+    //   function (tabs) {
+    //     let url = tabs[0].url;
+    //   });
+
+    alert(url);
+
+    if (isPrivacyPolicy(url)) {
       console.log("Got current URL " + url);
-
       console.log('Running PrivacyCheck on the current window...');
       setSuccess(false);
       setLoading(true);
@@ -133,7 +141,7 @@ export default function RunButton(props) {
       <div className={classes.wrapper}>
         <Fade in={true} style={{ transformOrigin: '0 0 0' }}>
           <Tooltip title={'Click to evaluate privacy policy'} enterDelay={500} leaveDelay={200}>
-            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleRunClick}>
+            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleUrlRequest}>
               {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
             </Fab>
           </Tooltip>
