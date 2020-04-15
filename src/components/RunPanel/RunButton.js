@@ -1,3 +1,4 @@
+/* global chrome */
 import React from 'react';
 import clsx from 'clsx';
 import { Fab, CircularProgress, Fade, makeStyles } from '@material-ui/core';
@@ -87,7 +88,7 @@ export default function RunButton(props) {
   const isPrivacyPolicy = () => {
     console.log('Checking to see if the current window is a privacy policy...');
     const path = window.location.pathname;
-    const regex = RegExp('privacy|legal|conditions');
+    const regex = RegExp('privacy|legal|conditions|policy');
     if (regex.test(path.toLowerCase())) {
       console.log('The current window is a privacy policy.');
       return true;
@@ -99,12 +100,24 @@ export default function RunButton(props) {
 
   const handleRunClick = () => {
     console.log('Checking to see if PrivacyCheck can be run on the current window...');
-    if (isPrivacyPolicy(window.location.pathname)) {
+    // if (isPrivacyPolicy(window.location.pathname)) { COMMENTED FOR DEMO
+    if (true) {
+
+      // Get current tab's URL
+      var url = "";
+      chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT },
+        function (tabs) {
+          alert(tabs[0].url);
+          url = tabs[0].url;
+        }
+      );
+      console.log("Got current URL " + url);
+
       console.log('Running PrivacyCheck on the current window...');
       setSuccess(false);
       setLoading(true);
       setBegin(false);
-      apiCallHandler();
+      apiCallHandler(url);
       // Todo: Timeout handler.
       setSuccess(true);
       setLoading(false);

@@ -84,8 +84,9 @@ export default function PanelManager() {
     }
   };
 
-  const apiCallHandler = () => {
+  const apiCallHandler = (url) => {
     console.log('Making call to api gateway...');
+    
     fetch('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get/?url=facebook.com')
       .then(res => res.json())
       .then((data) => {

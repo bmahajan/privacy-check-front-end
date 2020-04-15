@@ -7,6 +7,7 @@ export const GlobalTheme = createMuiTheme({
     height: 500,
     maxWidth: 350,
     maxHeight: 600,
+    maxDescriptionHeight: 300,
   },
 });
 
