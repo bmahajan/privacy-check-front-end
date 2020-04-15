@@ -90,6 +90,7 @@ export default function RunButton(props) {
     console.log('Checking to see if the current window is a privacy policy...');
     const path = window.location.pathname;
     const regex = RegExp('privacy|legal|conditions');
+    console.log(path, regex);
     if (regex.test(path.toLowerCase())) {
       console.log('The current window is a privacy policy.');
       return true;

@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card";
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
-    maxHeight: theme.panel.maxHeight,
+    height: theme.panel.maxHeight,
   },
 }));
 
@@ -16,8 +16,8 @@ export default function SettingsPanel(props) {
   const classes = useStyles(props);
 
   return(
-    <div className={classes.root}>
-      <Card>
+    <div>
+      <Card className={classes.root}>
         <NavigationBar title='Settings' backLabel='RunPanel'/>
         <SettingsCard/>
       </Card>

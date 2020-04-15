@@ -11,6 +11,7 @@ import GDPRBreakdownPanel from "./GDPRBreakdownPanel/GDPRBreakdownPanel";
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
+    height: theme.panel.height,
     maxHeight: theme.panel.maxHeight,
   },
 }));
@@ -20,7 +21,7 @@ function TabPanel(props) {
 
   return (
     <div>
-      <Typography>
+      <Typography component={'span'}>
         {value === index && <Box>{children}</Box>}
       </Typography>
     </div>
@@ -49,7 +50,7 @@ export default function BreakdownPanel() {
       <Card>
         <NavigationBar title={'Score Breakdown'} />
         <AppBar position={'static'} color={'default'}>
-          <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'primary'} variant={'fullWidth'} aria-label={'Score switching'}>
+          <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} variant={'fullWidth'} aria-label={'Score switching'}>
             <Tab label={'GDPR Breakdown'} />
             <Tab label={'Control Breakdown'} />
           </Tabs>

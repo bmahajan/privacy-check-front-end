@@ -59,10 +59,8 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     marginLeft: theme.spacing(-1),
     style: {
-      background: {green},
+      backgroundColor: theme.palette.secondary[700],
     },
-    backgroundColor: green,
-    color: green,
   },
   heading: {
     marginLeft: theme.spacing(2),
@@ -102,8 +100,8 @@ export default function DescriptionField(props) {
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Avatar className={classes.avatar} style={{background: icon_color}}>{props.icon}</Avatar>
-          <Grid direction={'column'}>
+          <Avatar className={classes.avatar} >{props.icon}</Avatar>
+          <Grid container direction={'column'}>
             <Typography className={classes.heading}>{props.name}
             </Typography>
           </Grid>

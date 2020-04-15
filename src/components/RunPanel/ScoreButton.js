@@ -31,7 +31,7 @@ export default function ScoreButton (props){
 
   return(
     <div>
-      <Tooltip title="Click to view score breakdown" placement="top">
+      <Tooltip title="Click to view score breakdown" placement="top" enterDelay={500} leaveDelay={200}>
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} >
           <Grid container spacing={3} direction="column">
             <Grid item className={classes.score}>

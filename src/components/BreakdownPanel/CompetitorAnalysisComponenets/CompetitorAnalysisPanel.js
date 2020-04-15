@@ -25,7 +25,7 @@ export default function CompetitorAnalysisPanel(props) {
   return (
     <div className={classes.root}>
       <Paper>
-        <Grid container direction='column' alignContent='center' justify='center' spacing={2} l>
+        <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
           <Grid item>
             <DataVisualization />
           </Grid>

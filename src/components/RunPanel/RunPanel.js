@@ -10,15 +10,22 @@ import ScoreButton from './ScoreButton'
 import ScoreBubble from '../BreakdownPanel/ScoreBubble'
 import Encrypt from '../Misc/Encrypt';
 import App from '../App';
+import MainLogo from '../../PrivacyCheck_Logo_Main.png'
+import UTCIDLogo from '../../UTCID.png'
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
-    height: theme.panel.maxHeight,
+    height: theme.panel.height,
   },
   scoreButton: {
     width: 100,
   },
+  utcidLogo: {
+    marginTop: -10,
+    marginBottom: 15,
+  },
+
 }));
 
 
@@ -36,6 +43,7 @@ export default function RunPanel(props){
               <Encrypt interval={500} />
             </Card>
           </Grid>
+          <img src={UTCIDLogo} alt="utcid logo" height={40} width={220} className={classes.utcidLogo} />
           <Grid item flex-basis={'content'}>
             <ScoreButton pane={'BreakdownPanel'} scores={[]} />
           </Grid>
