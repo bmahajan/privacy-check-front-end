@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   appbar: {
     height: 50,
-    backgroundColor: theme.palette.secondary[700],
+    backgroundColor: theme.palette.secondary[800],
   },
   backButton: {
     marginRight: theme.spacing(0),

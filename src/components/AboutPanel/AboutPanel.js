@@ -35,14 +35,14 @@ export default function AboutPanel(props) {
             <p>
             <b>Scoring Algorithm: </b>
             <br></br>
-            <b>GDPR - </b>For each question answered with 'Yes', we add 10%. If the question is answered with 'No' or is 'Unanswered', we add 0%.
+            <b>GDPR - </b>For each question answered with 'Yes/Green', we add 10%. If the question is answered with 'No/Unanswered/Red', we add 0%.
             <br></br>
             <b>Control - </b>For each question answered with 'Good/Green', we add 10%. If the question is answered with 'Okay/Yellow', we add 5%. If the question is answered with 'Bad/Red', we add 0%.
             </p>
             <p>
             <b>Developed by: </b>
             <br></br>
-            Alex Issa, Ayush Srivasatava, Isabelle Rogers, Jake Nimergood, Safa Anya
+            Alex Issa, Ayush Srivasatava, Isabelle Rogers, Jake Nimergood, Safa Anya, Vinay Shah.
             </p>
           </Typography>
       </Card>

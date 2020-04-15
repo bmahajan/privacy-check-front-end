@@ -6,8 +6,6 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
-import StatusIcon from './StatusIcon';
-
 
 const ExpansionPanel = withStyles(theme => ({
   root: {
@@ -60,14 +58,14 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
       console.log(props.score);
-      if (props.score >= 2) {
+      if (props.score == 3) {
         return theme.status.good[500];
       } 
-      else if (props.score <= 1) {
-        return theme.status.poor[500];
+      else if (props.score == 2) {
+        return theme.status.okay[500];
       }
-      else{
-        return theme.status.good[500];
+      else if (props.score == 1) {
+        return theme.status.poor[500];
       }
     },
   },
@@ -80,17 +78,27 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
-export default function DescriptionField(props) {
+function scoreConverter(score){
+  if(score==3)
+  { return '10%'}
+  else if(score==2)
+  { return '5%'}
+  else
+  { return '0%'}
+}
 
-  const classes = useStyles();
+export default function DescriptionFieldControl(props) {
+
+  const classes = useStyles(props);
 
   return (
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Avatar className={classes.avatar} >{props.icon}</Avatar>
+          <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid container direction={'column'} >
-            <Typography className={classes.heading} >{props.name}
+            <Typography className={classes.heading}>
+              {props.name} - {scoreConverter(props.score)}
             </Typography>
           </Grid>
         </ExpansionPanelSummary>

@@ -13,9 +13,9 @@ const useStyles = makeStyles(theme => ({
     width: 100,
   },
   button: {
-    backgroundColor: orange[500],
+    backgroundColor: theme.palette.secondary[800],
       '&:hover': {
-        backgroundColor: orange[700],
+        backgroundColor: theme.palette.secondary[900],
       },
   },
 }));
