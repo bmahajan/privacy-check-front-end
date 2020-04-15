@@ -22,6 +22,15 @@ const useStyles = makeStyles(theme => ({
   market: {
     display: "flex",
     justifyContent: "center",
+  },
+  top: {
+    marginLeft: 15,
+    display: "flex",
+    alignContent: "left",
+  },
+  last: {
+    marginLeft: 15,
+    marginBottom: 10,
   }
 }));
 
@@ -51,7 +60,7 @@ export default function ControlCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
-                <b>Market Sector:</b> {response.Market_Sector}
+                <b>Market Sector:  </b> {response.Market_Sector}
               </Typography>
           </Grid>
           <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
@@ -61,18 +70,18 @@ export default function ControlCompetitorAnalysisPanel(props) {
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography className={classes.market}>
-                <b>1. {catResponse.control_top_scorers[0].Domain_URL} Score: {catResponse.control_top_scorers[0].Control_Overall_Score} </b>
+                <Typography className={classes.top}>
+                <b>1. {catResponse.control_top_scorers[0].Domain_URL}</b> (Score: {catResponse.control_top_scorers[0].Control_Overall_Score})
                 </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.market}>
-                <b>2. {catResponse.control_top_scorers[1].Domain_URL} Score: {catResponse.control_top_scorers[1].Control_Overall_Score} </b>
+              <Typography className={classes.top}>
+                <b>2. {catResponse.control_top_scorers[1].Domain_URL}</b>(Score: {catResponse.control_top_scorers[1].Control_Overall_Score})
               </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.market}>
-                <b>3. {catResponse.control_top_scorers[2].Domain_URL} Score: {catResponse.control_top_scorers[2].Control_Overall_Score} </b>
+              <Typography className={classes.last}>
+                <b>3. {catResponse.control_top_scorers[2].Domain_URL}</b>(Score: {catResponse.control_top_scorers[2].Control_Overall_Score})
               </Typography>
             </Grid>
           </Grid>

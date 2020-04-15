@@ -8,7 +8,7 @@ import { ApiResponseContext } from "../../PanelManager";
 const GridList = withStyles(theme => ({
   root: {
     width: theme.panel.width,
-    height: theme.panel.height,    
+    height: 150,
   },
 })) (MuiGridList);
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     width: theme.panel.width,
     maxHeight: theme.panel.height,
     marginLeft: 2,
-    marginTop: 10,
+    marginTop: 5,
   },
 }));
 

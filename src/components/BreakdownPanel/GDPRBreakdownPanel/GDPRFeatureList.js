@@ -8,16 +8,16 @@ import DescriptionFieldGDPR from './GDPRDescriptionField'
 const GridList = withStyles(theme => ({
   root: {
     width: theme.panel.width,
-    height: theme.panel.height,
+    height: 150,
   },
 })) (MuiGridList);
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
-    maxHeight: theme.panel.height,
+    maxHeight: 150,
     marginLeft: 2,
-    marginTop: 10,
+    marginTop: 5,
   },
 }));
 

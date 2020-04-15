@@ -15,7 +15,6 @@ export default function GDPRDataVisualization(props) {
   const catResponse = React.useContext(CATResponseContext);
   const response = React.useContext(ApiResponseContext);
   const classes = useStyles();
-  const response = React.useContext(ApiResponseContext);
 
   let data = [
     {
@@ -53,7 +52,7 @@ export default function GDPRDataVisualization(props) {
         <Box className={classes.root}>
         <ResponsiveBullet
           data={gdprData}
-          margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
+          margin={{ top: 10, right: 90, bottom: 30, left: 90 }}
           spacing={50}
           titleAlign="start"
           titleOffsetX={-70}
