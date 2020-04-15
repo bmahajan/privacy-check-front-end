@@ -54,6 +54,7 @@ const useStyles = makeStyles(theme => ({
     },
     dialogBox: {
       width: theme.panel.maxWidth,
+      height: theme.panel.maxHeight,
     },
   }));
 
@@ -66,7 +67,6 @@ export default function RunButton(props) {
   const [success, setSuccess] = React.useState(false);
   const [begin, setBegin] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-  const [allowRun, setAllowRun] = React.useState(false);
 
   const handleOpen = () => {
     console.log('Opening alert window...');
@@ -75,9 +75,7 @@ export default function RunButton(props) {
 
   const handleClose = (userChoice) => {
     console.log('Closing alert window...');
-    setAllowRun(userChoice);
     setOpen(false);
-    if (allowRun) handleRunClick();
   };
 
   const buttonClassname = clsx({
@@ -101,17 +99,18 @@ export default function RunButton(props) {
 
   const handleRunClick = () => {
     console.log('Checking to see if PrivacyCheck can be run on the current window...');
-    if (isPrivacyPolicy(window.location.pathname) || allowRun) {
+    if (isPrivacyPolicy(window.location.pathname)) {
       console.log('Running PrivacyCheck on the current window...');
       setSuccess(false);
       setLoading(true);
       setBegin(false);
       apiCallHandler();
+      // Todo: Timeout handler.
       setSuccess(true);
       setLoading(false);
       console.log('Received response from API Gateway.');
     } else {
-      console.log('Asking user if they still want to run PrivacyCheck in the current window...');
+      console.log('User attempted to run PrivacyCheck on a page that is not a privacy policy.');
       handleOpen();
     }
   };
@@ -127,19 +126,16 @@ export default function RunButton(props) {
           </Tooltip>
         </Fade>
         <Dialog className={classes.dialogBox} open={open} onClose={handleClose} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>Are you sure you want to run PrivacyCheck here?</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck doesn't think this website is a privacy policy</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
-              PrivacyCheck does not believe that this website is a privacy policy. This could lead to inaccurate results from our machine learning models.
-              Are you sure you want to continue?
+              PrivacyCheck does not believe that this website is a privacy policy. In an effort to keep the database PrivacyCheck maintains cohesive and accurate,
+              we cannot run PrivacyCheck on websites that are not privacy policies.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => handleClose(true)} color={'primary'}>
-              Yes
-            </Button>
-            <Button onClick={() => handleClose(false)} color={'primary'} autoFocus>
-              No
+            <Button onClick={handleClose} color={'primary'}>
+              Okay
             </Button>
           </DialogActions>
         </Dialog>
