@@ -22,10 +22,8 @@ const useStyles = makeStyles(theme => ({
     width: 100,
   },
   utcidLogo: {
-    marginTop: -10,
     marginBottom: 15,
   },
-
 }));
 
 export default function RunPanel(props){
@@ -35,12 +33,13 @@ export default function RunPanel(props){
   return(
     <div className={classes.root}>
       <Card>
+      <div style={{
+          display: "flex",
+          justifyContent: "center",
+      }}>
+      <Encrypt interval={500} className={classes.encrypt}/>
+      </div>
         <Grid container direction={'column'} alignContent={'center'} alignItems={'center'} spacing={3}>
-          <Grid item flex-basis={'content'}>
-            <Card elevation={0}>
-              <Encrypt interval={500} />
-            </Card>
-          </Grid>
           <img src={UTCIDLogo} alt="utcid logo" height={40} width={220} className={classes.utcidLogo} />
           <Grid item flex-basis={'content'}>
             <ScoreButton pane={'BreakdownPanel'} scores={[]} />

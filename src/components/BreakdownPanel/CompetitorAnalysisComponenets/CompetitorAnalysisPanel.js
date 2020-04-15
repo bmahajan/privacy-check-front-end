@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   grid: {
-    marginBottom: 20
+    marginTop: 5,
+    marginBottom: 10,
   }
 }));
 
@@ -29,7 +30,7 @@ export default function CompetitorAnalysisPanel(props) {
           <Grid item>
             <DataVisualization />
           </Grid>
-          <Grid container direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
+          <Grid container className={classes.grid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
             <Grid item>
               <Typography variant='h4'>
                 Score
@@ -37,13 +38,6 @@ export default function CompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
               <ScoreBubble score={overallScore.GDPR} height={50} width={50} />
-            </Grid>
-          </Grid>
-          <Grid container className={classes.grid} direction='row' alignContent='center' justify='center' spacing={2} >
-            <Grid item>
-              <Typography>
-                Ranks in the top 20% of the industry
-              </Typography>
             </Grid>
           </Grid>
         </Grid>

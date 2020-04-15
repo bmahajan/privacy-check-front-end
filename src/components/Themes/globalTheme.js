@@ -3,10 +3,10 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
 export const GlobalTheme = createMuiTheme({
   panel: {
-    width: 350,
+    width: 375,
     height: 500,
-    maxWidth: 350,
-    maxHeight: 600,
+    maxWidth: 375,
+    maxHeight: 630,
     maxDescriptionHeight: 300,
   },
 });

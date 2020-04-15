@@ -8,7 +8,7 @@ import { ResponsiveBullet } from '@nivo/bullet'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: 175,
+    height: 125,
   },
 }));
 

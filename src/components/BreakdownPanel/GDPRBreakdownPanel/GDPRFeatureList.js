@@ -9,6 +9,8 @@ const GridList = withStyles(theme => ({
   root: {
     width: theme.panel.width,
     maxHeight: theme.panel.maxDescriptionHeight,
+    marginLeft: 2,
+    marginTop: 10,
   },
 })) (MuiGridList);
 
@@ -16,14 +18,16 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
     maxHeight: theme.panel.maxHeight,
+    marginLeft: 2,
+    marginTop: 10,
   },
 }));
 
 export default function GDPRFeatureList(props) {
 
   const classes = useStyles();
-
   const [expanded, setExpanded] = React.useState(false);
+
   const handleExpansionChange = panel => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
