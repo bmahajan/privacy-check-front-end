@@ -1,16 +1,16 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
-import RunPanel from './RunPanel/RunPanel';
-import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
-import SettingsPanel from './SettingsPanel/SettingsPanel';
 import AboutPanel from "./AboutPanel/AboutPanel.js";
+import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
+import CompetitorAnalysisPanel from './CompetitorAnalysisPanel/CompetitorAnalysisPanel';
+import RunPanel from './RunPanel/RunPanel';
+import SettingsPanel from './SettingsPanel/SettingsPanel';
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultResponse from '../data/defaultResponse';
 import defaultCATResponse from '../data/defaultCATResponse.json';
-import GlobalTheme from "./Themes/globalTheme";
-import GDPRBreakdownPanel from './BreakdownPanel/GDPRBreakdownPanel/GDPRBreakdownPanel'
-import ControlBreakdownPanel from './BreakdownPanel/ControlBreakdownPanel/ControlBreakdownPanel'
+import globalTheme from "./Themes/globalTheme";
+
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
@@ -63,6 +63,10 @@ export default function PanelManager() {
         break;
       case 'BreakdownPanel':
         setPanel(<BreakdownPanel />);
+        console.log('Successfully changed active panel to ' + panelName);
+        break;
+      case 'CompetitorAnalysisPanel':
+        setPanel(<CompetitorAnalysisPanel />);
         console.log('Successfully changed active panel to ' + panelName);
         break;
       default:
@@ -142,7 +146,7 @@ export default function PanelManager() {
 
   return (
     <div>
-      <ThemeProvider theme={GlobalTheme}>
+      <ThemeProvider theme={globalTheme}>
         <ThemeProvider theme={colorTheme}>
           <PanelSwitchContext.Provider value={panelSwitchHandler}>
             <ThemeSwitchContext.Provider value={themeSwitchHandler}>

@@ -1,6 +1,5 @@
 import React from "react";
-import GDPRCompetitorAnalysisPanel from "./GDPRCompetitorAnalysisPanel";
-import GDPRFeatureList from "./GDPRFeatureList";
+import GDPRFeatureList from "../../BreakdownPanel/GDPRBreakdownPanel/GDPRFeatureList";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -17,7 +16,6 @@ export default function GDPRBreakdownPanel(props) {
 
   return (
     <div className={classes.root}>
-      <GDPRCompetitorAnalysisPanel />
       <GDPRFeatureList />
     </div>
   );

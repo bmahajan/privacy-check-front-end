@@ -1,10 +1,9 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
-import ScoreBubble from '../ScoreBubble';
-import ControlDataVisualization from './ControlDataVisualization'
+import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
+import GDPRDataVisualization from '../../BreakdownPanel/GDPRBreakdownPanel/GDPRDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
 import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
-
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ControlCompetitorAnalysisPanel(props) {
+export default function GDPRCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
   const response = React.useContext(ApiResponseContext);
@@ -51,12 +50,12 @@ export default function ControlCompetitorAnalysisPanel(props) {
               </Typography>
           </Grid>
           <Grid item>
-            <ScoreBubble score={overallScore.Control} height={50} width={50} />
+            <ScoreBubble score={overallScore.GDPR} height={50} width={50} />
           </Grid>
         </Grid>
         <Grid container className={classes.scoregrid} direction='column' alignContent='center' justify='center' spacing>
           <Grid item>
-            <ControlDataVisualization />
+            <GDPRDataVisualization />
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
@@ -71,17 +70,17 @@ export default function ControlCompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
                 <Typography className={classes.top}>
-                <b>1. {catResponse.control_top_scorers[0].Domain_URL}</b> (Score: {catResponse.control_top_scorers[0].Control_Overall_Score})
+                <b>1. {catResponse.gdpr_top_scorers[0].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score})
                 </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.top}>
-                <b>2. {catResponse.control_top_scorers[1].Domain_URL}</b>(Score: {catResponse.control_top_scorers[1].Control_Overall_Score})
+                <b>2. {catResponse.gdpr_top_scorers[1].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score})
               </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.last}>
-                <b>3. {catResponse.control_top_scorers[2].Domain_URL}</b>(Score: {catResponse.control_top_scorers[2].Control_Overall_Score})
+                <b>3. {catResponse.gdpr_top_scorers[2].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score})
               </Typography>
             </Grid>
           </Grid>
