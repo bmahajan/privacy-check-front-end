@@ -25,6 +25,9 @@ export default function PanelManager() {
   const CAT_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/competitor_analysis')
 
   const [panel, setPanel] = React.useState(<RunPanel />);
+  const [response, setResponse] = React.useState(defaultResponse);
+  const [catResponse, setCATResponse] = React.useState(defaultCATResponse)
+  const [overallScore, setOverallScore] = React.useState({Control: '-', GDPR: '-'});
   const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
@@ -35,15 +38,6 @@ export default function PanelManager() {
       return lightTheme;
     }
   });
-
-  const [response, setResponse] = React.useState(defaultResponse);
-  const [catResponse, setCATResponse] = React.useState(defaultCATResponse)
-
-  const defaultOverallScore = {Control: 0, GDPR: 0};
-  const [overallScore, setOverallScore] = React.useState(defaultOverallScore);
-
-  console.log('Active Panel Initialized to ' + panel);
-  console.log('Active Theme Initialized to ' + lightTheme.palette.type);
 
   const panelSwitchHandler = (panelName) => {
     console.log('Attempting to change active panel to ' + panelName);

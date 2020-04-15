@@ -68,7 +68,6 @@ export default function RunButton(props) {
   const [success, setSuccess] = React.useState(false);
   const [begin, setBegin] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-  // const [url, setURL] = React.useState("blah");
 
   const handleOpen = () => {
     console.log('Opening alert window...');
@@ -99,38 +98,58 @@ export default function RunButton(props) {
     }
   };
 
-  const handleUrlRequest = () => {
+  const handleRunClick = () => {
     chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT }, (tabs) => {
-      handleRunClick(tabs[0].url);
+      console.log('Checking to see if PrivacyCheck can be run on the current window...');
+      if (isPrivacyPolicy(tabs[0].url)) {
+        console.log("Got current URL " + tabs[0].url);
+        console.log('Running PrivacyCheck on the current window...');
+        setSuccess(false);
+        setLoading(true);
+        setBegin(false);
+        apiCallHandler(tabs[0].url);
+        // Todo: Timeout handler.
+        setSuccess(true);
+        setLoading(false);
+        console.log('Received response from API Gateway.');
+      } else {
+        console.log('User attempted to run PrivacyCheck on a page that is not a privacy policy.');
+        handleOpen();
+      }
     });
-  }
-
-  const handleRunClick = (url) => {
-    console.log('Checking to see if PrivacyCheck can be run on the current window...');
-
-    if (isPrivacyPolicy(url)) {
-      console.log("Got current URL " + url);
-      console.log('Running PrivacyCheck on the current window...');
-      setSuccess(false);
-      setLoading(true);
-      setBegin(false);
-      apiCallHandler(url);
-      // Todo: Timeout handler.
-      setSuccess(true);
-      setLoading(false);
-      console.log('Received response from API Gateway.');
-    } else {
-      console.log('User attempted to run PrivacyCheck on a page that is not a privacy policy.');
-      handleOpen();
-    }
   };
+
+  // const handleUrlRequest = () => {
+  //   chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT }, (tabs) => {
+  //     handleRunClick(tabs[0].url);
+  //   });
+  // };
+  //
+  // const handleRunClick = (url) => {
+  //   console.log('Checking to see if PrivacyCheck can be run on the current window...');
+  //   if (isPrivacyPolicy(url)) {
+  //     console.log("Got current URL " + url);
+  //     console.log('Running PrivacyCheck on the current window...');
+  //     setSuccess(false);
+  //     setLoading(true);
+  //     setBegin(false);
+  //     apiCallHandler(url);
+  //     // Todo: Timeout handler.
+  //     setSuccess(true);
+  //     setLoading(false);
+  //     console.log('Received response from API Gateway.');
+  //   } else {
+  //     console.log('User attempted to run PrivacyCheck on a page that is not a privacy policy.');
+  //     handleOpen();
+  //   }
+  // };
 
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
         <Fade in={true} style={{ transformOrigin: '0 0 0' }}>
           <Tooltip title={'Click to evaluate privacy policy'} enterDelay={500} leaveDelay={200}>
-            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleUrlRequest}>
+            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleRunClick}>
               {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
             </Fab>
           </Tooltip>
