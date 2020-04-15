@@ -11,7 +11,6 @@ import defaultResponse from '../data/defaultResponse';
 import defaultCATResponse from '../data/defaultCATResponse.json';
 import globalTheme from "./Themes/globalTheme";
 
-
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
 export const ApiCallContext = React.createContext();

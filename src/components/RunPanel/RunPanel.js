@@ -2,15 +2,15 @@ import React from 'react';
 import { Grid, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
+
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
 import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
 import SettingsIcon from '@material-ui/icons/Settings';
+import BallotIcon from '@material-ui/icons/Ballot';
+
 import RunPanelButton from './RunPanelButton';
-import ScoreButton from './ScoreButton'
-import ScoreBubble from '../BreakdownPanel/ScoreBubble'
+import ScoreButton from './ScoreButton';
 import Encrypt from '../Misc/Encrypt';
-import App from '../App';
-import MainLogo from '../../PrivacyCheck_Logo_Main.png'
 import UTCIDLogo from '../../UTCID.png'
 
 const useStyles = makeStyles(theme => ({
@@ -53,7 +53,10 @@ export default function RunPanel(props){
                 <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} />
               </Grid>
               <Grid item>
-                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'BreakdownPanel'} />
+                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'CompetitorAnalysisPanel'} />
+              </Grid>
+              <Grid item>
+                <RunPanelButton icon={<BallotIcon />} panel={'BreakdownPanel'} />
               </Grid>
               <Grid item>
                 <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} />

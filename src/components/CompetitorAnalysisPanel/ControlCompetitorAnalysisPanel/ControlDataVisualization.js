@@ -1,10 +1,8 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-// import data from '../../../data/controlData.json'
 import { ResponsiveBullet } from '@nivo/bullet'
 import { CATResponseContext, ApiResponseContext } from "../../PanelManager";
-
 
 const useStyles = makeStyles(theme => ({
   root: {
