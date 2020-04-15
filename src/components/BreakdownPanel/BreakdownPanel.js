@@ -28,7 +28,6 @@ function TabPanel(props) {
   );
 }
 
-// This is just specifying the types of the props that the tab panel can accept.
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,

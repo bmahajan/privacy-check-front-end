@@ -3,13 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import NavigationBar from "../Misc/NavigationBar";
 
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    // width: theme.panel.width,
-    // height: theme.panel.height,
+    width: theme.panel.width,
+    height: theme.panel.height,
   },
-});
+}));
 
 export default function CompetitorAnalysisPanel(props) {
 
@@ -18,8 +17,7 @@ export default function CompetitorAnalysisPanel(props) {
   return (
     <div className={classes.root}>
       <Card>
-        <NavigationBar title={'Competitor Analysis Panel'} />
-        
+        <NavigationBar title={'Competitor Analysis'} />
       </Card>
     </div>
   );
