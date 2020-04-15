@@ -6,9 +6,7 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
-import { green, yellow, red } from '@material-ui/core/colors';
 import StatusIcon from './StatusIcon';
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 
 const ExpansionPanel = withStyles(theme => ({
@@ -62,11 +60,14 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
       console.log(props.score);
-      if (props.score == 2) {
+      if (props.score >= 2) {
         return theme.status.good[500];
       } 
-      else if (props.score == 1) {
+      else if (props.score <= 1) {
         return theme.status.poor[500];
+      }
+      else{
+        return theme.status.good[500];
       }
     },
   },

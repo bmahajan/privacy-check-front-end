@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card";
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
-    height: theme.panel.maxHeight,
+    height: theme.panel.height,
   },
 }));
 

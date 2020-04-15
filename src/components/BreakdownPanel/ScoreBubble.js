@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import { green, yellow, red } from '@material-ui/core/colors';
-import { ApiResponseContext, OverallScoreContext } from "../PanelManager";
+import { OverallScoreContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   avatar: {
@@ -38,7 +38,6 @@ function ScoreBubble(props) {
   const classes = useStyles(props);
 
   const overallScore = React.useContext(OverallScoreContext);
-  const response = React.useContext(ApiResponseContext);
 
   return(
     <Avatar className={classes.avatar}>

@@ -6,9 +6,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
-import { Switch, Card } from '@material-ui/core';
+import { Switch, Card, Typography } from '@material-ui/core';
 import { PanelSwitchContext, ThemeSwitchContext } from "../PanelManager";
 import IconButton from "@material-ui/core/IconButton";
+import { CenterFocusStrong } from '@material-ui/icons';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,29 +19,23 @@ const useStyles = makeStyles(theme => ({
         fontSize: 30,
         marginBottom: 164
     },
-    bullet: {
-        display: "inline-block",
-        margin: "0 2px",
-        transform: "scale(0.8)"
-    },
-    title: {
-        fontSize: 25
-    },
     dark: {
         marginBottom: 12,
         marginLeft: 16
     },
-    color: {
-        marginBottom: 12,
-        marginLeft: 13
-    },
     icons: {
         marginLeft: 10
+    },
+    colorBlind: {
+        color: theme.palette.primary[500],
+        marginTop: 30,
+        display: 'flex',
+        justifyContent: 'center'
     }
 }));
 
 //TODO: make a state handler for the switches
-export default function SettingsCard(props) {
+export default function SettingsCard() {
 
   const themeHandler = React.useContext(ThemeSwitchContext);
   const currentTheme = localStorage.getItem('theme');
@@ -85,14 +80,10 @@ export default function SettingsCard(props) {
                 onClick={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}/>
             </ListItem>
-        {/* <Divider />
-            <ListItem >
-                <ColorLensIcon className={classes.icons}/>
-                <ListItemText primary="Color Blind" className={classes.color} />
-                <Switch 
-                inputProps={{ 'aria-label': 'primary checkbox' }}/>
-            </ListItem> */}
         <Divider />
+        <Typography variant="h6" className={classes.colorBlind}>
+            Color-Blind support coming soon!
+        </Typography>
         </List>
     </Card>
   );
