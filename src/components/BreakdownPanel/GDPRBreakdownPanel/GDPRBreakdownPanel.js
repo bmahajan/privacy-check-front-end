@@ -1,16 +1,8 @@
 import React from 'react';
 import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
-import { withStyles, makeStyles } from "@material-ui/core";
-import MuiGridList from '@material-ui/core/GridList'
 import { ApiResponseContext } from "../../PanelManager";
+import GridList from "@material-ui/core/GridList";
 import DescriptionFieldGDPR from './GDPRDescriptionField'
-
-const GridList = withStyles(theme => ({
-  root: {
-    width: theme.panel.width,
-    height: theme.panel.height,
-  },
-})) (MuiGridList);
 
 export default function GDPRBreakdownPanel() {
   const response = React.useContext(ApiResponseContext);

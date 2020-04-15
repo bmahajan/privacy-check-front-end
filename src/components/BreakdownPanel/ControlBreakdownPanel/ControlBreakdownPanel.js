@@ -1,7 +1,6 @@
 import React from "react";
-import {makeStyles, withStyles} from "@material-ui/core/styles";
 import {ApiResponseContext} from "../../PanelManager";
-import MuiGridList from "@material-ui/core/GridList";
+import GridList from "@material-ui/core/GridList";
 import DescriptionFieldControl from "./ControlDescriptionField";
 import {
   ChildCare,
@@ -14,13 +13,6 @@ import {
   MoreHoriz, Person,
   Security
 } from "@material-ui/icons";
-
-const GridList = withStyles(theme => ({
-  root: {
-    width: theme.panel.width,
-    height: theme.panel.height,
-  },
-})) (MuiGridList);
 
 export default function ControlBreakdownPanel() {
   const response = React.useContext(ApiResponseContext); //add in the scores

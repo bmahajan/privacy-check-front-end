@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
     height: theme.panel.height,
-    maxHeight: theme.panel.maxHeight,
+    maxHeight: theme.panel.height,
   },
 }));
 
@@ -39,7 +39,6 @@ export default function BreakdownPanel() {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -50,15 +49,15 @@ export default function BreakdownPanel() {
         <NavigationBar title={'Score Breakdown'} />
         <AppBar position={'static'} color={'default'}>
           <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Score switching'}>
-            <Tab label={'GDPR Breakdown'} />
-            <Tab label={'Control Breakdown'} />
+            <Tab label={'Control'} />
+            <Tab label={'GDPR'} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <GDPRBreakdownPanel />
+          <ControlBreakdownPanel />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <ControlBreakdownPanel />
+          <GDPRBreakdownPanel />
         </TabPanel>
       </Card>
     </div>
