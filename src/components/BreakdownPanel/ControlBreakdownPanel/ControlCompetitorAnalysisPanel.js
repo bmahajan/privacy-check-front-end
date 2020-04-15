@@ -36,8 +36,30 @@ export default function ControlCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
-                Market Sector: {response.Market_Sector}
+                <b>Market Sector:</b> {response.Market_Sector}
               </Typography>
+          </Grid>
+          <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
+            <Grid item>
+                <Typography variant='h6' className={classes.market}>
+                <b>Top 3 Competitors:</b> 
+                </Typography>
+            </Grid>
+            <Grid item>
+                <Typography className={classes.market}>
+                <b>URL1 -</b> Score
+                </Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.market}>
+                <b>URL2 -</b> Score
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography className={classes.market}>
+              <b>URL3 -</b> Score
+              </Typography>
+            </Grid>
           </Grid>
           <Grid container className={classes.grid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
             <Grid item>
