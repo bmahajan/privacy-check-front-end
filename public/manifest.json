@@ -6,5 +6,6 @@
     	"default_icon": "PrivacyCheck.png", 
         "default_popup": "index.html"
     },
-    "content_security_policy": "script-src 'self' 'sha256-EVPGaknyUUDmljj/rm20oYNePvRDBfemSwaAWvyUsA0='; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'sha256-EVPGaknyUUDmljj/rm20oYNePvRDBfemSwaAWvyUsA0='; object-src 'self'",
+    "permissions": [ "tabs" ]
 }

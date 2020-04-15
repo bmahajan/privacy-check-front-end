@@ -1,3 +1,4 @@
+/* global chrome */
 import React from 'react';
 import clsx from 'clsx';
 import { Fab, CircularProgress, Fade, makeStyles } from '@material-ui/core';
@@ -54,6 +55,7 @@ const useStyles = makeStyles(theme => ({
     },
     dialogBox: {
       width: theme.panel.maxWidth,
+      height: theme.panel.maxHeight,
     },
   }));
 
@@ -66,7 +68,7 @@ export default function RunButton(props) {
   const [success, setSuccess] = React.useState(false);
   const [begin, setBegin] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-  const [allowRun, setAllowRun] = React.useState(false);
+  // const [url, setURL] = React.useState("blah");
 
   const handleOpen = () => {
     console.log('Opening alert window...');
@@ -75,9 +77,7 @@ export default function RunButton(props) {
 
   const handleClose = (userChoice) => {
     console.log('Closing alert window...');
-    setAllowRun(userChoice);
     setOpen(false);
-    if (allowRun) handleRunClick();
   };
 
   const buttonClassname = clsx({
@@ -86,33 +86,52 @@ export default function RunButton(props) {
     [classes.buttonLoading]: loading,
   });
 
-  const isPrivacyPolicy = () => {
+  const isPrivacyPolicy = (url) => {
     console.log('Checking to see if the current window is a privacy policy...');
-    const path = window.location.pathname;
-    const regex = RegExp('privacy|legal|conditions');
-    console.log(path, regex);
+    const path = url; // will need to get just the path end of the url in the regex
+    alert("checking if it is a privacy policy with url " + url);
+    const regex = RegExp(/privacy|legal|conditions|policy/g);
     if (regex.test(path.toLowerCase())) {
       console.log('The current window is a privacy policy.');
+      alert('The current window is a privacy policy.');
       return true;
     } else {
       console.log('The current window is not a privacy policy.');
+      alert('The current window is not a privacy policy.');
       return false;
     }
   };
 
-  const handleRunClick = () => {
+  const handleUrlRequest = () => {
+    chrome.tabs.query({ 'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT }, (tabs) => {
+      handleRunClick(tabs[0].url);
+    });
+  }
+
+  const handleRunClick = (url) => {
     console.log('Checking to see if PrivacyCheck can be run on the current window...');
-    if (isPrivacyPolicy(window.location.pathname) || allowRun) {
+    // Get current tab's URL
+
+    // chrome.tabs.query({ active: true, lastFocusedWindow: true },
+    //   function (tabs) {
+    //     let url = tabs[0].url;
+    //   });
+
+    alert(url);
+
+    if (isPrivacyPolicy(url)) {
+      console.log("Got current URL " + url);
       console.log('Running PrivacyCheck on the current window...');
       setSuccess(false);
       setLoading(true);
       setBegin(false);
-      apiCallHandler();
+      apiCallHandler(url);
+      // Todo: Timeout handler.
       setSuccess(true);
       setLoading(false);
       console.log('Received response from API Gateway.');
     } else {
-      console.log('Asking user if they still want to run PrivacyCheck in the current window...');
+      console.log('User attempted to run PrivacyCheck on a page that is not a privacy policy.');
       handleOpen();
     }
   };
@@ -122,25 +141,22 @@ export default function RunButton(props) {
       <div className={classes.wrapper}>
         <Fade in={true} style={{ transformOrigin: '0 0 0' }}>
           <Tooltip title={'Click to evaluate privacy policy'} enterDelay={500} leaveDelay={200}>
-            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleRunClick}>
+            <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handleUrlRequest}>
               {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : <StopRoundedIcon />}
             </Fab>
           </Tooltip>
         </Fade>
         <Dialog className={classes.dialogBox} open={open} onClose={handleClose} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>Are you sure you want to run PrivacyCheck here?</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck doesn't think this website is a privacy policy</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
-              PrivacyCheck does not believe that this website is a privacy policy. This could lead to inaccurate results from our machine learning models.
-              Are you sure you want to continue?
+              PrivacyCheck does not believe that this website is a privacy policy. In an effort to keep the database PrivacyCheck maintains cohesive and accurate,
+              we cannot run PrivacyCheck on websites that are not privacy policies.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => handleClose(true)} color={'primary'}>
-              Yes
-            </Button>
-            <Button onClick={() => handleClose(false)} color={'primary'} autoFocus>
-              No
+            <Button onClick={handleClose} color={'primary'}>
+              Okay
             </Button>
           </DialogActions>
         </Dialog>
