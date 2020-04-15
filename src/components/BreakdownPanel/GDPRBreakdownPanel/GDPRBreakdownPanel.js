@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
-    maxHeight: theme.panel.maxHeight,
+    maxHeight: theme.panel.maxHeight + 50,
   },
 }));
 

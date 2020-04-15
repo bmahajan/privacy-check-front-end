@@ -42,7 +42,7 @@ export default function GDPRCompetitorAnalysisPanel(props) {
               </Typography>
           </Grid>
           <Grid item>
-            <ScoreBubble score={overallScore.Control} height={50} width={50} />
+            <ScoreBubble score={overallScore.GDPR} height={50} width={50} />
           </Grid>
         </Grid>
         <Grid container className={classes.scoregrid} direction='column' alignContent='center' justify='center' spacing>
@@ -62,17 +62,17 @@ export default function GDPRCompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
                 <Typography className={classes.market}>
-                <b>1. {catResponse.gdpr_top_scorers[0].Domain_URL} </b> Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score}
+                <b>1. {catResponse.gdpr_top_scorers[0].Domain_URL} Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score} </b>
                 </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>2. {catResponse.gdpr_top_scorers[1].Domain_URL} </b> Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score}
+                <b>2. {catResponse.gdpr_top_scorers[1].Domain_URL} Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score} </b>
               </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>3. {catResponse.gdpr_top_scorers[2].Domain_URL} </b> Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score}
+                <b>3. {catResponse.gdpr_top_scorers[2].Domain_URL} Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score} </b>
               </Typography>
             </Grid>
           </Grid>

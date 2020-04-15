@@ -35,7 +35,7 @@ export default function ControlCompetitorAnalysisPanel(props) {
   return (
     <div className={classes.root}>
       <Paper>
-        <Grid container className={classes.grid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
+        <Grid container className={classes.scoregrid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
           <Grid item>
             <Typography variant='h4'>
               Score
@@ -45,7 +45,7 @@ export default function ControlCompetitorAnalysisPanel(props) {
             <ScoreBubble score={overallScore.Control} height={50} width={50} />
           </Grid>
         </Grid>
-        <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
+        <Grid container className={classes.scoregrid} direction='column' alignContent='center' justify='center' spacing>
           <Grid item>
             <ControlDataVisualization />
           </Grid>
@@ -62,17 +62,17 @@ export default function ControlCompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
                 <Typography className={classes.market}>
-                <b>1. {catResponse.control_top_scorers[0].Domain_URL} </b> Score: {catResponse.control_top_scorers[0].Control_Overall_Score}
+                <b>1. {catResponse.control_top_scorers[0].Domain_URL} Score: {catResponse.control_top_scorers[0].Control_Overall_Score} </b>
                 </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>2. {catResponse.control_top_scorers[1].Domain_URL} </b> Score: {catResponse.control_top_scorers[1].Control_Overall_Score}
+                <b>2. {catResponse.control_top_scorers[1].Domain_URL} Score: {catResponse.control_top_scorers[1].Control_Overall_Score} </b>
               </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>3. {catResponse.control_top_scorers[2].Domain_URL} </b> Score: {catResponse.control_top_scorers[2].Control_Overall_Score}
+                <b>3. {catResponse.control_top_scorers[2].Domain_URL} Score: {catResponse.control_top_scorers[2].Control_Overall_Score} </b>
               </Typography>
             </Grid>
           </Grid>
