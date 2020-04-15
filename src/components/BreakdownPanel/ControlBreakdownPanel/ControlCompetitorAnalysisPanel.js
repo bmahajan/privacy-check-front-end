@@ -3,7 +3,7 @@ import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from '../ScoreBubble';
 import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
-import { ApiResponseContext, OverallScoreContext } from "../../PanelManager";
+import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
 
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +15,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: 5,
     marginBottom: 10,
   },
+  scoregrid: {
+    marginTop: 5,
+    marginBottom: 0,
+  },
   market: {
     display: "flex",
     justifyContent: "center",
@@ -25,11 +29,22 @@ export default function ControlCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
   const response = React.useContext(ApiResponseContext);
+  const catResponse = React.useContext(CATResponseContext);
   const overallScore = React.useContext(OverallScoreContext);
 
   return (
     <div className={classes.root}>
       <Paper>
+        <Grid container className={classes.grid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
+          <Grid item>
+            <Typography variant='h4'>
+              Score
+              </Typography>
+          </Grid>
+          <Grid item>
+            <ScoreBubble score={overallScore.Control} height={50} width={50} />
+          </Grid>
+        </Grid>
         <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
           <Grid item>
             <ControlDataVisualization />
@@ -47,28 +62,18 @@ export default function ControlCompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
                 <Typography className={classes.market}>
-                <b>URL1 -</b> Score
+                <b>1. {catResponse.control_top_scorers[0].Domain_URL} </b> Score: {catResponse.control_top_scorers[0].Control_Overall_Score}
                 </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>URL2 -</b> Score
+                <b>2. {catResponse.control_top_scorers[1].Domain_URL} </b> Score: {catResponse.control_top_scorers[1].Control_Overall_Score}
               </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-              <b>URL3 -</b> Score
+                <b>3. {catResponse.control_top_scorers[2].Domain_URL} </b> Score: {catResponse.control_top_scorers[2].Control_Overall_Score}
               </Typography>
-            </Grid>
-          </Grid>
-          <Grid container className={classes.grid} direction='row' alignContent='center' alignItems='center' justify='center' spacing={2}>
-            <Grid item>
-              <Typography variant='h4'>
-                Score
-              </Typography>
-            </Grid>
-            <Grid item>
-              <ScoreBubble score={overallScore.Control} height={50} width={50} />
             </Grid>
           </Grid>
         </Grid>
