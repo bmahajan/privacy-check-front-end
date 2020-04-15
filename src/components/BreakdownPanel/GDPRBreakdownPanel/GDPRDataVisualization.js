@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DataVisualization(props) {
+export default function GDPRDataVisualization(props) {
 
   const classes = useStyles();
 

@@ -1,6 +1,6 @@
 import React from "react";
 import ControlFeatureList from "./ControlFeatureList";
-import CompetitorAnalysisPanel from "../CompetitorAnalysisComponenets/CompetitorAnalysisPanel";
+import ControlCompetitorAnalysisPanel from "./ControlCompetitorAnalysisPanel";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -16,7 +16,7 @@ export default function ControlBreakdownPanel(props) {
 
   return (
     <div className={classes.root}>
-      <CompetitorAnalysisPanel />
+      <ControlCompetitorAnalysisPanel />
       <ControlFeatureList />
     </div>
   );

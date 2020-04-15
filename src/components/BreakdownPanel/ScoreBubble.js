@@ -37,12 +37,10 @@ function ScoreBubble(props) {
 
   const classes = useStyles(props);
 
-  const overallScore = React.useContext(OverallScoreContext);
-
   return(
     <Avatar className={classes.avatar}>
       <Typography variant='h4'>
-        {/*response.Control_Scores[0]*/ overallScore.GDPR}
+        {props.score}
       </Typography>
     </Avatar>
   );

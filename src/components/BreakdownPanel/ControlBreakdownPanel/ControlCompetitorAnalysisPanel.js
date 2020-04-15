@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from '../ScoreBubble';
-import DataVisualization from './DataVisualization'
+import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
 import { ApiResponseContext, OverallScoreContext } from "../../PanelManager";
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CompetitorAnalysisPanel(props) {
+export default function ControlCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
   const response = React.useContext(ApiResponseContext);
@@ -32,7 +32,7 @@ export default function CompetitorAnalysisPanel(props) {
       <Paper>
         <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
           <Grid item>
-            <DataVisualization />
+            <ControlDataVisualization />
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
@@ -46,7 +46,7 @@ export default function CompetitorAnalysisPanel(props) {
               </Typography>
             </Grid>
             <Grid item>
-              <ScoreBubble score={overallScore.GDPR} height={50} width={50} />
+              <ScoreBubble score={overallScore.Control} height={50} width={50} />
             </Grid>
           </Grid>
         </Grid>

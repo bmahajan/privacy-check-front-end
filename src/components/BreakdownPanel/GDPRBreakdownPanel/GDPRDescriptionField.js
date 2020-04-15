@@ -7,6 +7,7 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
 
+
 const ExpansionPanel = withStyles(theme => ({
   root: {
     border: '1px solid rgba(0, 0, 0, .125)',
@@ -58,14 +59,11 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
       console.log(props.score);
-      if (props.score == 3) {
-        return theme.status.good[500];
+      if (props.score == 2) {
+        return theme.status.good[600];
       } 
-      else if (props.score == 2) {
-        return theme.status.okay[500];
-      }
-      else if (props.score == 1) {
-        return theme.status.poor[500];
+      else if (props.score <= 1) {
+        return theme.status.poor[600];
       }
     },
   },
@@ -79,15 +77,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function scoreConverter(score){
-  if(score==3)
+  if(score==2)
   { return '10%'}
-  else if(score==2)
-  { return '5%'}
   else
   { return '0%'}
 }
 
-export default function DescriptionFieldControl(props) {
+export default function DescriptionFieldGDPR(props) {
 
   const classes = useStyles(props);
 

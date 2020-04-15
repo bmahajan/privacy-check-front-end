@@ -1,6 +1,6 @@
 import React from 'react';
 import { Email, CreditCard, MoreHoriz, LocalOffer, Explore, ChildCare, Security, ExitToApp, Lock, Person } from '@material-ui/icons';
-import DescriptionFieldControl from "./DescriptionFieldControl";
+import DescriptionFieldControl from "./ControlDescriptionField";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiGridList from '@material-ui/core/GridList';
 import { ApiResponseContext } from "../../PanelManager";

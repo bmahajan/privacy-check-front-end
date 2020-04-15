@@ -3,7 +3,7 @@ import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, E
 import { withStyles, makeStyles } from "@material-ui/core";
 import MuiGridList from '@material-ui/core/GridList'
 import { ApiResponseContext } from "../../PanelManager";
-import DescriptionFieldGDPR from './DescriptionFieldGDPR'
+import DescriptionFieldGDPR from './GDPRDescriptionField'
 
 const GridList = withStyles(theme => ({
   root: {
