@@ -46,7 +46,7 @@ export default function CompetitorAnalysisPanel(props) {
   return (
     <div className={classes.root}>
       <Card>
-        <NavigationBar title={'Score Breakdown'} />
+        <NavigationBar title={'Competitor Analysis'} />
         <AppBar position={'static'} color={'default'}>
           <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Score switching'}>
             <Tab label={'Control'} />

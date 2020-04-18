@@ -34,7 +34,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-export default function BreakdownPanel() {
+export default function BreakdownPanel(props) {
 
   const classes = useStyles();
 

@@ -125,7 +125,7 @@ export default function PanelManager() {
   };
 
   const overallScoreHandler = (data) => {
-    console.log('calculateing overall score...')
+    console.log('calculating overall score...')
     var GDPROverallScore = 0;
     var ControlOverallScore = 0;
 
