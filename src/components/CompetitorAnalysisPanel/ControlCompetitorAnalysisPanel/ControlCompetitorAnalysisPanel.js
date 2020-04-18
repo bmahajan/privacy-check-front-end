@@ -62,17 +62,17 @@ export default function ControlCompetitorAnalysisPanel(props) {
             </Grid>
             <Grid item>
                 <Typography className={classes.market}>
-                <b>1. {catResponse.control_top_scorers[0].Domain_URL} Score: {catResponse.control_top_scorers[0].Control_Overall_Score} </b>
+                <b>1. {catResponse.control_top_scorers[0].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[0].Control_Overall_Score} </b>
                 </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>2. {catResponse.control_top_scorers[1].Domain_URL} Score: {catResponse.control_top_scorers[1].Control_Overall_Score} </b>
+                <b>2. {catResponse.control_top_scorers[1].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[1].Control_Overall_Score} </b>
               </Typography>
             </Grid>
             <Grid item>
               <Typography className={classes.market}>
-                <b>3. {catResponse.control_top_scorers[2].Domain_URL} Score: {catResponse.control_top_scorers[2].Control_Overall_Score} </b>
+                <b>3. {catResponse.control_top_scorers[2].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[2].Control_Overall_Score} </b>
               </Typography>
             </Grid>
           </Grid>
