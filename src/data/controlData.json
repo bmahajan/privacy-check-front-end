@@ -1,14 +1,14 @@
 [
-    {
-        "id": "Control",
-        "ranges": [
-            40,
-            60,
-            80,
-            90,
-            100
-        ],
-        "measures": [],
-        "markers": []
-    }
+  {
+    "id": "Control",
+    "ranges": [
+      40,
+      60,
+      80,
+      90,
+      100
+    ],
+    "measures": [],
+    "markers": []
+  }
 ]

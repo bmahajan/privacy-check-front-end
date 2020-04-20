@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { ResponsiveBullet } from '@nivo/bullet'
-import { CATResponseContext, ApiResponseContext } from "../../PanelManager";
+import { CompetitorAnalysisResponseContext, PrivacyPolicyResponseContext } from "../../PanelManager";
 
 
 const useStyles = makeStyles(theme => ({
@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function GDPRDataVisualization(props) {
-  const catResponse = React.useContext(CATResponseContext);
-  const response = React.useContext(ApiResponseContext);
+  const catResponse = React.useContext(CompetitorAnalysisResponseContext);
+  const response = React.useContext(PrivacyPolicyResponseContext);
   const classes = useStyles();
 
   let data = [
@@ -49,21 +49,21 @@ export default function GDPRDataVisualization(props) {
   ]
 
   const MyResponsiveBullet = ({ gdprData }) => (
-        <Box className={classes.root}>
-        <ResponsiveBullet
-          data={gdprData}
-          margin={{ top: 10, right: 90, bottom: 30, left: 90 }}
-          spacing={50}
-          titleAlign="start"
-          titleOffsetX={-70}
-          measureSize={0.2}
-          rangeColors="red_yellow_green"
-          animate={true}
-          motionStiffness={90}
-          motionDamping={12}
-        />
-        </Box>
-    )
+    <Box className={classes.root}>
+      <ResponsiveBullet
+        data={gdprData}
+        margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
+        spacing={50}
+        titleAlign="start"
+        titleOffsetX={-70}
+        measureSize={0.2}
+        rangeColors="red_yellow_green"
+        animate={true}
+        motionStiffness={90}
+        motionDamping={12}
+      />
+    </Box>
+  );
 
   return MyResponsiveBullet({ gdprData });
 }

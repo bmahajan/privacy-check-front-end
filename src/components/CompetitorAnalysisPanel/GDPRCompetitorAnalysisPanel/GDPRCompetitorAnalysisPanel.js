@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
-import GDPRDataVisualization from '../../BreakdownPanel/GDPRBreakdownPanel/GDPRDataVisualization'
+import GDPRDataVisualization from './GDPRDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
-import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
+import { PrivacyPolicyResponseContext, PrivacyPolicyScoreContext, CompetitorAnalysisResponseContext } from "../../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,9 +36,9 @@ const useStyles = makeStyles(theme => ({
 export default function GDPRCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
-  const response = React.useContext(ApiResponseContext);
-  const catResponse = React.useContext(CATResponseContext);
-  const overallScore = React.useContext(OverallScoreContext);
+  const response = React.useContext(PrivacyPolicyResponseContext);
+  const catResponse = React.useContext(CompetitorAnalysisResponseContext);
+  const overallScore = React.useContext(PrivacyPolicyScoreContext);
 
   return (
     <div className={classes.root}>
@@ -69,18 +69,18 @@ export default function GDPRCompetitorAnalysisPanel(props) {
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography className={classes.top}>
-                <b>1. {catResponse.gdpr_top_scorers[0].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score})
+                <Typography className={classes.market}>
+                <b>1. {catResponse.gdpr_top_scorers[0].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score} </b>
                 </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.top}>
-                <b>2. {catResponse.gdpr_top_scorers[1].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score})
+              <Typography className={classes.market}>
+                <b>2. {catResponse.gdpr_top_scorers[1].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score} </b>
               </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.last}>
-                <b>3. {catResponse.gdpr_top_scorers[2].Domain_URL} </b>(Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score})
+              <Typography className={classes.market}>
+                <b>3. {catResponse.gdpr_top_scorers[2].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score} </b>
               </Typography>
             </Grid>
           </Grid>

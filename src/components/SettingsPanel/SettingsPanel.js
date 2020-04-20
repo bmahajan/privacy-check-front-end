@@ -12,16 +12,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SettingsPanel(props) {
-
   const classes = useStyles(props);
 
   return(
-    <div>
-      <Card className={classes.root}>
-        <NavigationBar title='Settings' backLabel='RunPanel'/>
-        <SettingsCard/>
-      </Card>
-    </div>
+    <Card className={classes.root}>
+      <NavigationBar title='Settings' backLabel='RunPanel'/>
+      <SettingsCard />
+    </Card>
   );
 
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'
 import { green, yellow, red } from '@material-ui/core/colors';
-import { OverallScoreContext } from "../PanelManager";
+import { PrivacyPolicyScoreContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   avatar: {

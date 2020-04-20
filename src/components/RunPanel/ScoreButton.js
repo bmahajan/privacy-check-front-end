@@ -4,11 +4,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip'
-import { PanelSwitchContext, OverallScoreContext } from "../PanelManager";
+import { PanelSwitchContext, PrivacyPolicyScoreContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   score: {
-    width: 100,
+    width: 125,
   },
   button: {
     backgroundColor: theme.palette.secondary[800],
@@ -22,7 +22,7 @@ export default function ScoreButton (props){
 
   const classes = useStyles();
   const panelHandler = React.useContext(PanelSwitchContext);
-  const overallScore = React.useContext(OverallScoreContext);
+  const overallScore = React.useContext(PrivacyPolicyScoreContext);
 
   return(
     <div>
@@ -30,12 +30,12 @@ export default function ScoreButton (props){
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} >
           <Grid container spacing={3} direction="column">
             <Grid item className={classes.score}>
-                <Typography variant="body2"> GDPR </Typography>
-                <Typography variant="h3"> {overallScore.GDPR} </Typography>
+              <Typography variant="caption"> User Control </Typography>
+             <Typography variant="h3">{overallScore.Control}</Typography>
             </Grid>
             <Grid item className={classes.score}>
-              <Typography variant="body2"> Control </Typography>
-             <Typography variant="h3"> {overallScore.Control} </Typography>
+              <Typography variant="caption"> GDPR </Typography>
+              <Typography variant="h3">{overallScore.GDPR}</Typography>
             </Grid>
           </Grid>
         </Button>

@@ -3,12 +3,11 @@ import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
 import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
-import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
-
+import { PrivacyPolicyResponseContext, PrivacyPolicyScoreContext, CompetitorAnalysisResponseContext } from "../../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
+    width: theme.panel.width,
     height: '100%',
   },
   grid: {
@@ -35,11 +34,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ControlCompetitorAnalysisPanel(props) {
-
   const classes = useStyles();
-  const response = React.useContext(ApiResponseContext);
-  const catResponse = React.useContext(CATResponseContext);
-  const overallScore = React.useContext(OverallScoreContext);
+  const response = React.useContext(PrivacyPolicyResponseContext);
+  const catResponse = React.useContext(CompetitorAnalysisResponseContext);
+  const overallScore = React.useContext(PrivacyPolicyScoreContext);
 
   return (
     <div className={classes.root}>
@@ -48,7 +46,7 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid item>
             <Typography variant='h4'>
               Score
-              </Typography>
+            </Typography>
           </Grid>
           <Grid item>
             <ScoreBubble score={overallScore.Control} height={50} width={50} />
@@ -60,28 +58,28 @@ export default function ControlCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
-                <b>Market Sector:  </b> {response.Market_Sector}
+                <b>Market Sector: </b> {response.Market_Sector}
               </Typography>
           </Grid>
           <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
             <Grid item>
                 <Typography variant='h6' className={classes.market}>
-                <b>Top 3 Competitors:</b> 
+                <b>Top 3 Competitors: </b>
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography className={classes.top}>
-                <b>1. {catResponse.control_top_scorers[0].Domain_URL}</b> (Score: {catResponse.control_top_scorers[0].Control_Overall_Score})
+                <Typography className={classes.market}>
+                <b>1. {catResponse.control_top_scorers[0].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[0].Control_Overall_Score} </b>
                 </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.top}>
-                <b>2. {catResponse.control_top_scorers[1].Domain_URL}</b>(Score: {catResponse.control_top_scorers[1].Control_Overall_Score})
+              <Typography className={classes.market}>
+                <b>2. {catResponse.control_top_scorers[1].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[1].Control_Overall_Score} </b>
               </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.last}>
-                <b>3. {catResponse.control_top_scorers[2].Domain_URL}</b>(Score: {catResponse.control_top_scorers[2].Control_Overall_Score})
+              <Typography className={classes.market}>
+                <b>3. {catResponse.control_top_scorers[2].Privacy_Policy_URL} Score: {catResponse.control_top_scorers[2].Control_Overall_Score} </b>
               </Typography>
             </Grid>
           </Grid>

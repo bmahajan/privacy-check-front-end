@@ -6,8 +6,6 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
-import Tooltip from '@material-ui/core/Tooltip'
-
 
 const ExpansionPanel = withStyles(theme => ({
   root: {
@@ -82,11 +80,11 @@ const useStyles = makeStyles(theme => ({
 
 function scoreConverter(score){
   if(score==3)
-  { return '10%'}
+  { return '10/10'}
   else if(score==2)
-  { return '5%'}
+  { return '5/10'}
   else
-  { return '0%'}
+  { return '0/10'}
 }
 
 export default function DescriptionFieldControl(props) {
@@ -96,9 +94,7 @@ export default function DescriptionFieldControl(props) {
   return (
     <div className={classes.root}>
       <ExpansionPanel square expanded={props.expanded} onChange={props.onChange}>
-      <Tooltip title="Click to expnad" placement="right" enterDelay={2000} leaveDelay={200}>
-        <ExpansionPanelSummary expandIcon={
-        <ExpandMoreIcon />}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid container direction={'column'} >
             <Typography className={classes.heading}>
@@ -106,7 +102,6 @@ export default function DescriptionFieldControl(props) {
             </Typography>
           </Grid>
         </ExpansionPanelSummary>
-      </Tooltip>
         <ExpansionPanelDetails>
           <Typography>{props.details}</Typography>
         </ExpansionPanelDetails>
