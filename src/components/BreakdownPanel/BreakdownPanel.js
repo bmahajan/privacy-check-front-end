@@ -46,7 +46,7 @@ export default function BreakdownPanel(props) {
       <NavigationBar title={'Score Breakdown'} />
       <AppBar position={'static'} color={'default'}>
         <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Standard switching'}>
-          <Tab label={'Control'} />
+          <Tab label={'User Control'} />
           <Tab label={'GDPR'} />
         </Tabs>
       </AppBar>

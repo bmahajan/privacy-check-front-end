@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SettingsPanel(props) {
-
   const classes = useStyles(props);
 
   return(

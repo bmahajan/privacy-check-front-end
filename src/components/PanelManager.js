@@ -117,13 +117,7 @@ export default function PanelManager() {
 
   const privacyPolicyScoreHandler = (data) => {
     console.log('Setting overall privacy policy score');
-    let controlScore = 0;
-    let gdprScore = 0;
-    for (let i = 0; i < 10; i++) {
-      controlScore += data.Control_Scores[i] * 5 - 5;
-      gdprScore += data.GDPR_Scores[i] == 2 ? 10 : 0;
-    }
-    setPrivacyPolicyScore({Control: controlScore, GDPR: gdprScore});
+    setPrivacyPolicyScore({Control: data.Control_Overall_Score + '%', GDPR: data.GDPR_Overall_Score + '%'})
   };
 
   return (

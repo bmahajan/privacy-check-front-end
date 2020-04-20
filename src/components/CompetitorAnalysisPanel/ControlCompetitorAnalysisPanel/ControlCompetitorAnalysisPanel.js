@@ -7,7 +7,7 @@ import { PrivacyPolicyResponseContext, PrivacyPolicyScoreContext, CompetitorAnal
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
+    width: theme.panel.width,
     height: '100%',
   },
   grid: {
@@ -37,7 +37,7 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid item>
             <Typography variant='h4'>
               Score
-              </Typography>
+            </Typography>
           </Grid>
           <Grid item>
             <ScoreBubble score={overallScore.Control} height={50} width={50} />
@@ -49,13 +49,13 @@ export default function ControlCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
-                <b>Market Sector:</b> {response.Market_Sector}
+                <b>Market Sector: </b> {response.Market_Sector}
               </Typography>
           </Grid>
           <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
             <Grid item>
                 <Typography variant='h6' className={classes.market}>
-                <b>Top 3 Competitors:</b> 
+                <b>Top 3 Competitors: </b>
                 </Typography>
             </Grid>
             <Grid item>
