@@ -1,5 +1,5 @@
 import React from 'react';
-import {ThemeProvider} from '@material-ui/core/styles';
+import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import AboutPanel from "./AboutPanel/AboutPanel.js";
 import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
 import CompetitorAnalysisPanel from './CompetitorAnalysisPanel/CompetitorAnalysisPanel';
@@ -7,8 +7,8 @@ import RunPanel from './RunPanel/RunPanel';
 import SettingsPanel from './SettingsPanel/SettingsPanel';
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
-import defaultResponse from '../data/defaultPrivacyPolicyResponse.json';
-import defaultCATResponse from '../data/defaultCompetitorAnalysisResponse.json';
+import defaultPrivacyPolicyResponse from '../data/defaultPrivacyPolicyResponse.json';
+import defaultCompetitorAnalysisResponse from '../data/defaultCompetitorAnalysisResponse.json';
 import globalTheme from "./Themes/globalTheme";
 
 export const PanelSwitchContext = React.createContext();
@@ -25,8 +25,8 @@ export default function PanelManager() {
   const PRIVACY_POLICY_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get');
   const COMPETITOR_ANALYSIS_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/competitor_analysis');
 
-  const [privacyPolicyResponse, setPrivacyPolicyResponse] = React.useState(defaultResponse);
-  const [competitorAnalysisResponse, setCompetitorAnalysisResponse] = React.useState(defaultCATResponse);
+  const [privacyPolicyResponse, setPrivacyPolicyResponse] = React.useState(defaultPrivacyPolicyResponse);
+  const [competitorAnalysisResponse, setCompetitorAnalysisResponse] = React.useState(defaultCompetitorAnalysisResponse);
   const [privacyPolicyScore, setPrivacyPolicyScore] = React.useState({Control: '-', GDPR: '-'});
 
   const [panel, setPanel] = React.useState(<RunPanel />);

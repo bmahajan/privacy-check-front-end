@@ -33,37 +33,34 @@ export default function RunPanel(props){
   return(
     <div className={classes.root}>
       <Card>
-      <div style={{
-          display: "flex",
-          justifyContent: "center",
-      }}>
-      <Encrypt interval={500} className={classes.encrypt}/>
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <Encrypt interval={500} className={classes.encrypt}/>
       </div>
-        <Grid container direction={'column'} alignContent={'center'} alignItems={'center'} spacing={3}>
-          <img src={UTCIDLogo} alt="utcid logo" height={40} width={220} className={classes.utcidLogo} />
-          <Grid item flex-basis={'content'}>
-            <ScoreButton pane={'BreakdownPanel'} scores={[]} />
-          </Grid>
-          <Grid item flex-basis={'content'}>
-            <RunButton />
-          </Grid>
-          <Grid item>
-            <Grid container direction={'row'} padding={3}>
-              <Grid item>
-                <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} tooltip={'Settings'} />
-              </Grid>
-              <Grid item>
-                <RunPanelButton icon={<BarChartRoundedIcon />} panel={'CompetitorAnalysisPanel'} tooltip={'Competitor Analysis'} />
-              </Grid>
-              <Grid item>
-                <RunPanelButton icon={<BallotIcon />} panel={'BreakdownPanel'} tooltip={'Score Breakdown'} />
-              </Grid>
-              <Grid item>
-                <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} tooltip={'About'} />
-              </Grid>
+      <Grid container direction={'column'} alignContent={'center'} alignItems={'center'} spacing={3}>
+        <img src={UTCIDLogo} alt="utcid logo" height={40} width={220} className={classes.utcidLogo} />
+        <Grid item flex-basis={'content'}>
+          <ScoreButton pane={'BreakdownPanel'} scores={[]} />
+        </Grid>
+        <Grid item flex-basis={'content'}>
+          <RunButton />
+        </Grid>
+        <Grid item>
+          <Grid container direction={'row'} padding={3}>
+            <Grid item>
+              <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} tooltip={'Settings'} />
+            </Grid>
+            <Grid item>
+              <RunPanelButton icon={<BallotIcon />} panel={'BreakdownPanel'} tooltip={'Score Breakdown'} />
+            </Grid>
+            <Grid item>
+              <RunPanelButton icon={<BarChartRoundedIcon />} panel={'CompetitorAnalysisPanel'} tooltip={'Competitor Analysis'} />
+            </Grid>
+            <Grid item>
+              <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} tooltip={'About'} />
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
       </Card>
     </div>
   );

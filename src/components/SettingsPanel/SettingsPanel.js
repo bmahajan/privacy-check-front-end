@@ -16,11 +16,9 @@ export default function SettingsPanel(props) {
   const classes = useStyles(props);
 
   return(
-    <div>
-      <Card className={classes.root}>
-        <NavigationBar title='Settings' backLabel='RunPanel'/>
-        <SettingsCard/>
-      </Card>
+    <div className={classes.root}>
+      <NavigationBar title='Settings' backLabel='RunPanel'/>
+      <SettingsCard/>
     </div>
   );
 

@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: theme.panel.width,
     height: theme.panel.height,
-    maxHeight: theme.panel.height,
   },
 }));
 
@@ -44,21 +43,19 @@ export default function BreakdownPanel(props) {
 
   return (
     <div className={classes.root}>
-      <Card>
-        <NavigationBar title={'Score Breakdown'} />
-        <AppBar position={'static'} color={'default'}>
-          <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Score switching'}>
-            <Tab label={'Control'} />
-            <Tab label={'GDPR'} />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={value} index={0}>
-          <ControlBreakdownPanel />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <GDPRBreakdownPanel />
-        </TabPanel>
-      </Card>
+      <NavigationBar title={'Score Breakdown'} />
+      <AppBar position={'static'} color={'default'}>
+        <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Standard switching'}>
+          <Tab label={'Control'} />
+          <Tab label={'GDPR'} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0}>
+        <ControlBreakdownPanel />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <GDPRBreakdownPanel />
+      </TabPanel>
     </div>
   );
 }

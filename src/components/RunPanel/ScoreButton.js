@@ -35,12 +35,12 @@ export default function ScoreButton (props){
         <Button onClick={() => panelHandler('BreakdownPanel')} className={classes.button} >
           <Grid container spacing={3} direction="column">
             <Grid item className={classes.score}>
-                <Typography variant="caption"> GDPR </Typography>
-                <Typography variant="h3"> {overallScore.GDPR} </Typography>
-            </Grid>
-            <Grid item className={classes.score}>
               <Typography variant="caption"> Control </Typography>
              <Typography variant="h3"> {overallScore.Control} </Typography>
+            </Grid>
+            <Grid item className={classes.score}>
+              <Typography variant="caption"> GDPR </Typography>
+              <Typography variant="h3"> {overallScore.GDPR} </Typography>
             </Grid>
           </Grid>
         </Button>
