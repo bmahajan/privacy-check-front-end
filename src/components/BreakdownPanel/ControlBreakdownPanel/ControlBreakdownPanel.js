@@ -1,5 +1,5 @@
 import React from "react";
-import {ApiResponseContext} from "../../PanelManager";
+import {PrivacyPolicyResponseContext} from "../../PanelManager";
 import GridList from "@material-ui/core/GridList";
 import DescriptionFieldControl from "./ControlDescriptionField";
 import {
@@ -15,7 +15,7 @@ import {
 } from "@material-ui/icons";
 
 export default function ControlBreakdownPanel() {
-  const response = React.useContext(ApiResponseContext); //add in the scores
+  const response = React.useContext(PrivacyPolicyResponseContext); //add in the scores
 
   const [expanded, setExpanded] = React.useState(false);
   const handleExpansionChange = panel => (event, isExpanded) => {

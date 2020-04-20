@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
 import AboutPanel from "./AboutPanel/AboutPanel.js";
 import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
 import CompetitorAnalysisPanel from './CompetitorAnalysisPanel/CompetitorAnalysisPanel';
@@ -7,27 +7,29 @@ import RunPanel from './RunPanel/RunPanel';
 import SettingsPanel from './SettingsPanel/SettingsPanel';
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
-import defaultResponse from '../data/defaultResponse';
-import defaultCATResponse from '../data/defaultCATResponse.json';
+import defaultResponse from '../data/defaultPrivacyPolicyResponse.json';
+import defaultCATResponse from '../data/defaultCompetitorAnalysisResponse.json';
 import globalTheme from "./Themes/globalTheme";
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
-export const ApiCallContext = React.createContext();
-export const ApiResponseContext = React.createContext();
-export const CATResponseContext = React.createContext();
-export const OverallScoreContext = React.createContext();
-export const ScoreTabContext = React.createContext();
+
+export const PrivacyCheckRunContext = React.createContext();
+
+export const PrivacyPolicyResponseContext = React.createContext();
+export const CompetitorAnalysisResponseContext = React.createContext();
+export const PrivacyPolicyScoreContext = React.createContext();
 
 export default function PanelManager() {
 
-  const DATABASE_GET_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get');
-  const CAT_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/competitor_analysis')
+  const PRIVACY_POLICY_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/database_get');
+  const COMPETITOR_ANALYSIS_API_URL = new URL('https://n08kagpdqh.execute-api.us-east-2.amazonaws.com/dev/competitor_analysis');
+
+  const [privacyPolicyResponse, setPrivacyPolicyResponse] = React.useState(defaultResponse);
+  const [competitorAnalysisResponse, setCompetitorAnalysisResponse] = React.useState(defaultCATResponse);
+  const [privacyPolicyScore, setPrivacyPolicyScore] = React.useState({Control: '-', GDPR: '-'});
 
   const [panel, setPanel] = React.useState(<RunPanel />);
-  const [response, setResponse] = React.useState(defaultResponse);
-  const [catResponse, setCATResponse] = React.useState(defaultCATResponse)
-  const [overallScore, setOverallScore] = React.useState({Control: '-', GDPR: '-'});
   const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
@@ -87,54 +89,44 @@ export default function PanelManager() {
     }
   };
 
-  const catCallHandler = (response) => {
-    var cat_api_url = CAT_API_URL;
-    var cat_api_params = { Market_Sector: response.Market_Sector }
-    cat_api_url.search = new URLSearchParams(cat_api_params).toString();
-    fetch(cat_api_url) //Jake please don't kill me. Can we move this somewhere else?
-      .then(res => res.json())
-      .then((data) => {
-        console.log('Attempting to update CAT response data');
-        setCATResponse(data);
-        console.log('Successfully updated CAT response data!')
-        console.log(data);
-      })
-      .then(console.log('Finished making call to api gateway!'))
-      .catch(console.log);
+  const privacyCheckRunHandler = (url) => {
+    return new Promise((resolve, reject) => {
+      PRIVACY_POLICY_API_URL.search = new URLSearchParams({url: url}).toString();
+      fetch(PRIVACY_POLICY_API_URL)
+        .then(res => res.json())
+        .then(privacyPolicyData => {
+          console.log('Received data from privacy policy database:\n%s', privacyPolicyData);
+          setPrivacyPolicyResponse(privacyPolicyData);
+          console.log('Set data to privacy policy response.');
+          privacyPolicyScoreHandler(privacyPolicyData);
+          console.log('Set data to privacy policy response.');
+          COMPETITOR_ANALYSIS_API_URL.search = new URLSearchParams({Market_Sector: privacyPolicyData.Market_Sector});
+          fetch(COMPETITOR_ANALYSIS_API_URL)
+            .then(res => res.json())
+            .then(competitorAnalysisData => {
+              console.log('Received data from competitor analysis database:\n%s', competitorAnalysisData);
+              setCompetitorAnalysisResponse(competitorAnalysisData);
+              console.log('Set data to competitor analysis response.');
+              resolve();
+            })
+            .catch(reject);
+        })
+        .catch(reject);
+    });
   };
 
-  const apiCallHandler = (url) => {
-    console.log('Making call to api gateway...');
-
-    var database_get_api_url = DATABASE_GET_API_URL;
-    var params = {url: url}
-
-    database_get_api_url.search = new URLSearchParams(params).toString();
-    fetch(database_get_api_url)
-      .then(res => res.json())
-      .then((data) => {
-        console.log('Attempting to update response data');
-        setResponse(data);
-        console.log('Successfully updated response data!')
-        console.log(data);
-        overallScoreHandler(data);
-        catCallHandler(data);
-      })
-      .then(console.log('Finished making call to api gateway!'))
-      .catch(console.log);
-  };
-
-  const overallScoreHandler = (data) => {
-    console.log('calculating overall score...')
-    var GDPROverallScore = 0;
-    var ControlOverallScore = 0;
-
-    for(var i = 0; i < 10; i++){
-        ControlOverallScore = ControlOverallScore + ((data.Control_Scores[i])*5 -5);
-        GDPROverallScore = GDPROverallScore + (data.GDPR_Scores[i] == 2 ? 10 : 0);
+  const privacyPolicyScoreHandler = (data) => {
+    console.log('Setting overall privacy policy score');
+    let controlScore = 0;
+    let gdprScore = 0;
+    for (let i = 0; i < 10; i++) {
+      controlScore += data.Control_Scores[i] * 5 - 5;
+      gdprScore += data.GDPR_Scores[i] == 2 ? 10 : 0;
     }
-
-    setOverallScore({Control: ControlOverallScore, GDPR: GDPROverallScore});
+    setPrivacyPolicyScore({Control: controlScore, GDPR: gdprScore});
+    // const controlReducer = (accumulator, currentValue) => accumulator + parseInt(currentValue) * 5 - 5;
+    // const gdprReducer = (accumulator, currentValue) => accumulator + (parseInt(currentValue) === 2) ? 10 : 0;
+    // setPrivacyPolicyScore({Control: data.Control_Scores.reduce(controlReducer), GDPR: data.GDPR_Scores.reduce(gdprReducer)})
   };
 
   return (
@@ -143,15 +135,15 @@ export default function PanelManager() {
         <ThemeProvider theme={colorTheme}>
           <PanelSwitchContext.Provider value={panelSwitchHandler}>
             <ThemeSwitchContext.Provider value={themeSwitchHandler}>
-              <ApiCallContext.Provider value={apiCallHandler}>
-                <ApiResponseContext.Provider value={response}>
-                  <CATResponseContext.Provider value={catResponse}>
-                    <OverallScoreContext.Provider value={overallScore}>
+              <PrivacyCheckRunContext.Provider value={privacyCheckRunHandler}>
+                <PrivacyPolicyResponseContext.Provider value={privacyPolicyResponse}>
+                  <CompetitorAnalysisResponseContext.Provider value={competitorAnalysisResponse}>
+                    <PrivacyPolicyScoreContext.Provider value={privacyPolicyScore}>
                       {panel}
-                    </OverallScoreContext.Provider>
-                  </CATResponseContext.Provider>
-                </ApiResponseContext.Provider>
-              </ApiCallContext.Provider>
+                    </PrivacyPolicyScoreContext.Provider>
+                  </CompetitorAnalysisResponseContext.Provider>
+                </PrivacyPolicyResponseContext.Provider>
+              </PrivacyCheckRunContext.Provider>
             </ThemeSwitchContext.Provider>
           </PanelSwitchContext.Provider>
         </ThemeProvider>

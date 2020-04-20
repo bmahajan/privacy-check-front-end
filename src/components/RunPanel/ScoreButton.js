@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { orange, blue } from '@material-ui/core/colors';
 import Tooltip from '@material-ui/core/Tooltip'
-import { PanelSwitchContext, OverallScoreContext } from "../PanelManager";
+import { PanelSwitchContext, PrivacyPolicyScoreContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   score: {
@@ -24,7 +24,7 @@ export default function ScoreButton (props){
 
   const classes = useStyles();
   const panelHandler = React.useContext(PanelSwitchContext);
-  const overallScore = React.useContext(OverallScoreContext);
+  const overallScore = React.useContext(PrivacyPolicyScoreContext);
 
   const GDPRButtonMessage = "GDPR \n" + overallScore.GDPR;
   const ControlButtonMessage = "Control \n" + overallScore.Control;

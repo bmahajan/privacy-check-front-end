@@ -3,7 +3,7 @@ import { Grid, Typography, Paper} from '@material-ui/core';
 import ScoreBubble from '../../BreakdownPanel/ScoreBubble';
 import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
-import { ApiResponseContext, OverallScoreContext, CATResponseContext } from "../../PanelManager";
+import { PrivacyPolicyResponseContext, PrivacyPolicyScoreContext, CompetitorAnalysisResponseContext } from "../../PanelManager";
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
 export default function ControlCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
-  const response = React.useContext(ApiResponseContext);
-  const catResponse = React.useContext(CATResponseContext);
-  const overallScore = React.useContext(OverallScoreContext);
+  const response = React.useContext(PrivacyPolicyResponseContext);
+  const catResponse = React.useContext(CompetitorAnalysisResponseContext);
+  const overallScore = React.useContext(PrivacyPolicyScoreContext);
 
   return (
     <div className={classes.root}>

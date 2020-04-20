@@ -34,7 +34,6 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-//TODO: make a state handler for the switches
 export default function SettingsCard() {
 
   const themeHandler = React.useContext(ThemeSwitchContext);

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
-import { ApiResponseContext } from "../../PanelManager";
+import { PrivacyPolicyResponseContext } from "../../PanelManager";
 import GridList from "@material-ui/core/GridList";
 import DescriptionFieldGDPR from './GDPRDescriptionField'
 
 export default function GDPRBreakdownPanel() {
-  const response = React.useContext(ApiResponseContext);
+  const response = React.useContext(PrivacyPolicyResponseContext);
 
   const [expanded, setExpanded] = React.useState(false);
   const handleExpansionChange = panel => (event, isExpanded) => {
