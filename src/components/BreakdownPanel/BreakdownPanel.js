@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Tabs, Tab, Card } from '@material-ui/core';
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import PropTypes from 'prop-types';
 import NavigationBar from '../Misc/NavigationBar';
 import ControlBreakdownPanel from "./ControlBreakdownPanel/ControlBreakdownPanel";
 import GDPRBreakdownPanel from "./GDPRBreakdownPanel/GDPRBreakdownPanel";
@@ -42,7 +42,7 @@ export default function BreakdownPanel(props) {
   };
 
   return (
-    <div className={classes.root}>
+    <Card className={classes.root}>
       <NavigationBar title={'Score Breakdown'} />
       <AppBar position={'static'} color={'default'}>
         <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Standard switching'}>
@@ -56,6 +56,6 @@ export default function BreakdownPanel(props) {
       <TabPanel value={value} index={1}>
         <GDPRBreakdownPanel />
       </TabPanel>
-    </div>
+    </Card>
   );
 }

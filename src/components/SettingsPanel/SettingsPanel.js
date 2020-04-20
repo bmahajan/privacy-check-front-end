@@ -16,10 +16,10 @@ export default function SettingsPanel(props) {
   const classes = useStyles(props);
 
   return(
-    <div className={classes.root}>
+    <Card className={classes.root}>
       <NavigationBar title='Settings' backLabel='RunPanel'/>
       <SettingsCard/>
-    </div>
+    </Card>
   );
 
 }

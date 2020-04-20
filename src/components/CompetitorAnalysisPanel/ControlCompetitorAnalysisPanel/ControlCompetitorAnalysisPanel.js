@@ -5,7 +5,6 @@ import ControlDataVisualization from './ControlDataVisualization'
 import {makeStyles} from "@material-ui/core/styles";
 import { PrivacyPolicyResponseContext, PrivacyPolicyScoreContext, CompetitorAnalysisResponseContext } from "../../PanelManager";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -26,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ControlCompetitorAnalysisPanel(props) {
-
   const classes = useStyles();
   const response = React.useContext(PrivacyPolicyResponseContext);
   const catResponse = React.useContext(CompetitorAnalysisResponseContext);

@@ -13,9 +13,10 @@ import {
   MoreHoriz, Person,
   Security
 } from "@material-ui/icons";
+import {makeStyles} from "@material-ui/core/styles";
 
 export default function ControlBreakdownPanel() {
-  const response = React.useContext(PrivacyPolicyResponseContext); //add in the scores
+  const response = React.useContext(PrivacyPolicyResponseContext);
 
   const [expanded, setExpanded] = React.useState(false);
   const handleExpansionChange = panel => (event, isExpanded) => {

@@ -21,7 +21,7 @@ export default function AboutPanel(props) {
   const classes = useStyles(props);
 
   return (
-    <div className={classes.root}>
+    <Card className={classes.root}>
       <NavigationBar title='About'/>
         <Typography className={classes.about}>
           <p>
@@ -48,6 +48,6 @@ export default function AboutPanel(props) {
             <br />
           </p>
         </Typography>
-    </div>
+    </Card>
   );
 }

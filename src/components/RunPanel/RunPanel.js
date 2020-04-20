@@ -31,8 +31,7 @@ export default function RunPanel(props){
   const classes = useStyles();
 
   return(
-    <div className={classes.root}>
-      <Card>
+    <Card className={classes.root}>
       <div style={{display: "flex", justifyContent: "center"}}>
         <Encrypt interval={500} className={classes.encrypt}/>
       </div>
@@ -61,7 +60,6 @@ export default function RunPanel(props){
           </Grid>
         </Grid>
       </Grid>
-      </Card>
-    </div>
+    </Card>
   );
 }

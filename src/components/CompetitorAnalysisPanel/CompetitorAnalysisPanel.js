@@ -1,11 +1,10 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import NavigationBar from "../Misc/NavigationBar";
-import {AppBar, Tab, Tabs} from "@material-ui/core";
+import { AppBar, Tab, Tabs, Card } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
+import NavigationBar from "../Misc/NavigationBar";
 import ControlCompetitorAnalysisPanel from "./ControlCompetitorAnalysisPanel/ControlCompetitorAnalysisPanel";
 import GDPRCompetitorAnalysisPanel from "./GDPRCompetitorAnalysisPanel/GDPRCompetitorAnalysisPanel";
 
@@ -43,7 +42,7 @@ export default function CompetitorAnalysisPanel(props) {
   };
 
   return (
-    <div className={classes.root}>
+    <Card className={classes.root}>
       <NavigationBar title={'Competitor Analysis'} />
       <AppBar position={'static'} color={'default'}>
         <Tabs value={value} onChange={handleChange} indicatorColor={'secondary'} textColor={'secondary'} variant={'fullWidth'} aria-label={'Standard switching'}>
@@ -57,6 +56,6 @@ export default function CompetitorAnalysisPanel(props) {
       <TabPanel value={value} index={1}>
         <GDPRCompetitorAnalysisPanel />
       </TabPanel>
-    </div>
+    </Card>
   );
 }

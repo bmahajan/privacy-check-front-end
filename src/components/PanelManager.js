@@ -124,9 +124,6 @@ export default function PanelManager() {
       gdprScore += data.GDPR_Scores[i] == 2 ? 10 : 0;
     }
     setPrivacyPolicyScore({Control: controlScore, GDPR: gdprScore});
-    // const controlReducer = (accumulator, currentValue) => accumulator + parseInt(currentValue) * 5 - 5;
-    // const gdprReducer = (accumulator, currentValue) => accumulator + (parseInt(currentValue) === 2) ? 10 : 0;
-    // setPrivacyPolicyScore({Control: data.Control_Scores.reduce(controlReducer), GDPR: data.GDPR_Scores.reduce(gdprReducer)})
   };
 
   return (
