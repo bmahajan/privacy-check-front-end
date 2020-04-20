@@ -59,13 +59,13 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: props => {
       console.log(props.score);
       if (props.score == 3) {
-        return theme.status.good[600];
+        return theme.status.good[400];
       } 
       else if (props.score == 2) {
-        return theme.status.okay[600];
+        return theme.status.okay[400];
       }
       else if (props.score == 1) {
-        return theme.status.poor[600];
+        return theme.status.poor[400];
       }
     },
   },

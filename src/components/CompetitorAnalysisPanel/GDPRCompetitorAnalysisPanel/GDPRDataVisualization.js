@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { ResponsiveBullet } from '@nivo/bullet'
 import { CompetitorAnalysisResponseContext, PrivacyPolicyResponseContext } from "../../PanelManager";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     height: 125,
