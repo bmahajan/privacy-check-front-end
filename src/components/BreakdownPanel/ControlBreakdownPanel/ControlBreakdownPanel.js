@@ -1,6 +1,5 @@
 import React from "react";
 import {PrivacyPolicyResponseContext} from "../../PanelManager";
-import GridList from "@material-ui/core/GridList";
 import DescriptionFieldControl from "./ControlDescriptionField";
 import {
   ChildCare,
@@ -13,7 +12,8 @@ import {
   MoreHoriz, Person,
   Security
 } from "@material-ui/icons";
-import {makeStyles} from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 export default function ControlBreakdownPanel() {
   const response = React.useContext(PrivacyPolicyResponseContext);
@@ -25,7 +25,7 @@ export default function ControlBreakdownPanel() {
 
   return (
     <div>
-      <GridList>
+      <List>
         <DescriptionFieldControl
           name={'Email Address Security'}
           icon={<Email />}
@@ -106,7 +106,7 @@ export default function ControlBreakdownPanel() {
           onChange={handleExpansionChange('p10')}
           score={response.Control_Scores[9]}
         />
-      </GridList>
+      </List>
     </div>
   );
 }

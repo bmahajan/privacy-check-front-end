@@ -17,7 +17,7 @@ export default function SettingsPanel(props) {
   return(
     <Card className={classes.root}>
       <NavigationBar title='Settings' backLabel='RunPanel'/>
-      <SettingsCard/>
+      <SettingsCard />
     </Card>
   );
 

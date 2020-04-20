@@ -1,8 +1,8 @@
 import React from 'react';
 import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, EnhancedEncryption, ContactSupport, DoneAll, Warning } from "@material-ui/icons";
 import { PrivacyPolicyResponseContext } from "../../PanelManager";
-import GridList from "@material-ui/core/GridList";
 import DescriptionFieldGDPR from './GDPRDescriptionField'
+import List from "@material-ui/core/List";
 
 export default function GDPRBreakdownPanel() {
   const response = React.useContext(PrivacyPolicyResponseContext);
@@ -14,7 +14,7 @@ export default function GDPRBreakdownPanel() {
 
   return (
     <div>
-      <GridList>
+      <List>
         <DescriptionFieldGDPR
           name={'Between Site Transfer'}
           icon={<Send />}
@@ -95,7 +95,7 @@ export default function GDPRBreakdownPanel() {
           onChange={handleExpansionChange('p10')}
           score={response.GDPR_Scores[9]}
         />
-      </GridList>
+      </List>
     </div>
   );
 }
