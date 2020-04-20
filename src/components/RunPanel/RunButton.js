@@ -107,12 +107,12 @@ export default function RunButton(props) {
   };
 
   const handleOpenERR = () => {
-    console.log('Opening alert window, fetch error occured...');
+    console.log('Opening alert window, fetch error occurred...');
     setOpenERR(true);
   };
 
   const handleCloseERR = () => {
-    console.log('Closing alert window, fetch error occured...');
+    console.log('Closing alert window, fetch error occurred...');
     setOpenERR(false);
   };
 
