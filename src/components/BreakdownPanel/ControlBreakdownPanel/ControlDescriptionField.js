@@ -80,11 +80,11 @@ const useStyles = makeStyles(theme => ({
 
 function scoreConverter(score){
   if(score==3)
-  { return '10 out of 10'}
+  { return '10/10'}
   else if(score==2)
-  { return '5 out of 10'}
+  { return '5/10'}
   else
-  { return '0out of 10'}
+  { return '0/10'}
 }
 
 export default function DescriptionFieldControl(props) {
