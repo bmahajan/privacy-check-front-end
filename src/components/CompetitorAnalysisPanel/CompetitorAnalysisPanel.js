@@ -63,9 +63,10 @@ export default function CompetitorAnalysisPanel(props) {
         <GDPRCompetitorAnalysisPanel />
       </TabPanel>
       <Card>
-        <Typography className={classes.disclaimer} variant="body2" align="justify">
-            <b>Disclaimer: </b> Some of the top competitors displayed might not make sense right now. 
-            This is because we are still adding many companies to our database so that we can train our models to provide you with the most reliable information we can.
+        <Typography className={classes.disclaimer} variant="body2" align="left">
+            <b>Disclaimer: </b> 
+            PrivacyCheck&trade; uses a machine learning model to classify companies into different market sectors. 
+            Therefore, some of the results displayed might not be the most relevant competitors for this company.
         </Typography>
       </Card>
     </Card>

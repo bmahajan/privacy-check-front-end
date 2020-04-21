@@ -46,7 +46,7 @@ export default function ControlDataVisualization(props) {
           rangeColors="red_yellow_green"
           measureColors="yellow_green"
           markerColors="yellow_green"
-          animate={true}
+          animate={false}
           motionStiffness={90}
           motionDamping={12}
         />

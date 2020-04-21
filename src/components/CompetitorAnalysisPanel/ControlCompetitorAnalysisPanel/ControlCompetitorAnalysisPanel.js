@@ -71,6 +71,9 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid item>
               <Typography variant='body1' className={classes.scoregrid}>
                 {<b>Market Sector: </b>}&nbsp;{response.Market_Sector}
+              </Typography>
+              <Typography variant='body1' className={classes.scoregrid}>
+                {<b>Market Sector Mean Score: </b>}&nbsp;{catResponse.control_mean}{'%'}
                 <p/><p/>
               </Typography>
           </Grid>

@@ -31,11 +31,11 @@ export default function ScoreButton (props){
           <Grid container spacing={3} direction="column">
             <Grid item className={classes.score}>
               <Typography variant="caption"> User Control </Typography>
-             <Typography variant="h3">{overallScore.Control}</Typography>
+             <Typography variant="h4">{overallScore.Control}</Typography>
             </Grid>
             <Grid item className={classes.score}>
               <Typography variant="caption"> GDPR </Typography>
-              <Typography variant="h3">{overallScore.GDPR}</Typography>
+              <Typography variant="h4">{overallScore.GDPR}</Typography>
             </Grid>
           </Grid>
         </Button>

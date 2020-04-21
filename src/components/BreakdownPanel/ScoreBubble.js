@@ -17,14 +17,14 @@ const useStyles = makeStyles(theme => ({
     },
     height: props => {
       if (props.height === undefined) {
-        return 50;
+        return 60;
       } else {
         return props.height;
       }
     },
     width: props => {
       if (props.width === undefined) {
-        return 50;
+        return 60;
       } else {
         return props.width;
       }
