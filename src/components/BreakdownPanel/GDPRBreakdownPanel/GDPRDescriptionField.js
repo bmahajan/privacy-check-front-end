@@ -6,6 +6,7 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Grid from "@material-ui/core/Grid";
+import descriptions from "../../../data/GDPRBreakdownInfo.json";
 
 const ExpansionPanel = withStyles(theme => ({
   root: {
@@ -57,13 +58,8 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
-      console.log(props.score);
-      if (props.score == 2) {
-        return theme.status.good[400];
-      } 
-      else if (props.score <= 1) {
-        return theme.status.poor[400];
-      }
+      const colors = [theme.status.poor[400], theme.status.good[400]];
+      return colors[props.answer.color];
     },
   },
   heading: {
@@ -75,12 +71,6 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
-function scoreConverter(score){
-  if(score==2)
-  { return '10/10'}
-  else
-  { return '0/10'}
-}
 
 export default function DescriptionFieldGDPR(props) {
 
@@ -93,12 +83,15 @@ export default function DescriptionFieldGDPR(props) {
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid container direction={'column'} >
             <Typography className={classes.heading}>
-              {props.name} - {scoreConverter(props.score)}
+              {props.name} - {props.answer.score}/10
             </Typography>
           </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>{props.details}</Typography>
+          <Grid container direction={'column'}>
+            <Typography variant="h6" fontweight="bold">{props.question}</Typography>
+            <Typography>{props.answer.message}</Typography>
+          </Grid>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
