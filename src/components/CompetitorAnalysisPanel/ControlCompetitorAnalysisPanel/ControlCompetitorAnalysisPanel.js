@@ -36,6 +36,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function url_domain(data) {
+  var    a      = document.createElement('a');
+         a.href = data;
+  return a.hostname;
+}
+
 export default function ControlCompetitorAnalysisPanel(props) {
 
   const classes = useStyles();
@@ -77,11 +83,11 @@ export default function ControlCompetitorAnalysisPanel(props) {
 
         <Grid className={classes.market} container direction='column' alignContent='center' justify='center' spacing={2}>
             
-          <Grid  container direction='row' alignItems='center' spacing={2}>
+          <Grid  container direction='row' wrap="nowrap" alignItems='center' spacing={2}>
             <Grid item xs={8}>
-              <Typography variant='body2'>
-                1. {<a href={catResponse.control_top_scorers[0].Privacy_Policy_URL} target="_blank" className={classes.link}>
-                    {catResponse.control_top_scorers[0].Privacy_Policy_URL}</a>} 
+              <Typography variant='body1'>
+                1.  {<a href={catResponse.control_top_scorers[0].Privacy_Policy_URL} target="_blank" className={classes.link}>
+                    {url_domain(catResponse.control_top_scorers[0].Privacy_Policy_URL)}</a>} 
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
@@ -91,9 +97,9 @@ export default function ControlCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
-              <Typography variant='body2'>
+              <Typography variant='body1'>
                 2.  {<a href={catResponse.control_top_scorers[1].Privacy_Policy_URL} target="_blank" className={classes.link}>
-                    {catResponse.control_top_scorers[1].Privacy_Policy_URL}</a>} 
+                    {url_domain(catResponse.control_top_scorers[1].Privacy_Policy_URL)}</a>} 
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
@@ -103,9 +109,9 @@ export default function ControlCompetitorAnalysisPanel(props) {
 
           <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
-              <Typography variant='body2'>
+              <Typography variant='body1'>
                 3.  {<a href={catResponse.control_top_scorers[2].Privacy_Policy_URL} target="_blank" className={classes.link}>
-                    {catResponse.control_top_scorers[2].Privacy_Policy_URL}</a>} 
+                    {url_domain(catResponse.control_top_scorers[2].Privacy_Policy_URL)}</a>}
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
