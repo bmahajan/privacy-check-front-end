@@ -1,0 +1,93 @@
+{
+  "descriptions": [
+    {
+      "title": "Email Address Security",
+      "question": "How well does this website protect your email address?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_yellow": "They ask for it, but use it only for the intended service.",
+      "answer_green": "They do not ask for it."
+    },
+
+    {
+      "title": "PII Security",
+      "question": "How well does this website protect your credit card information and address?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_yellow": "They ask for it, but use it only for the intended service.",
+      "answer_green": "They do not ask for it."
+    },
+
+    {
+      "title": "Social Security Number",
+      "question": "How well does this website handle your social security number?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_yellow": "They ask for it, but use it only for the intended service.",
+      "answer_green": "They do not ask for it."
+    },
+
+    {
+      "title": "Targeted Advertising",
+      "question": "Does this website use or share your personally identifiable information for marketing purposes?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They share/sell your personally identifiable information for ads and marketing.",
+      "answer_yellow": "They do use your personally identifiable information for ads and marketing but do not sell/share it to/with third parties.",
+      "answer_green": "They do not use your personally identifiable information for ads and marketing."
+    },
+
+    {
+      "title": "Location Tracking",
+      "question": "Does this site track or share your location?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They track it and use/share/sell it for other than the intended service.",
+      "answer_yellow": "They track it, but use it only for the intended service.",
+      "answer_green": "They do not track it."
+    },
+
+    {
+      "title": "COPPA Compliance",
+      "question": "Does this site collect personally identifiable information from children under 13?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They do allow children to use their web site and enter their personally identifiable information without parental consent.",
+      "answer_yellow": "They do not talk about it.",
+      "answer_green": "They do not knowingly collect personally identifiable information of children."
+    },
+
+    {
+      "title": "Law Enforcement",
+      "question": "Does this site share your information with law enforcement?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They do not require Warrant/Subpoena.",
+      "answer_yellow": "They require Warrant/Subpoena.",
+      "answer_green": "They do not share because they do not keep your information."
+    },
+
+    {
+      "title": "Privacy Policy Opt-Out",
+      "question": "Does this website notify or allow you to opt-out after changing their privacy policy?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They may change policies at anytime, even without posting it.",
+      "answer_yellow": "They post new policies but you cannot opt out.",
+      "answer_green": "They post new policies and you can opt out."
+    },
+
+    {
+      "title": "Data Control",
+      "question": "Does this site allow you to edit or delete your information from its records?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "You cannot edit your information.",
+      "answer_yellow": "You can edit your information.",
+      "answer_green": "You can edit/delete all your information."
+    },
+
+    {
+      "title": "Data Aggregation",
+      "question": "Does this site collect or share aggregated data related to your identity or behavior?",
+      "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_red": "They aggregate data with personally identifiable information.",
+      "answer_yellow": "They aggregate data but remove personally identifiable information first.",
+      "answer_green": "They do not aggregate data because they do not keep your information."
+    }
+  ]
+}

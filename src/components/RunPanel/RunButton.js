@@ -168,11 +168,11 @@ export default function RunButton(props) {
           </Tooltip>
         </Fade>
         <Dialog className={classes.dialogBox} open={openNAPP} onClose={handleCloseNAPP} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck doesn't think this website is a privacy policy.</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; does not think this website is a privacy policy.</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
-              PrivacyCheck does not believe that this website is a privacy policy. In an effort to keep PrivacyCheck's database clean, PrivacyCheck cannot be run on
-              websites that it does not think it is a privacy policy.
+              PrivacyCheck&trade; does not believe that this website is a privacy policy.
+              In an effort to keep PrivacyCheck&trade;'s database clean, PrivacyCheck&trade; cannot be run on websites that it does not think is a privacy policy.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -182,10 +182,12 @@ export default function RunButton(props) {
           </DialogActions>
         </Dialog>
         <Dialog className={classes.dialogBox} open={openERR} onClose={handleCloseERR} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck was unable to fetch data from the database.</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; was unable to process this website.</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
-              PrivacyCheck ran into a problem fetching data from the database. Please try again.
+              PrivacyCheck&trade; ran into a problem fetching data from the database or scraping the privacy policy from the website.
+              Some websites include certain HTML features that makes it difficult to extract data.
+              The PrivacyCheck&trade; team is working to improve this functionality. We apologize for the inconvenience.
             </DialogContentText>
           </DialogContent>
           <DialogActions>

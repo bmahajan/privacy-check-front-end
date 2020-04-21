@@ -3,6 +3,7 @@ import { Send, Map, PhonelinkErase, NotificationImportant, RemoveCircle, Face, E
 import { PrivacyPolicyResponseContext } from "../../PanelManager";
 import DescriptionFieldGDPR from './GDPRDescriptionField'
 import List from "@material-ui/core/List";
+import GDPRBreakdownInfo from "../../../data/GDPRBreakdownInfo.json";
 
 export default function GDPRBreakdownPanel() {
   const response = React.useContext(PrivacyPolicyResponseContext);
@@ -12,88 +13,101 @@ export default function GDPRBreakdownPanel() {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const answerHandler = (questionNum) => {
+    switch (response.GDPR_Scores[questionNum]) {
+      case '0':
+        return({score: 0, color: 0, message: GDPRBreakdownInfo.descriptions[questionNum].answer_null})
+      case '1':
+        return({score: 0, color: 0, message: GDPRBreakdownInfo.descriptions[questionNum].answer_no})
+      case '2':
+        return({score: 10, color: 1, message: GDPRBreakdownInfo.descriptions[questionNum].answer_yes})
+      default:
+        return({score: 0, color: null, message: GDPRBreakdownInfo.descriptions[questionNum].answer_default})
+    }
+  }
+
   return (
     <div>
       <List>
         <DescriptionFieldGDPR
-          name={'Between Site Transfer'}
+          name={GDPRBreakdownInfo.descriptions[0].title}
           icon={<Send />}
-          details={'Does this website share the user\'s information with other websites?'}
+          question={GDPRBreakdownInfo.descriptions[0].question}
+          answer={answerHandler(0)}
           expanded={expanded === 'p1'}
           onChange={handleExpansionChange('p1')}
-          score={response.GDPR_Scores[0]}
         />
         <DescriptionFieldGDPR
-          name={'Company Location'}
+          name={GDPRBreakdownInfo.descriptions[1].title}
           icon={<Map />}
-          details={'Does this website disclose where the company is based and where the user\'s information will be processed and/or transferred?'}
+          question={GDPRBreakdownInfo.descriptions[1].question}
+          answer={answerHandler(1)}
           expanded={expanded === 'p2'}
           onChange={handleExpansionChange('p2')}
-          score={response.GDPR_Scores[1]}
         />
         <DescriptionFieldGDPR
-          name={'Right To Be Forgotten'}
+          name={GDPRBreakdownInfo.descriptions[2].title}
           icon={<PhonelinkErase />}
-          details={'Does this website support the right to be forgotten? That is, when requested, will the website delete all of the user\'s information?'}
+          question={GDPRBreakdownInfo.descriptions[2].question}
+          answer={answerHandler(2)}
           expanded={expanded === 'p3'}
           onChange={handleExpansionChange('p3')}
-          score={response.GDPR_Scores[2]}
         />
         <DescriptionFieldGDPR
-          name={'Data Retention Notification'}
+          name={GDPRBreakdownInfo.descriptions[3].title}
           icon={<NotificationImportant />}
-          details={'If this website retains information for legal purposes after the user\'s request to be forgotten, will they inform the user?'}
+          question={GDPRBreakdownInfo.descriptions[3].question}
+          answer={answerHandler(3)}
           expanded={expanded === 'p4'}
           onChange={handleExpansionChange('p4')}
-          score={response.GDPR_Scores[3]}
         />
         <DescriptionFieldGDPR
-          name={'Reject Usage of PII'}
+          name={GDPRBreakdownInfo.descriptions[4].title}
           icon={<RemoveCircle />}
-          details={'Does this website allow the user the ability to reject usage of user\'s PII (Personally Identifiable Information)?'}
+          question={GDPRBreakdownInfo.descriptions[4].question}
+          answer={answerHandler(4)}
           expanded={expanded === 'p5'}
           onChange={handleExpansionChange('p5')}
-          score={response.GDPR_Scores[4]}
         />
         <DescriptionFieldGDPR
-          name={'Under 16 Protection'}
+          name={GDPRBreakdownInfo.descriptions[5].title}
           icon={<Face />}
-          details={'Does this website collect the data of users under the age of 16?'}
+          question={GDPRBreakdownInfo.descriptions[5].question}
+          answer={answerHandler(5)}
           expanded={expanded === 'p6'}
           onChange={handleExpansionChange('p6')}
-          score={response.GDPR_Scores[5]}
         />
         <DescriptionFieldGDPR
-          name={'Data Encryption'}
+          name={GDPRBreakdownInfo.descriptions[6].title}
           icon={<EnhancedEncryption />}
-          details={'Does this website advise the user that their data is encrypted even while at rest?'}
+          question={GDPRBreakdownInfo.descriptions[6].question}
+          answer={answerHandler(6)}
           expanded={expanded === 'p7'}
           onChange={handleExpansionChange('p7')}
-          score={response.GDPR_Scores[6]}
         />
         <DescriptionFieldGDPR
-          name={'Data Processing Consent'}
+          name={GDPRBreakdownInfo.descriptions[7].title}
           icon={<ContactSupport />}
-          details={'Does this website ask for the user\'s informed consent to perform data processing?'}
+          question={GDPRBreakdownInfo.descriptions[7].question}
+          answer={answerHandler(7)}
           expanded={expanded === 'p8'}
           onChange={handleExpansionChange('p8')}
-          score={response.GDPR_Scores[7]}
         />
         <DescriptionFieldGDPR
-          name={'Data Protection Principles'}
+          name={GDPRBreakdownInfo.descriptions[8].title}
           icon={<DoneAll />}
-          details={'Does this website implement all of the principles of data protection by design and by default?'}
+          question={GDPRBreakdownInfo.descriptions[8].question}
+          answer={answerHandler(8)}
           expanded={expanded === 'p9'}
           onChange={handleExpansionChange('p9')}
-          score={response.GDPR_Scores[8]}
         />
         <DescriptionFieldGDPR
-          name={'Breach Notification'}
+          name={GDPRBreakdownInfo.descriptions[9].title}
           icon={<Warning />}
-          details={'Does this website notify the user of security breaches without undue delay?'}
+          question={GDPRBreakdownInfo.descriptions[9].question}
+          answer={answerHandler(9)}
           expanded={expanded === 'p10'}
           onChange={handleExpansionChange('p10')}
-          score={response.GDPR_Scores[9]}
         />
       </List>
     </div>

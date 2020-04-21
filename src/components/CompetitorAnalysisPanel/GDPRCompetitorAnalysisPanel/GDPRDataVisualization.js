@@ -5,7 +5,6 @@ import { ResponsiveBullet } from '@nivo/bullet'
 import { CompetitorAnalysisResponseContext, PrivacyPolicyResponseContext } from "../../PanelManager";
 import lightTheme from '../../Themes/lightTheme';
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     height: 125,
