@@ -10,26 +10,16 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
   },
-  grid: {
-    marginTop: 5,
-    marginBottom: 10,
-  },
   scoregrid: {
     marginTop: 5,
-    marginBottom: 0,
   },
   market: {
     display: "flex",
     justifyContent: "center",
-  },
-  top: {
+    marginBottom:10,
+    align: "center",
     marginLeft: 15,
-    display: "flex",
-    alignContent: "left",
-  },
-  last: {
-    marginLeft: 15,
-    marginBottom: 10,
+    marginRight: 15 
   }
 }));
 
@@ -50,7 +40,7 @@ export default function GDPRCompetitorAnalysisPanel(props) {
               </Typography>
           </Grid>
           <Grid item>
-            <ScoreBubble score={overallScore.GDPR} height={50} width={50} />
+            <ScoreBubble score={overallScore.GDPR}/>
           </Grid>
         </Grid>
         <Grid container className={classes.scoregrid} direction='column' alignContent='center' justify='center' spacing>
@@ -59,28 +49,28 @@ export default function GDPRCompetitorAnalysisPanel(props) {
           </Grid>
           <Grid item>
               <Typography variant='h6' className={classes.market}>
-                <b>Market Sector:  </b> {response.Market_Sector}
+                <b>Market Sector:</b>{' '}{response.Market_Sector}
               </Typography>
           </Grid>
           <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
             <Grid item>
                 <Typography variant='h6' className={classes.market}>
-                <b>Top 3 Competitors:</b> 
+                <b>Top 3 Competitors </b> 
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography className={classes.market}>
-                <b>1. {catResponse.gdpr_top_scorers[0].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score} </b>
+                <Typography className={classes.market} variant='body2'>
+                <b>1. {catResponse.gdpr_top_scorers[0].Privacy_Policy_URL } </b> (Score: {catResponse.gdpr_top_scorers[0].GDPR_Overall_Score})
                 </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.market}>
-                <b>2. {catResponse.gdpr_top_scorers[1].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score} </b>
+              <Typography className={classes.market} variant='body2'>
+                <b>2. {catResponse.gdpr_top_scorers[1].Privacy_Policy_URL} </b> (Score: {catResponse.gdpr_top_scorers[1].GDPR_Overall_Score})
               </Typography>
             </Grid>
             <Grid item>
-              <Typography className={classes.market}>
-                <b>3. {catResponse.gdpr_top_scorers[2].Privacy_Policy_URL} Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score} </b>
+              <Typography className={classes.market} variant='body2'>
+                <b>3. {catResponse.gdpr_top_scorers[2].Privacy_Policy_URL} </b> (Score: {catResponse.gdpr_top_scorers[2].GDPR_Overall_Score})
               </Typography>
             </Grid>
           </Grid>

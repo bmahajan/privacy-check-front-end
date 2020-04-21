@@ -13,6 +13,12 @@ const useStyles = makeStyles(theme => ({
     width: theme.panel.width,
     height: theme.panel.height,
   },
+  disclaimer: {
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
+    marginBottom: 10,
+  }
 }));
 
 function TabPanel(props) {
@@ -56,6 +62,12 @@ export default function CompetitorAnalysisPanel(props) {
       <TabPanel value={value} index={1}>
         <GDPRCompetitorAnalysisPanel />
       </TabPanel>
+      <Card>
+        <Typography className={classes.disclaimer} variant="body2" align="justify">
+            <b>Disclaimer: </b> Some of the top competitors displayed might not make sense right now. 
+            This is because we are still adding many companies to our database so that we can train our models to provide you with the most reliable information we can.
+        </Typography>
+      </Card>
     </Card>
   );
 }

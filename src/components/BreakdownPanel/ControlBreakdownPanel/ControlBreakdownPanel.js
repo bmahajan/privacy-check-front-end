@@ -15,17 +15,8 @@ import {
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
-<<<<<<< HEAD
-const useStyles = makeStyles(theme => ({
-  root: {
-    width: theme.panel.width,
-    maxHeight: theme.panel.maxHeight,
-  },
-}));
-=======
 export default function ControlBreakdownPanel() {
   const response = React.useContext(PrivacyPolicyResponseContext);
->>>>>>> 97b242351d7b94a076e32313806ba3a2748d87ac
 
   const [expanded, setExpanded] = React.useState(false);
   const handleExpansionChange = panel => (event, isExpanded) => {

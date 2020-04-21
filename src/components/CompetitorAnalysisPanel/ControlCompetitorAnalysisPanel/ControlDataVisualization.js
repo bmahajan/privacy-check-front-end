@@ -16,6 +16,7 @@ export default function ControlDataVisualization(props) {
   const response = React.useContext(PrivacyPolicyResponseContext);
   const classes = useStyles();
 
+
   const controlData = [
     {
       "id": "Control",
@@ -33,9 +34,10 @@ export default function ControlDataVisualization(props) {
 
   const MyResponsiveBullet = ({ controlData }) => (
         <Box className={classes.root}>
+        
         <ResponsiveBullet
           data={controlData}
-          margin={{ top: 10, right: 90, bottom: 30, left: 90 }}
+          margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
           spacing={50}
           titleAlign="start"
           titleOffsetX={-70}

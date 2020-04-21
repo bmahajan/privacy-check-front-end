@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import { ResponsiveBullet } from '@nivo/bullet'
 import { CompetitorAnalysisResponseContext, PrivacyPolicyResponseContext } from "../../PanelManager";
+import lightTheme from '../../Themes/lightTheme';
 
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +16,7 @@ export default function GDPRDataVisualization(props) {
   const catResponse = React.useContext(CompetitorAnalysisResponseContext);
   const response = React.useContext(PrivacyPolicyResponseContext);
   const classes = useStyles();
+  const currentTheme = localStorage.getItem('theme');
 
   let data = [
     {
@@ -49,6 +51,7 @@ export default function GDPRDataVisualization(props) {
   ]
 
   const MyResponsiveBullet = ({ gdprData }) => (
+    <ThemeProvider theme={lightTheme}>
     <Box className={classes.root}>
       <ResponsiveBullet
         data={gdprData}
@@ -63,6 +66,7 @@ export default function GDPRDataVisualization(props) {
         motionDamping={12}
       />
     </Box>
+    </ThemeProvider>
   );
 
   return MyResponsiveBullet({ gdprData });
