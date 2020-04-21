@@ -14,6 +14,7 @@ import {
 } from "@material-ui/icons";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ControlBreakdownInfo from "../../../data/ControlBreakdownInfo.json"
 
 export default function ControlBreakdownPanel() {
   const response = React.useContext(PrivacyPolicyResponseContext);
@@ -23,88 +24,101 @@ export default function ControlBreakdownPanel() {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const answerHandler = (questionNum) => {
+    switch (response.Control_Scores[questionNum]) {
+      case '1':
+        return({score: 0, color: 0, message: ControlBreakdownInfo.descriptions[questionNum].answer_red});
+      case '2':
+        return({score: 5, color: 1, message: ControlBreakdownInfo.descriptions[questionNum].answer_yellow});
+      case '3':
+        return({score: 10, color: 2, message: ControlBreakdownInfo.descriptions[questionNum].answer_green});
+      default:
+        return({score: 0, color: null, message: ControlBreakdownInfo.descriptions[questionNum].answer_default});
+    }
+  }
+
   return (
     <div>
       <List>
         <DescriptionFieldControl
-          name={'Email Address Security'}
+          name={ControlBreakdownInfo.descriptions[0].title}
           icon={<Email />}
-          details={'How well does this website protect your email address?'}
+          question={ControlBreakdownInfo.descriptions[0].question}
+          answer={answerHandler(0)}
           expanded={expanded === 'p1'}
           onChange={handleExpansionChange('p1')}
-          score={response.Control_Scores[0]}
         />
         <DescriptionFieldControl
-          name={'PII Security'} //billing
+          name={ControlBreakdownInfo.descriptions[1].title} //billing
           icon={<CreditCard />}
-          details={'How well does this website protect your credit card information and address?'}
+          question={ControlBreakdownInfo.descriptions[1].question}
+          answer={answerHandler(1)}
           expanded={expanded === 'p2'}
           onChange={handleExpansionChange('p2')}
-          score={response.Control_Scores[1]}
         />
         <DescriptionFieldControl
-          name={'Social Security Number'}
+          name={ControlBreakdownInfo.descriptions[2].title}
           icon={<MoreHoriz />}
-          details={'How well does this website handle your social security number?'}
+          question={ControlBreakdownInfo.descriptions[2].question}
+          answer={answerHandler(2)}
           expanded={expanded === 'p3'}
           onChange={handleExpansionChange('p3')}
-          score={response.Control_Scores[2]}
         />
         <DescriptionFieldControl
-          name={'Targeted Advertising'}
+          name={ControlBreakdownInfo.descriptions[3].title}
           icon={<LocalOffer />}
-          details={'Does this website use or share your personally identifiable information for marketing purposes?'}
+          question={ControlBreakdownInfo.descriptions[3].question}
+          answer={answerHandler(3)}
           expanded={expanded === 'p4'}
           onChange={handleExpansionChange('p4')}
-          score={response.Control_Scores[3]}
         />
         <DescriptionFieldControl
-          name={'Location Tracking'}
+          name={ControlBreakdownInfo.descriptions[4].title}
           icon={<Explore />}
-          details={'Does this site track or share your location?'}
+          question={ControlBreakdownInfo.descriptions[4].question}
+          answer={answerHandler(4)}
           expanded={expanded === 'p5'}
           onChange={handleExpansionChange('p5')}
-          score={response.Control_Scores[4]}
         />
         <DescriptionFieldControl
-          name={'COPPA Compliance'}
+          name={ControlBreakdownInfo.descriptions[5].title}
           icon={<ChildCare />}
-          details={'Does this site collect personally identifiable information from children under 13?'}
+          question={ControlBreakdownInfo.descriptions[5].question}
+          answer={answerHandler(5)}
           expanded={expanded === 'p6'}
           onChange={handleExpansionChange('p6')}
-          score={response.Control_Scores[5]}
         />
         <DescriptionFieldControl
-          name={'Law Enforcement'}
+          name={ControlBreakdownInfo.descriptions[6].title}
           icon={<Security />}
-          details={'Does this site share your information with law enforcement?'}
+          question={ControlBreakdownInfo.descriptions[6].question}
+          answer={answerHandler(6)}
           expanded={expanded === 'p7'}
           onChange={handleExpansionChange('p7')}
-          score={response.Control_Scores[6]}
         />
         <DescriptionFieldControl
-          name={'Privacy Policy Opt-Out'}
+          name={ControlBreakdownInfo.descriptions[7].title}
           icon={<ExitToApp />}
-          details={'Does this website notify or allow you to opt-out after changing their privacy policy?'}
+          question={ControlBreakdownInfo.descriptions[7].question}
+          answer={answerHandler(7)}
           expanded={expanded === 'p8'}
           onChange={handleExpansionChange('p8')}
-          score={response.Control_Scores[7]}
         />
         <DescriptionFieldControl
-          name={'Data Control'}
+          name={ControlBreakdownInfo.descriptions[8].title}
           icon={<Lock />}
-          details={'Does this site allow you to edit or delete your information from its records?'}
+          question={ControlBreakdownInfo.descriptions[8].question}
+          answer={answerHandler(8)}
           expanded={expanded === 'p9'}
           onChange={handleExpansionChange('p9')}
-          score={response.Control_Scores[8]}
         />
         <DescriptionFieldControl
-          name={'Data Aggregation'}
+          name={ControlBreakdownInfo.descriptions[9].title}
           icon={<Person />}
-          details={'Does this site collect or share aggregated data related to your identity or behavior?'}
+          question={ControlBreakdownInfo.descriptions[9].question}
+          answer={answerHandler(9)}
           expanded={expanded === 'p10'}
           onChange={handleExpansionChange('p10')}
-          score={response.Control_Scores[9]}
         />
       </List>
     </div>

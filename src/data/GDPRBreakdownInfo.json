@@ -1,0 +1,93 @@
+{
+  "descriptions" : [
+    {
+      "title" : "Between Site Transfer",
+      "question" : "Does this website share the user's information with other websites?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Company Location",
+      "question" : "Does this websit disclose where the company is based and where the user's information will be processed and/or transferred?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Right to be Forgotten",
+      "question" : "Does this website support the right to be forgotten? That is, when requested, will the website delete all of the user's information?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Data Retention Notification",
+      "question" : "If this website retains information for legal purposes after the user's request to be forgotten, will they inform the user?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Reject Usage of PII",
+      "question" : "Does this website allow the user the ability to reject usage of user's PII (Personally Identifiable Information)?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Under 16 Protection",
+      "question" : "Does this website collect the data of users under the age of 16?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Data Encryption",
+      "question" : "Does this website advise the user that their data is encrypted even while at rest?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Data Processing Consent",
+      "question" : "Does this website ask for the user's informed consent to perform data processing?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Data Protection Principles",
+      "question" : "Does this website implement all of the principles of data protection by design and by default?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    },
+
+    {
+      "title" : "Breach Notification",
+      "question" : "Does this website notify the user of security breaches without undue delay?",
+      "answer_default" : "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
+      "answer_null": "Not answered...",
+      "answer_no" : "No.",
+      "answer_yes" : "Yes." 
+    }
+  ]
+}
