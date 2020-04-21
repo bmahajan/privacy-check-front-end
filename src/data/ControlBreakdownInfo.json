@@ -24,7 +24,7 @@
       "answer_default": "When PrivacyCheck is run while a privacy policy is open in browser, the answer to the above question will appear here!",
       "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
       "answer_yellow": "They ask for it, but use it only for the intended service.",
-      "answer_green": "They do not ask for it"
+      "answer_green": "They do not ask for it."
     },
 
     {
