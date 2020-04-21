@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
   last: {
     marginBottom: 10,
+  },
+  link: {
+    color: theme.palette.primary[500],
   }
 }));
 
@@ -77,7 +80,8 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body2'>
-                1. {catResponse.control_top_scorers[0].Privacy_Policy_URL } 
+                1. {<a href={catResponse.control_top_scorers[0].Privacy_Policy_URL} target="_blank" className={classes.link}>
+                    {catResponse.control_top_scorers[0].Privacy_Policy_URL}</a>} 
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
@@ -88,7 +92,8 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body2'>
-                2. {catResponse.control_top_scorers[1].Privacy_Policy_URL } 
+                2.  {<a href={catResponse.control_top_scorers[1].Privacy_Policy_URL} target="_blank" className={classes.link}>
+                    {catResponse.control_top_scorers[1].Privacy_Policy_URL}</a>} 
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
@@ -99,7 +104,8 @@ export default function ControlCompetitorAnalysisPanel(props) {
           <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body2'>
-                3. {catResponse.control_top_scorers[2].Privacy_Policy_URL }
+                3.  {<a href={catResponse.control_top_scorers[2].Privacy_Policy_URL} target="_blank" className={classes.link}>
+                    {catResponse.control_top_scorers[2].Privacy_Policy_URL}</a>} 
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>
