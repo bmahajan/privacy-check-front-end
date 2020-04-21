@@ -39,8 +39,8 @@ function ScoreBubble(props) {
 
   return(
     <Avatar className={classes.avatar}>
-      <Typography variant='h5'>
-        {props.score}
+      <Typography variant={props.variant}>
+        {props.score}{'%'}
       </Typography>
     </Avatar>
   );

@@ -7,6 +7,7 @@ import { CompetitorAnalysisResponseContext, PrivacyPolicyResponseContext } from 
 const useStyles = makeStyles(theme => ({
   root: {
     height: 125,
+    marginTop: -25,
   },
 }));
 
@@ -38,11 +39,13 @@ export default function ControlDataVisualization(props) {
         <ResponsiveBullet
           data={controlData}
           margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
-          spacing={50}
+          spacing={15}
           titleAlign="start"
           titleOffsetX={-70}
           measureSize={0.2}
           rangeColors="red_yellow_green"
+          measureColors="yellow_green"
+          markerColors="yellow_green"
           animate={true}
           motionStiffness={90}
           motionDamping={12}

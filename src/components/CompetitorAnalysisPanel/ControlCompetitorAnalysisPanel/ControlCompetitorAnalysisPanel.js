@@ -12,13 +12,25 @@ const useStyles = makeStyles(theme => ({
   },
   scoregrid: {
     marginTop: 5,
+    marginBottom: 10,
+    display: "flex",
+    justifyContent: "center"  
   },
   market: {
     display: "flex",
-    justifyContent: "center",
-    marginLeft: 15,
-    marginRight: 15
+    align: "left",
+    marginLeft: 25,
+    marginRight: 20
   },
+  score: {
+    display: "flex",
+    align: "right",
+    justifyContent: "right",
+    marginRight: 20,
+  },
+  last: {
+    marginBottom: 10,
+  }
 }));
 
 export default function ControlCompetitorAnalysisPanel(props) {
@@ -27,7 +39,8 @@ export default function ControlCompetitorAnalysisPanel(props) {
   const response = React.useContext(PrivacyPolicyResponseContext);
   const catResponse = React.useContext(CompetitorAnalysisResponseContext);
   const overallScore = React.useContext(PrivacyPolicyScoreContext);
-
+  var score = overallScore.Control;
+  score = score.slice(0,-1);
   return (
     <div className={classes.root}>
       <Paper>
@@ -38,40 +51,62 @@ export default function ControlCompetitorAnalysisPanel(props) {
             </Typography>
           </Grid>
           <Grid item>
-            <ScoreBubble score={overallScore.Control}/>
+            <ScoreBubble score={score} variant='h5'/>
           </Grid>
         </Grid>
-        <Grid container className={classes.scoregrid} direction='column' alignContent='center' justify='center' spacing>
+
+        <Grid container direction='column'>
           <Grid item>
             <ControlDataVisualization />
           </Grid>
           <Grid item>
-              <Typography variant='h6' className={classes.market}>
-                {<b>Market Sector: </b>}{response.Market_Sector}
+              <Typography variant='body1' className={classes.scoregrid}>
+                {<b>Market Sector: </b>}&nbsp;{response.Market_Sector}
+                <p/><p/>
               </Typography>
           </Grid>
-          <Grid container direction='column' alignContent='center' justify='center' spacing={2}>
-            <Grid item>
-                <Typography variant='h6' className={classes.market}>
+          <Grid item>
+                <Typography variant='h6' className={classes.scoregrid}>
                 <b>Top 3 Competitors</b>
                 </Typography>
             </Grid>
-            <Grid item>
-                <Typography className={classes.market} variant='body2'>
-                <b>1. {catResponse.control_top_scorers[0].Privacy_Policy_URL } </b> (Score: {catResponse.control_top_scorers[0].Control_Overall_Score}) 
-                </Typography>
-            </Grid>
-            <Grid item>
-              <Typography className={classes.market} variant='body2'>
-                <b>2. {catResponse.control_top_scorers[1].Privacy_Policy_URL } </b> (Score: {catResponse.control_top_scorers[1].Control_Overall_Score})
+        </Grid>  
+
+        <Grid className={classes.market} container direction='column' alignContent='center' justify='center' spacing={2}>
+            
+          <Grid  container direction='row' alignItems='center' spacing={2}>
+            <Grid item xs={8}>
+              <Typography variant='body2'>
+                1. {catResponse.control_top_scorers[0].Privacy_Policy_URL } 
               </Typography>
             </Grid>
-            <Grid item>
-              <Typography className={classes.market} variant='body2'>
-                <b>3. {catResponse.control_top_scorers[2].Privacy_Policy_URL } </b> (Score: {catResponse.control_top_scorers[2].Control_Overall_Score})
+            <Grid item className={classes.score} xs={2}>
+              <ScoreBubble score={catResponse.control_top_scorers[0].Control_Overall_Score} height={40} width={40}/>
+            </Grid>
+
+          </Grid>
+          <Grid  container direction='row' alignItems='center' spacing={2}>
+            <Grid item xs={8}>
+              <Typography variant='body2'>
+                2. {catResponse.control_top_scorers[1].Privacy_Policy_URL } 
               </Typography>
+            </Grid>
+            <Grid item className={classes.score} xs={2}>
+              <ScoreBubble score={catResponse.control_top_scorers[1].Control_Overall_Score} height={40} width={40}/>
             </Grid>
           </Grid>
+
+          <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
+            <Grid item xs={8}>
+              <Typography variant='body2'>
+                3. {catResponse.control_top_scorers[2].Privacy_Policy_URL }
+              </Typography>
+            </Grid>
+            <Grid item className={classes.score} xs={2}>
+              <ScoreBubble score={catResponse.control_top_scorers[2].Control_Overall_Score} height={40} width={40}/>
+            </Grid>
+          </Grid>
+
         </Grid>
       </Paper>
     </div>
