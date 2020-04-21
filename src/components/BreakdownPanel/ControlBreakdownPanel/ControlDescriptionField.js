@@ -57,17 +57,9 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
-      console.log(props.score);
-      if (props.score == 3) {
-        return theme.status.good[600];
-      } 
-      else if (props.score == 2) {
-        return theme.status.okay[600];
-      }
-      else if (props.score == 1) {
-        return theme.status.poor[600];
-      }
-    },
+      const colors = [theme.status.poor[600], theme.status.okay[600], theme.status.good[600]]
+      return(colors[props.answer.color])
+    }
   },
   heading: {
     marginLeft: theme.spacing(2),
@@ -98,12 +90,15 @@ export default function DescriptionFieldControl(props) {
           <Avatar className={classes.avatar}>{props.icon}</Avatar>
           <Grid container direction={'column'} >
             <Typography className={classes.heading}>
-              {props.name} - {scoreConverter(props.score)}
+              {props.name} - {props.answer.score}/10
             </Typography>
           </Grid>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>{props.details}</Typography>
+          <Grid container direction={'column'}>
+            <Typography variant="h6" fontweight="bold">{props.question}</Typography>
+            <Typography>{props.answer.message}</Typography>
+          </Grid>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
