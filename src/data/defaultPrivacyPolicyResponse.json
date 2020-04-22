@@ -1,5 +1,5 @@
 {
-  "Market_Sector": "",
+  "Market_Sector": "-",
   "Control_Scores": [
     "-",
     "-",
@@ -14,8 +14,7 @@
   ],
   "Domain_URL": "",
   "Privacy_Policy_URL": "",
-  "Date_Last_Queried": "",
-  "Date_Last_Edited": "",
+  "Date_Last_Scored": "",
   "GDPR_Scores": [
     "-",
     "-",

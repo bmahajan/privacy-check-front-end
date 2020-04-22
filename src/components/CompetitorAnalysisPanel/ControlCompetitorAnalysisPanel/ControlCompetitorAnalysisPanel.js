@@ -37,8 +37,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function url_domain(data) {
-  var    a      = document.createElement('a');
-         a.href = data;
+  if (data === "") {
+    return "";
+  }
+  var a = document.createElement('a');
+  a.href = data;
   return a.hostname;
 }
 

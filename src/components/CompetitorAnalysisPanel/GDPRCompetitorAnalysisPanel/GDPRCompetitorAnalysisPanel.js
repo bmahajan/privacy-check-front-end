@@ -37,8 +37,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function url_domain(data) {
-  var    a      = document.createElement('a');
-         a.href = data;
+  if (data === "") {
+    return "";
+  }
+  var a = document.createElement('a');
+  a.href = data;
   return a.hostname;
 }
 
@@ -113,8 +116,8 @@ export default function GDPRCompetitorAnalysisPanel(props) {
           <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body1'>
-                3.  {<a href={catResponse.gdpr_top_scorers[0].Privacy_Policy_URL} target="_blank" className={classes.link}>
-                    {url_domain(catResponse.gdpr_top_scorers[1].Privacy_Policy_URL)}</a>}
+                3.  {<a href={catResponse.gdpr_top_scorers[2].Privacy_Policy_URL} target="_blank" className={classes.link}>
+                    {url_domain(catResponse.gdpr_top_scorers[2].Privacy_Policy_URL)}</a>}
               </Typography>
             </Grid>
             <Grid item className={classes.score} xs={2}>

@@ -20,7 +20,7 @@ export default function ControlDataVisualization(props) {
 
   const controlData = [
     {
-      "id": "Control",
+      "id": "User Control",
       "ranges": [
         40,
         60,

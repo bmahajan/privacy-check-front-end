@@ -38,7 +38,7 @@ export default function AboutPanel(props) {
             <br />
             <b>GDPR - </b>For each question answered with 'Yes/Green', we add 10%. If the question is answered with 'No/Unanswered/Red', we add 0%.
             <br />
-            <b>Control - </b>For each question answered with 'Good/Green', we add 10%. If the question is answered with 'Okay/Yellow', we add 5%. If the question is answered with 'Bad/Red', we add 0%.
+            <b>User Control - </b>For each question answered with 'Good/Green', we add 10%. If the question is answered with 'Okay/Yellow', we add 5%. If the question is answered with 'Bad/Red', we add 0%.
             <br />
           </p>
           <p>

@@ -1,37 +1,37 @@
 {
   "gdpr_top_scorers": [
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "GDPR_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     },
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "GDPR_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     },
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "GDPR_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     }
   ],
   "gdpr_mean": 0,
   "control_top_scorers": [
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "Control_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     },
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "Control_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     },
     {
-      "Market_Sector": "",
+      "Market_Sector": "-",
       "Control_Overall_Score": "",
-      "Domain_URL": ""
+      "Privacy_Policy_URL": ""
     }
   ],
   "control_mean": 0
