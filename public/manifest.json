@@ -1,11 +1,11 @@
 {
-    "name": "PrivacyCheck",
-    "version": "1.0",
+    "name": "PrivacyCheck_Test",
+    "version": "2.1",
     "manifest_version": 2,
     "browser_action": {
     	"default_icon": "PrivacyCheck.png", 
         "default_popup": "index.html"
     },
     "content_security_policy": "script-src 'self' 'sha256-EVPGaknyUUDmljj/rm20oYNePvRDBfemSwaAWvyUsA0='; object-src 'self'",
-    "permissions": [ "tabs" ]
+    "permissions": [ "activeTab" ]
 }
