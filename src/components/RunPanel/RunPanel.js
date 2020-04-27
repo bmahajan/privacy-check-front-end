@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card } from '@material-ui/core';
+import {Grid, Card, DialogTitle, DialogContent, DialogContentText, DialogActions, Dialog} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
 
@@ -12,6 +12,7 @@ import RunPanelButton from './RunPanelButton';
 import ScoreButton from './ScoreButton';
 import Encrypt from '../Misc/Encrypt';
 import UTCIDLogo from '../../UTCID.png'
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,11 +25,27 @@ const useStyles = makeStyles(theme => ({
   utcidLogo: {
     marginBottom: 15,
   },
+  dialogBox: {
+    width: theme.panel.width,
+    height: theme.panel.height,
+  },
 }));
 
-export default function RunPanel(props){
+export default function RunPanel(props) {
+
+  const [open, setOpen] = React.useState(true);
 
   const classes = useStyles();
+
+  const openPopup = () => {
+    setOpen(true);
+  };
+
+  const closePopup = () => {
+    localStorage.setItem('showTutorial', 'false');
+    console.log('Setting showTutorial to false');
+    setOpen(false);
+  };
 
   return(
     <Card className={classes.root}>
@@ -59,6 +76,19 @@ export default function RunPanel(props){
             </Grid>
           </Grid>
         </Grid>
+        <Dialog className={classes.dialogBox} open={open} onClose={closePopup} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
+          <DialogTitle id={'alert-dialog-title'}>Welcome to PrivacyCheck&trade;!</DialogTitle>
+          <DialogContent>
+            <DialogContentText id={'alert-dialog-description'}>
+              How to use..
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={closePopup} color={'primary'}>
+              Okay
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Grid>
     </Card>
   );
