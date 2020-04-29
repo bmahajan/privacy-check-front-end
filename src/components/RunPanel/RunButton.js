@@ -147,7 +147,7 @@ export default function RunButton(props) {
   };
 
   const isPrivacyPolicy = (url) => {
-    const regex = RegExp(/privacy|legal|conditions|policy|policies|terms/g);
+    const regex = RegExp(/privacy|legal|conditions|policy|policies|terms|help/g);
     if (regex.test(url.toLowerCase())) {
       console.log('Current window url %s is a privacy policy.', url);
       return true;
