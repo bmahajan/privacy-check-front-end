@@ -5,59 +5,85 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
-import { Switch, Card, Typography } from '@material-ui/core';
-import { PanelSwitchContext, ThemeSwitchContext } from "../PanelManager";
-import IconButton from "@material-ui/core/IconButton";
-import { CenterFocusStrong } from '@material-ui/icons';
+import { Switch, Card } from '@material-ui/core';
+import { ThemeSwitchContext, StartupSwitchContext } from "../PanelManager";
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.background.paper,
     fontSize: 30,
-    marginBottom: 164
+    marginBottom: 164,
   },
   dark: {
     marginBottom: 12,
-    marginLeft: 16
+    marginLeft: 16,
+  },
+  popup: {
+    marginBottom: 12,
+    marginLeft: 16,
   },
   icons: {
-    marginLeft: 10
+    marginLeft: 10,
   },
   colorBlind: {
     color: theme.palette.primary[500],
     marginTop: 30,
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 }));
 
 export default function SettingsCard() {
 
   const themeHandler = React.useContext(ThemeSwitchContext);
-  const currentTheme = localStorage.getItem('theme');
+  const startupHandler = React.useContext(StartupSwitchContext);
 
-  var theme;
-  // TODO: What does this do?
-  if (currentTheme === 'light') {
-    theme = false;
-  } else if (currentTheme === 'dark'){
-    theme = true;
-  } else {
-    theme = false;
-  }
+  const [themeState, setThemeState] = React.useState(() => {
+    const currentTheme = localStorage.getItem('theme');
+    switch (currentTheme) {
+      case 'light':
+        return false;
+      case 'dark':
+        return true;
+      default:
+        return false;
+    }
+  });
 
-  const [state, setState] = React.useState(theme);
+  const [startupState, setStartupState] = React.useState(() =>{
+    const currentStartup = localStorage.getItem('startup');
+    switch (currentStartup) {
+      case 'enabled':
+        return true;
+      case 'disabled':
+        return false;
+      default:
+        return true;
+    }
+  });
 
-  const handleChange = event => {
+  const handleThemeChange = event => {
     if (event.target.checked) {
       console.log('true');
       themeHandler('dark');
-      setState(true);
+      setThemeState(true);
     } else {
       console.log('false')
       themeHandler('light');
-      setState(false);
+      setThemeState(false);
+    }
+  };
+
+  const handleStartupChange = event => {
+    if (event.target.checked) {
+      console.log('Display popup is enabled.');
+      startupHandler('enabled');
+      setStartupState(true);
+    } else {
+      console.log('Display popup is disabled.');
+      startupHandler('disabled');
+      setStartupState(false);
     }
   };
     
@@ -69,7 +95,13 @@ export default function SettingsCard() {
         <ListItem>
           <Brightness4Icon fontSize="small" className={classes.icons}/>
           <ListItemText primary="Dark Mode" className={classes.dark} />
-          <Switch checked={state} onClick={handleChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
+          <Switch checked={themeState} onClick={handleThemeChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
+        </ListItem>
+        <Divider/>
+        <ListItem>
+          <Brightness4Icon fontSize="small" className={classes.icons}/>
+          <ListItemText primary="Display startup message" className={classes.dark} />
+          <Switch checked={startupState} onClick={handleStartupChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
         </ListItem>
         <Divider/>
       </List>

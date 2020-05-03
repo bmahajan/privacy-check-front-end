@@ -13,12 +13,14 @@ import globalTheme from "./Themes/globalTheme";
 
 export const PanelSwitchContext = React.createContext();
 export const ThemeSwitchContext = React.createContext();
+export const StartupSwitchContext = React.createContext();
 
 export const PrivacyCheckRunContext = React.createContext();
 
 export const PrivacyPolicyResponseContext = React.createContext();
 export const CompetitorAnalysisResponseContext = React.createContext();
 export const PrivacyPolicyScoreContext = React.createContext();
+export const StartupContext = React.createContext();
 
 export default function PanelManager() {
 
@@ -32,12 +34,24 @@ export default function PanelManager() {
   const [panel, setPanel] = React.useState(<RunPanel />);
   const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-      return lightTheme;
-    } else if (currentTheme === 'dark') {
-      return darkTheme;
-    } else {
-      return lightTheme;
+    switch (currentTheme) {
+      case 'light':
+        return lightTheme;
+      case 'dark':
+        return darkTheme;
+      default:
+        return lightTheme;
+    }
+  });
+  const [startup, setStartup] = React.useState(() => {
+    const currentStartup = localStorage.getItem('startup');
+    switch (currentStartup) {
+      case 'enabled':
+        return true;
+      case 'disabled':
+        return false;
+      default:
+        return true;
     }
   });
 
@@ -89,6 +103,25 @@ export default function PanelManager() {
     }
   };
 
+  const startupSwitchHandler = (isEnabled) => {
+    console.log('Changing startup popup to ' + isEnabled);
+    switch (isEnabled) {
+      case 'enabled':
+        setStartup(true);
+        localStorage.setItem('startup', 'enabled');
+        console.log('Successfully changed startup message state to enabled.');
+        break;
+      case 'disabled':
+        setStartup(false);
+        localStorage.setItem('startup', 'disabled');
+        console.log('Successfully changed startup message state to disabled.');
+        break;
+      default:
+        console.log('Failed to change the startup message state to ' + isEnabled);
+        break;
+    }
+  };
+
   const privacyCheckRunHandler = (url) => {
     return new Promise((resolve, reject) => {
       PRIVACY_POLICY_API_URL.search = new URLSearchParams({url: url}).toString();
@@ -126,15 +159,19 @@ export default function PanelManager() {
         <ThemeProvider theme={colorTheme}>
           <PanelSwitchContext.Provider value={panelSwitchHandler}>
             <ThemeSwitchContext.Provider value={themeSwitchHandler}>
-              <PrivacyCheckRunContext.Provider value={privacyCheckRunHandler}>
-                <PrivacyPolicyResponseContext.Provider value={privacyPolicyResponse}>
-                  <CompetitorAnalysisResponseContext.Provider value={competitorAnalysisResponse}>
-                    <PrivacyPolicyScoreContext.Provider value={privacyPolicyScore}>
-                      {panel}
-                    </PrivacyPolicyScoreContext.Provider>
-                  </CompetitorAnalysisResponseContext.Provider>
-                </PrivacyPolicyResponseContext.Provider>
-              </PrivacyCheckRunContext.Provider>
+              <StartupSwitchContext.Provider value={startupSwitchHandler}>
+                <PrivacyCheckRunContext.Provider value={privacyCheckRunHandler}>
+                  <PrivacyPolicyResponseContext.Provider value={privacyPolicyResponse}>
+                    <CompetitorAnalysisResponseContext.Provider value={competitorAnalysisResponse}>
+                      <PrivacyPolicyScoreContext.Provider value={privacyPolicyScore}>
+                        <StartupContext.Provider value={startup}>
+                          {panel}
+                        </StartupContext.Provider>
+                      </PrivacyPolicyScoreContext.Provider>
+                    </CompetitorAnalysisResponseContext.Provider>
+                  </PrivacyPolicyResponseContext.Provider>
+                </PrivacyCheckRunContext.Provider>
+              </StartupSwitchContext.Provider>
             </ThemeSwitchContext.Provider>
           </PanelSwitchContext.Provider>
         </ThemeProvider>
