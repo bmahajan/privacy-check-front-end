@@ -80,7 +80,7 @@ export default function RunPanel(props) {
         <DialogContent>
           <DialogContentText id={'alert-dialog-description'}>
             <Typography>
-              PrivacyCheck&trade; is designed to help inform you about how websites use your data by reading privacy policies for you!
+              PrivacyCheck&trade; is designed to help inform you about how website's use your data by reading privacy policies for you!
               <p>
                 To use PrivacyCheck&trade;, navigate to a websites privacy policy page, open the extension,
                 and then click play!

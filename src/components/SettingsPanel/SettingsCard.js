@@ -100,7 +100,7 @@ export default function SettingsCard() {
         <Divider/>
         <ListItem>
           <Brightness4Icon fontSize="small" className={classes.icons}/>
-          <ListItemText primary="Display startup message" className={classes.dark} />
+          <ListItemText primary="Display Startup Message" className={classes.dark} />
           <Switch checked={startupState} onClick={handleStartupChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
         </ListItem>
         <Divider/>
