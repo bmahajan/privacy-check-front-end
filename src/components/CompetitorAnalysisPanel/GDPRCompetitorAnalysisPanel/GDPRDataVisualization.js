@@ -15,17 +15,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function GDPRDataVisualization(props) {
 
-  const colorTheme = () => {
+  const [colorTheme, setColorTheme] = React.useState(() => {
     const currentTheme = localStorage.getItem('theme');
-    switch (currentTheme) {
-      case 'light':
-        return nivo_lightTheme;
-      case 'dark':
-        return nivo_darkTheme;
-      default:
-        return nivo_lightTheme;
+    if (currentTheme === 'light') {
+      return nivo_lightTheme;
+    } else if (currentTheme === 'dark') {
+      return nivo_darkTheme;
+    } else {
+      return nivo_lightTheme;
     }
-  };
+  });
 
   const catResponse = React.useContext(CompetitorAnalysisResponseContext);
   const response = React.useContext(PrivacyPolicyResponseContext);
