@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -100,7 +100,7 @@ export default function SettingsCard() {
         <Divider/>
         <ListItem>
           <Brightness4Icon fontSize="small" className={classes.icons}/>
-          <ListItemText primary="Display Startup Message" className={classes.dark} />
+          <ListItemText primary="Show Message on Startup" className={classes.dark} />
           <Switch checked={startupState} onClick={handleStartupChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
         </ListItem>
         <Divider/>

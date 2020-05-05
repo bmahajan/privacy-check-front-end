@@ -13,7 +13,6 @@ import {
   Security
 } from "@material-ui/icons";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import ControlBreakdownInfo from "../../../data/ControlBreakdownInfo.json"
 
 export default function ControlBreakdownPanel() {

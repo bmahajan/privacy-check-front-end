@@ -161,7 +161,7 @@ export default function RunButton(props) {
     <div className={classes.root}>
       <div className={classes.wrapper}>
         <Fade in={true} style={{ transformOrigin: '0 0 0' }}>
-          <Tooltip title={'Click to evaluate privacy policy'} enterDelay={500} leaveDelay={200}>
+          <Tooltip title={'Click to evaluate this privacy policy'} enterDelay={500} leaveDelay={200}>
             <Fab aria-label={'save'} color={'secondary'} className={buttonClassname} onClick={handlePrivacyCheckRun} disabled={runDisabled}>
               {begin ? <PlayArrowRoundedIcon /> : success ? <ReplayIcon /> : block ? <BlockIcon /> : <StopRoundedIcon />}
             </Fab>

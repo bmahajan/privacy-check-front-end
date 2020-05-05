@@ -66,29 +66,25 @@ export default function ControlCompetitorAnalysisPanel(props) {
             <ScoreBubble score={score} variant='h5'/>
           </Grid>
         </Grid>
-
         <Grid container direction='column'>
           <Grid item>
             <ControlDataVisualization />
           </Grid>
           <Grid item>
-              <Typography variant='body1' className={classes.scoregrid}>
-                {<b>Market Sector: </b>}&nbsp;{response.Market_Sector}
-              </Typography>
-              <Typography variant='body1' className={classes.scoregrid}>
-                {<b>Market Sector Mean Score: </b>}&nbsp;{catResponse.control_mean}{'%'}
-                <p/><p/>
-              </Typography>
+            <Typography variant='body1' className={classes.scoregrid}>
+              {<b>Market Sector: </b>}&nbsp;{response.Market_Sector}
+            </Typography>
+            <Typography variant='body1' className={classes.scoregrid}>
+              {<b>Market Sector Mean Score: </b>}&nbsp;{catResponse.control_mean}{'%'}
+            </Typography>
           </Grid>
           <Grid item>
-                <Typography variant='h6' className={classes.scoregrid}>
-                <b>Top 3 Competitors</b>
-                </Typography>
-            </Grid>
-        </Grid>  
-
+            <Typography variant='h6' className={classes.scoregrid}>
+              <b>Top 3 Competitors</b>
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid className={classes.market} container direction='column' alignContent='center' justify='center' spacing={2}>
-            
           <Grid  container direction='row' wrap="nowrap" alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body1'>
@@ -99,7 +95,6 @@ export default function ControlCompetitorAnalysisPanel(props) {
             <Grid item className={classes.score} xs={2}>
               <ScoreBubble score={catResponse.control_top_scorers[0].Control_Overall_Score} height={40} width={40}/>
             </Grid>
-
           </Grid>
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
@@ -112,7 +107,6 @@ export default function ControlCompetitorAnalysisPanel(props) {
               <ScoreBubble score={catResponse.control_top_scorers[1].Control_Overall_Score} height={40} width={40}/>
             </Grid>
           </Grid>
-
           <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body1'>
@@ -124,7 +118,6 @@ export default function ControlCompetitorAnalysisPanel(props) {
               <ScoreBubble score={catResponse.control_top_scorers[2].Control_Overall_Score} height={40} width={40}/>
             </Grid>
           </Grid>
-
         </Grid>
       </Paper>
     </div>

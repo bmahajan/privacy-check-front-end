@@ -15,16 +15,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function ControlDataVisualization(props) {
 
-  const [colorTheme, setColorTheme] = React.useState(() => {
+  const colorTheme = () => {
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-      return nivo_lightTheme;
-    } else if (currentTheme === 'dark') {
-      return nivo_darkTheme;
-    } else {
-      return nivo_lightTheme;
+    switch (currentTheme) {
+      case 'light':
+        return nivo_lightTheme;
+      case 'dark':
+        return nivo_darkTheme;
+      default:
+        return nivo_lightTheme;
     }
-  });
+  };
 
   const catResponse = React.useContext(CompetitorAnalysisResponseContext);
   const response = React.useContext(PrivacyPolicyResponseContext);
@@ -51,26 +52,24 @@ export default function ControlDataVisualization(props) {
   ]
 
   const MyResponsiveBullet = ({ controlData }) => (
-        <Box className={classes.root}>
-        
-          <ResponsiveBullet
-            theme={colorTheme}
-            data={controlData}
-            margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
-            spacing={15}
-            titleAlign="start"
-            titleOffsetX={-70}
-            measureSize={0.2}
-            rangeColors="red_yellow_green"
-            measureColors="pastel1"
-            markerColors="red_blue"
-            animate={true}
-            motionStiffness={90}
-            motionDamping={12}
-          />
+    <Box className={classes.root}>
+      <ResponsiveBullet
+        theme={colorTheme}
+        data={controlData}
+        margin={{ top: 50, right: 90, bottom: 30, left: 90 }}
+        spacing={15}
+        titleAlign="start"
+        titleOffsetX={-70}
+        measureSize={0.2}
+        rangeColors="red_yellow_green"
+        measureColors="pastel1"
+        markerColors="red_blue"
+        animate={true}
+        motionStiffness={90}
+        motionDamping={12}
+      />
+    </Box>
+  );
 
-        </Box>
-    )
-
-  return MyResponsiveBullet({ controlData});
+  return MyResponsiveBullet({controlData});
 }

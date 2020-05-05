@@ -1,10 +1,6 @@
 import React from 'react';
-import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
-import AboutPanel from "./AboutPanel/AboutPanel.js";
-import BreakdownPanel from './BreakdownPanel/BreakdownPanel';
-import CompetitorAnalysisPanel from './CompetitorAnalysisPanel/CompetitorAnalysisPanel';
+import { ThemeProvider} from '@material-ui/core/styles';
 import RunPanel from './RunPanel/RunPanel';
-import SettingsPanel from './SettingsPanel/SettingsPanel';
 import lightTheme from './Themes/lightTheme';
 import darkTheme from './Themes/darkTheme';
 import defaultPrivacyPolicyResponse from '../data/defaultPrivacyPolicyResponse.json';
@@ -44,44 +40,13 @@ export default function PanelManager() {
     }
   });
   const [startup, setStartup] = React.useState(() => {
-    const currentStartup = localStorage.getItem('startup');
-    switch (currentStartup) {
-      case 'enabled':
-        return true;
-      case 'disabled':
-        return false;
-      default:
-        return true;
-    }
+    const currentStartup = localStorage.getItem('startup') || 'enabled';
+    return currentStartup === 'enabled';
   });
 
-  const panelSwitchHandler = (panelName) => {
-    console.log('Attempting to change active panel to ' + panelName);
-    switch (panelName) {
-      case 'RunPanel':
-        setPanel(<RunPanel />);
-        console.log('Successfully changed active panel to ' + panelName);
-        break;
-      case 'AboutPanel':
-        setPanel(<AboutPanel />);
-        console.log('Successfully changed active panel to ' + panelName);
-        break;
-      case 'SettingsPanel':
-        setPanel(<SettingsPanel />);
-        console.log('Successfully changed active panel to ' + panelName);
-        break;
-      case 'BreakdownPanel':
-        setPanel(<BreakdownPanel />);
-        console.log('Successfully changed active panel to ' + panelName);
-        break;
-      case 'CompetitorAnalysisPanel':
-        setPanel(<CompetitorAnalysisPanel />);
-        console.log('Successfully changed active panel to ' + panelName);
-        break;
-      default:
-        console.log('Failed to change active panel to ' + panelName);
-        break;
-    }
+  const panelSwitchHandler = (panel) => {
+    console.log('Attempting to change active panel to ' + panel.className);
+    setPanel(panel);
   };
 
   const themeSwitchHandler = (themeName) => {

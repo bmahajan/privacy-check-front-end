@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index } = props;
   return (
     <div>
       <Typography component={'span'}>
@@ -64,9 +64,9 @@ export default function CompetitorAnalysisPanel(props) {
       </TabPanel>
       <Card>
         <Typography className={classes.disclaimer} variant="body2" align="left">
-            <b>Disclaimer: </b> 
-            PrivacyCheck&trade; uses a machine learning model to classify companies into different market sectors. 
-            Therefore, some of the results displayed might not be the most relevant competitors for this company.
+          <b>Disclaimer: </b>
+          PrivacyCheck&trade; uses a machine learning model to classify companies into different market sectors.
+          Therefore, some of the results displayed might not be the most relevant competitors for this company.
         </Typography>
       </Card>
     </Card>

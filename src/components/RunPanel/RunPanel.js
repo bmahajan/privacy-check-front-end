@@ -1,5 +1,13 @@
 import React from 'react';
-import {Grid, Card, DialogTitle, DialogContent, DialogContentText, DialogActions, Dialog} from '@material-ui/core';
+import {
+  Grid,
+  Card,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Dialog, FormControlLabel, Checkbox,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
 
@@ -14,7 +22,11 @@ import Encrypt from '../Misc/Encrypt';
 import UTCIDLogo from '../../UTCID.png'
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { StartupContext } from '../PanelManager';
+import { StartupContext, StartupSwitchContext } from '../PanelManager';
+import SettingsPanel from "../SettingsPanel/SettingsPanel";
+import BreakdownPanel from "../BreakdownPanel/BreakdownPanel";
+import CompetitorAnalysisPanel from "../CompetitorAnalysisPanel/CompetitorAnalysisPanel";
+import AboutPanel from "../AboutPanel/AboutPanel";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,13 +48,27 @@ const useStyles = makeStyles(theme => ({
 export default function RunPanel(props) {
 
   const startupContext = React.useContext(StartupContext);
+  const startupSwitchHandler = React.useContext(StartupSwitchContext);
 
   const [open, setOpen] = React.useState(startupContext);
+  const [checkState, setCheckState] = React.useState(false);
 
   const classes = useStyles();
 
   const closePopup = () => {
     setOpen(false);
+  };
+
+  const handleStartupChange = event => {
+    if (event.target.checked) {
+      console.log('Display popup is disabled.');
+      startupSwitchHandler('disabled');
+      setCheckState(true);
+    } else {
+      console.log('Display popup is enabled.');
+      startupSwitchHandler('enabled');
+      setCheckState(false);
+    }
   };
 
   return(
@@ -61,16 +87,16 @@ export default function RunPanel(props) {
         <Grid item>
           <Grid container direction={'row'} padding={3}>
             <Grid item>
-              <RunPanelButton icon={<SettingsIcon />} panel={'SettingsPanel'} tooltip={'Settings'} />
+              <RunPanelButton icon={<SettingsIcon />} panel={<SettingsPanel />} tooltip={'Settings'} />
             </Grid>
             <Grid item>
-              <RunPanelButton icon={<BallotIcon />} panel={'BreakdownPanel'} tooltip={'Score Breakdown'} />
+              <RunPanelButton icon={<BallotIcon />} panel={<BreakdownPanel />} tooltip={'Score Breakdown'} />
             </Grid>
             <Grid item>
-              <RunPanelButton icon={<BarChartRoundedIcon />} panel={'CompetitorAnalysisPanel'} tooltip={'Competitor Analysis'} />
+              <RunPanelButton icon={<BarChartRoundedIcon />} panel={<CompetitorAnalysisPanel />} tooltip={'Competitor Analysis'} />
             </Grid>
             <Grid item>
-              <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={'AboutPanel'} tooltip={'About'} />
+              <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={<AboutPanel />} tooltip={'About'} />
             </Grid>
           </Grid>
         </Grid>
@@ -82,13 +108,14 @@ export default function RunPanel(props) {
             <Typography>
               PrivacyCheck&trade; is designed to help inform you about how website's use your data by reading privacy policies for you!
               <p>
-                To use PrivacyCheck&trade;, navigate to a websites privacy policy page, open the extension,
-                and then click play!
-              </p>
-              <p>
-                *You may disable this popup in the settings.
+              To use PrivacyCheck&trade;: (1) navigate to a websites privacy policy page, (2) open the extension,
+              and (3) click play!
               </p>
             </Typography>
+            <FormControlLabel
+              control={<Checkbox checked={checkState} onChange={handleStartupChange}/>}
+              label={'Don\'t show me this again'}
+            />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

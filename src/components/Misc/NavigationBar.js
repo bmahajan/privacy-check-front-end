@@ -3,9 +3,8 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { PanelSwitchContext } from "../PanelManager";
-import { orange } from "@material-ui/core/colors";
 import Logo from "../../PrivacyCheck_Logo.png";
-
+import RunPanel from "../RunPanel/RunPanel";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +35,7 @@ export default function NavigationBar(props) {
     <div className={classes.root}>
       <AppBar className={classes.appbar} position='static'>
         <Toolbar variant={'dense'}>
-          <IconButton onClick={() => panelHandler('RunPanel')} edge='start' className={classes.backButton} aria-label='menu'>
+          <IconButton onClick={() => panelHandler(<RunPanel />)} edge='start' className={classes.backButton} aria-label='menu'>
             <ArrowBackIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title} align='center'>

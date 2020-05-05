@@ -66,7 +66,6 @@ export default function GDPRCompetitorAnalysisPanel(props) {
             <ScoreBubble score={score} variant='h5'/>
           </Grid>
         </Grid>
-
         <Grid container direction='column'>
           <Grid item>
             <GDPRDataVisualization />
@@ -77,18 +76,15 @@ export default function GDPRCompetitorAnalysisPanel(props) {
               </Typography>
               <Typography variant='body1' className={classes.scoregrid}>
                 {<b>Market Sector Mean Score: </b>}&nbsp;{catResponse.gdpr_mean}{'%'}
-                <p/><p/>
               </Typography>
           </Grid>
           <Grid item>
-                <Typography variant='h6' className={classes.scoregrid}>
-                <b>Top 3 Competitors</b>
-                </Typography>
-            </Grid>
-        </Grid>  
-
+            <Typography variant='h6' className={classes.scoregrid}>
+            <b>Top 3 Competitors</b>
+            </Typography>
+          </Grid>
+        </Grid>
         <Grid className={classes.market} wrap="nowrap" container direction='column' alignContent='center' justify='center' spacing={2}>
-            
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body1'>
@@ -99,7 +95,6 @@ export default function GDPRCompetitorAnalysisPanel(props) {
             <Grid item className={classes.score} xs={2}>
               <ScoreBubble score={catResponse.gdpr_top_scorers[0].GDPR_Overall_Score} height={40} width={40}/>
             </Grid>
-
           </Grid>
           <Grid  container direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
@@ -112,7 +107,6 @@ export default function GDPRCompetitorAnalysisPanel(props) {
               <ScoreBubble score={catResponse.gdpr_top_scorers[1].GDPR_Overall_Score} height={40} width={40}/>
             </Grid>
           </Grid>
-
           <Grid container className={classes.last} direction='row' alignItems='center' spacing={2}>
             <Grid item xs={8}>
               <Typography variant='body1'>
@@ -124,7 +118,6 @@ export default function GDPRCompetitorAnalysisPanel(props) {
               <ScoreBubble score={catResponse.gdpr_top_scorers[2].GDPR_Overall_Score} height={40} width={40}/>
             </Grid>
           </Grid>
-
         </Grid>
       </Paper>
     </div>

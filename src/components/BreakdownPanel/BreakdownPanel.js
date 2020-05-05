@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index } = props;
   return (
     <div>
       <Typography component={'span'}>
@@ -36,7 +36,7 @@ export default function BreakdownPanel(props) {
 
   const classes = useStyles();
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(props.tab || 0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
