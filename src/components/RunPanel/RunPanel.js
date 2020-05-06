@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import RunButton from './RunButton';
 
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
-import HelpOutlineRoundedIcon from '@material-ui/icons/HelpOutlineRounded';
+import InfoIcon from '@material-ui/icons/Info';
 import SettingsIcon from '@material-ui/icons/Settings';
 import BallotIcon from '@material-ui/icons/Ballot';
 
@@ -96,7 +96,7 @@ export default function RunPanel(props) {
               <RunPanelButton icon={<BarChartRoundedIcon />} panel={<CompetitorAnalysisPanel />} tooltip={'Competitor Analysis'} />
             </Grid>
             <Grid item>
-              <RunPanelButton icon={<HelpOutlineRoundedIcon />} panel={<AboutPanel />} tooltip={'About'} />
+              <RunPanelButton icon={<InfoIcon />} panel={<AboutPanel />} tooltip={'About'} />
             </Grid>
           </Grid>
         </Grid>
@@ -106,9 +106,9 @@ export default function RunPanel(props) {
         <DialogContent>
           <DialogContentText id={'alert-dialog-description'}>
             <Typography>
-              PrivacyCheck&trade; is designed to help inform you about how website's use your data by reading privacy policies for you!
+              PrivacyCheck&trade; is designed to help inform you about how websites use your data by reading privacy policies for you!
               <p>
-              To use PrivacyCheck&trade;: (1) navigate to a websites privacy policy page, (2) open the extension,
+              To use PrivacyCheck&trade;: (1) navigate to a website's privacy policy page, (2) open this extension,
               and (3) click play!
               </p>
             </Typography>

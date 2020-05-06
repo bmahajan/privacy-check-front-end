@@ -4,7 +4,7 @@
       "title": "Email Address Security",
       "question": "How well does this website protect your email address?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_red": "They ask for it and use/share/sell it for uses other than the intended service.",
       "answer_yellow": "They ask for it, but use it only for the intended service.",
       "answer_green": "They do not ask for it."
     },
@@ -13,7 +13,7 @@
       "title": "PII Security",
       "question": "How well does this website protect your credit card information and address?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_red": "They ask for it and use/share/sell it for uses other than the intended service.",
       "answer_yellow": "They ask for it, but use it only for the intended service.",
       "answer_green": "They do not ask for it."
     },
@@ -22,7 +22,7 @@
       "title": "Social Security Number",
       "question": "How well does this website handle your social security number?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They ask for it and use/share/sell it for other than the intended service.",
+      "answer_red": "They ask for it and use/share/sell it for uses other than the intended service.",
       "answer_yellow": "They ask for it, but use it only for the intended service.",
       "answer_green": "They do not ask for it."
     },
@@ -38,29 +38,29 @@
 
     {
       "title": "Location Tracking",
-      "question": "Does this site track or share your location?",
+      "question": "Does this website track or share your location?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They track it and use/share/sell it for other than the intended service.",
+      "answer_red": "They track it and use/share/sell it for uses other than the intended service.",
       "answer_yellow": "They track it, but use it only for the intended service.",
       "answer_green": "They do not track it."
     },
 
     {
       "title": "COPPA Compliance",
-      "question": "Does this site collect personally identifiable information from children under 13?",
+      "question": "Does this website collect personally identifiable information from children under 13?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They do allow children to use their web site and enter their personally identifiable information without parental consent.",
+      "answer_red": "They do allow children to use their website and store their personally identifiable information without parental consent.",
       "answer_yellow": "They do not talk about it.",
       "answer_green": "They do not knowingly collect personally identifiable information of children."
     },
 
     {
       "title": "Law Enforcement",
-      "question": "Does this site share your information with law enforcement?",
+      "question": "Does this website share your information with law enforcement?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
-      "answer_red": "They do not require Warrant/Subpoena.",
-      "answer_yellow": "They require Warrant/Subpoena.",
-      "answer_green": "They do not share because they do not keep your information."
+      "answer_red": "They do not require a Warrant/Subpoena.",
+      "answer_yellow": "They require a Warrant/Subpoena.",
+      "answer_green": "They will not share your information, because they do not keep your information."
     },
 
     {
@@ -74,20 +74,20 @@
 
     {
       "title": "Data Control",
-      "question": "Does this site allow you to edit or delete your information from its records?",
+      "question": "Does this website allow you to edit or delete your information from its records?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
       "answer_red": "You cannot edit your information.",
       "answer_yellow": "You can edit your information.",
-      "answer_green": "You can edit/delete all your information."
+      "answer_green": "You can edit/delete all of your information."
     },
 
     {
       "title": "Data Aggregation",
-      "question": "Does this site collect or share aggregated data related to your identity or behavior?",
+      "question": "Does this website collect or share aggregated data related to your identity or behavior?",
       "answer_default" : "When PrivacyCheck™ is run, the answer to the above question will appear here!",
       "answer_red": "They aggregate data with personally identifiable information.",
       "answer_yellow": "They aggregate data but remove personally identifiable information first.",
-      "answer_green": "They do not aggregate data because they do not keep your information."
+      "answer_green": "They will not aggregate data, because they do not keep your information."
     }
   ]
 }

@@ -5,6 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import HelpIcon from '@material-ui/icons/Help';
 import { Switch, Card } from '@material-ui/core';
 import { ThemeSwitchContext, StartupSwitchContext } from "../PanelManager";
 
@@ -99,8 +100,8 @@ export default function SettingsCard() {
         </ListItem>
         <Divider/>
         <ListItem>
-          <Brightness4Icon fontSize="small" className={classes.icons}/>
-          <ListItemText primary="Show Message on Startup" className={classes.dark} />
+          <HelpIcon fontSize="small" className={classes.icons}/>
+          <ListItemText primary="Show Instructions on Startup" className={classes.dark} />
           <Switch checked={startupState} onClick={handleStartupChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
         </ListItem>
         <Divider/>

@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     marginLeft: theme.spacing(-1),
     backgroundColor: props => {
-      const colors = [theme.status.poor[400], theme.status.good[400]];
+      const colors = [theme.status.poor[600], theme.status.good[600]];
       return colors[props.answer.color];
     },
   },

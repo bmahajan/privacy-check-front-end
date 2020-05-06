@@ -168,11 +168,11 @@ export default function RunButton(props) {
           </Tooltip>
         </Fade>
         <Dialog className={classes.dialogBox} open={openNAPP} onClose={handleCloseNAPP} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; does not think this website is a privacy policy.</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; does not Think this Website is a Privacy Policy.</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
               PrivacyCheck&trade; does not believe that this website is a privacy policy.
-              In an effort to keep PrivacyCheck&trade;'s database clean, PrivacyCheck&trade; cannot be run on websites that it does not think is a privacy policy.
+              In an effort to keep PrivacyCheck's&trade; database clean, PrivacyCheck&trade; cannot be run on websites that it does not think are privacy policies.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -182,7 +182,7 @@ export default function RunButton(props) {
           </DialogActions>
         </Dialog>
         <Dialog className={classes.dialogBox} open={openERR} onClose={handleCloseERR} aria-labelledby={'alert-dialog-title'} aria-describedby={'alert-dialog-description'}>
-          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; was unable to process this website.</DialogTitle>
+          <DialogTitle id={'alert-dialog-title'}>PrivacyCheck&trade; was Unable to Process this Website.</DialogTitle>
           <DialogContent>
             <DialogContentText id={'alert-dialog-description'}>
               PrivacyCheck&trade; ran into a problem fetching data from the database or scraping the privacy policy from the website.

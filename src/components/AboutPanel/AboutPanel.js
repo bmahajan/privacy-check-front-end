@@ -1,5 +1,6 @@
 import React from 'react';
 import NavigationBar from '../Misc/NavigationBar'
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { Typography, Card } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,6 +14,12 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 15,
+  },
+  link: {
+    color: theme.palette.primary[500],
+    verticalAlign: 'middle',
+    display: 'inline-flex',
+    marginBottom: 4
   }
 }));
 
@@ -36,7 +43,7 @@ export default function AboutPanel(props) {
           <p>
             <b>Scoring Algorithm:</b>
             <br />
-            <b>GDPR -</b>For each question answered with 'Yes/Green', we add 10%. If the question is answered with 'No/Unanswered/Red', we add 0%.
+            <b>GDPR - </b>For each question answered with 'Yes/Green', we add 10%. If the question is answered with 'No/Unanswered/Red', we add 0%.
             <br />
             <b>User Control - </b>For each question answered with 'Good/Green', we add 10%. If the question is answered with 'Okay/Yellow', we add 5%. If the question is answered with 'Bad/Red', we add 0%.
             <br />
@@ -44,9 +51,26 @@ export default function AboutPanel(props) {
           <p>
             <b>Developed by:</b>
             <br />
-            Alex Issa, Ayush Srivasatava, Isabelle Rogers, Jake Nimergood, Safa Anya and Vinay Shah
+              <p>
+                Alex Issa {<a href={'https://www.linkedin.com/in/alexissa32/'} target="_blank"> <LinkedInIcon className={classes.link}/> </a>}
+              </p>
+              <p>
+                Ayush Srivastava {<a href={'https://www.linkedin.com/in/ayushsriv15/'} target="_blank" className={classes.link}> <LinkedInIcon /> </a>}
+              </p> 
+              <p>
+                Isabelle Rogers {<a href={'https://www.linkedin.com/in/isabellerogersengineer/'} target="_blank" className={classes.link}> <LinkedInIcon /> </a>}
+              </p>
+              <p>
+                Jake Nimergood {<a href={'https://www.linkedin.com/in/jake-nimergood/'} target="_blank" className={classes.link}> <LinkedInIcon /> </a>}
+              </p>
+              <p> 
+                Safa Anya {<a href={'https://www.linkedin.com/in/safa-i-anya/'} target="_blank" className={classes.link}> <LinkedInIcon /> </a>}
+              </p>
+              <p>
+                Vinay Shah {<a href={'https://www.linkedin.com/in/vinay-s-shah/'} target="_blank" className={classes.link}> <LinkedInIcon /> </a>}
+              </p>
             <br />
-            </p>
+          </p>
         </Typography>
     </Card>
   );
