@@ -41,6 +41,19 @@ export default function AboutPanel(props) {
             <br />
           </p>
           <p>
+            <b>Data Usage: </b>
+            <br />
+            PrivacyCheck&trade; locally stores the following information:
+            <br />
+            1) Light/Dark mode setting
+            <br />
+            2) Tutorial on startup setting
+            <br />
+            <br />
+            PrivacyCheck&trade; uses only the URL of the current tab to run its analysis. It does not store any other data about the user.
+            <br />
+          </p> 
+          <p>
             <b>Scoring Algorithm:</b>
             <br />
             <b>GDPR - </b>For each question answered with 'Yes/Green', we add 10%. If the question is answered with 'No/Unanswered/Red', we add 0%.

@@ -1,6 +1,6 @@
 {
     "name": "PrivacyCheck_Test",
-    "version": "2.4",
+    "version": "2.0.0",
     "manifest_version": 2,
     "browser_action": {
     	"default_icon": "PrivacyCheck.png", 
