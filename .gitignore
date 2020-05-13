@@ -14,8 +14,6 @@
 # Intellij
 /.idea
 privacy-check-front-end.iml
-package.json
-package-lock.json
 
 # misc
 .DS_Store
